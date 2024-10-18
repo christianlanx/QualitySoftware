@@ -3,7 +3,7 @@ package trityp;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-public class TritypTest {
+public class TritypTestChatGPT4o {
 
     @Test
     public void testEquilateralTriangle() {
