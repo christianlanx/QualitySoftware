@@ -1,3 +1,4 @@
+package MedianSortedArrays;
 import java.lang.Math;
 import java.lang.Integer;
 //Leetcode Hard: https://leetcode.com/problems/median-of-two-sorted-arrays/description/
