@@ -1,11 +1,5 @@
 package binaryTree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class BinaryTree {
 
     public static class TreeNode {
@@ -21,21 +15,25 @@ public class BinaryTree {
         }
     }
 
-    public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String, List<String>> map = new HashMap<>();
-        
-        for (String word : strs) {
-            char[] chars = word.toCharArray();
-            Arrays.sort(chars);
-            String sortedWord = new String(chars);
-            
-            if (!map.containsKey(sortedWord)) {
-                map.put(sortedWord, new ArrayList<>());
-            }
-            
-            map.get(sortedWord).add(word);
+    private int i = 0;
+    private int p = 0;
+
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        return build(preorder, inorder, Integer.MIN_VALUE);
+    }
+
+    private TreeNode build(int[] preorder, int[] inorder, int stop) {
+        if (p >= preorder.length) {
+            return null;
         }
-        
-        return new ArrayList<>(map.values());
+        if (inorder[i] == stop) {
+            ++i;
+            return null;
+        }
+
+        TreeNode node = new TreeNode(preorder[p++]);
+        node.left = build(preorder, inorder, node.val);
+        node.right = build(preorder, inorder, stop);
+        return node;
     }
 }

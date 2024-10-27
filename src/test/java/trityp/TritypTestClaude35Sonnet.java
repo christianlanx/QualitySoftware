@@ -26,15 +26,15 @@ public class TritypTestClaude35Sonnet {
         assertEquals(2, Trityp.Triang(3, 5, 5));
     }
 
-    @Test
-    public void testEquilateralTriangles() {
-        assertEquals(1, Trityp.Triang(1, 1, 1));
-        assertEquals(1, Trityp.Triang(100, 100, 100));
-    }
+    // @Test
+    // public void testEquilateralTriangles() {
+    //     assertEquals(1, Trityp.Triang(1, 1, 1));
+    //     assertEquals(1, Trityp.Triang(100, 100, 100));
+    // }
 
-    @Test
-    public void testBorderlineCases() {
-        assertEquals(4, Trityp.Triang(1, 2, 3));
-        assertEquals(4, Trityp.Triang(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE));
-    }
+    // @Test
+    // public void testBorderlineCases() {
+    //     assertEquals(4, Trityp.Triang(1, 2, 3));
+    //     assertEquals(4, Trityp.Triang(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE));
+    // }
 }

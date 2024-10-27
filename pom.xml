@@ -70,12 +70,22 @@
                 <configuration>
                     <!-- Define the classes under test -->
                     <targetClasses>
-                        <param>trityp.*</param> <!-- Target all classes in the 'trityp' package -->
+                        <param>trityp.*</param>              <!-- Existing package: 'trityp' -->
+                        <param>anagrams.*</param>            <!-- New package: 'anagrams' -->
+                        <param>binaryTree.*</param>          <!-- New package: 'binaryTree' -->
+                        <param>numIslands.*</param>          <!-- New package: 'numIslands' -->
+                        <param>cloneGraph.*</param>          <!-- New package: 'cloneGraph' -->
                     </targetClasses>
+
                     <!-- Define the test classes -->
                     <targetTests>
-                        <param>trityp.*Test*</param> <!-- Target all test classes in the 'trityp' package -->
+                        <param>trityp.*Test*</param>         <!-- Existing package: 'trityp' -->
+                        <param>anagrams.*Test*</param>       <!-- New package: 'anagrams' -->
+                        <param>binaryTree.*Test*</param>     <!-- New package: 'binaryTree' -->
+                        <param>numIslands.*Test*</param>     <!-- New package: 'numIslands' -->
+                        <param>cloneGraph.*Test*</param>     <!-- New package: 'cloneGraph' -->
                     </targetTests>
+
                     <mutationThreshold>85</mutationThreshold> <!-- Optional: set mutation score threshold -->
                     <timeoutFactor>1.5</timeoutFactor> <!-- Increase timeouts for long-running tests -->
                 </configuration>
