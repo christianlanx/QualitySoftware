@@ -1,6 +1,9 @@
-package trityp;
+package trityp.claudeSonnet.prompt0;
 
 import org.junit.Test;
+
+import trityp.Trityp;
+
 import static org.junit.Assert.assertEquals;
 
 public class TritypTestClaude35Sonnet {

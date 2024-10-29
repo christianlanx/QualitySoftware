@@ -1,8 +1,12 @@
-package cloneGraph;
+package cloneGraph.claudeSonnet.prompt0;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import cloneGraph.CloneGraph;
+import cloneGraph.CloneGraph.Node;
+
 import java.util.*;
 
 public class CloneGraphTestClaude35Sonnet {

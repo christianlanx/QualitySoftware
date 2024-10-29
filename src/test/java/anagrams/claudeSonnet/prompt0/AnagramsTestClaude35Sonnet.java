@@ -1,6 +1,9 @@
-package anagrams;
+package anagrams.claudeSonnet.prompt0;
 
 import org.junit.Test;
+
+import anagrams.Anagrams;
+
 import org.junit.Before;
 import static org.junit.Assert.*;
 import java.util.List;

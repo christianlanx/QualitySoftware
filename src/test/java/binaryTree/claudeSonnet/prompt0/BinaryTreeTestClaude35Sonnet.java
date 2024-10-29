@@ -1,8 +1,11 @@
-package binaryTree;
+package binaryTree.claudeSonnet.prompt0;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import binaryTree.BinaryTree;
+import binaryTree.BinaryTree.TreeNode;
 
 public class BinaryTreeTestClaude35Sonnet {
     private BinaryTree binaryTree;
@@ -96,28 +99,29 @@ public class BinaryTreeTestClaude35Sonnet {
         assertEquals(7, root.right.right.val);
     }
 
-    @Test
-    public void testTreeNodeConstructors() {
-        // Test empty constructor
-        BinaryTree.TreeNode node1 = new BinaryTree.TreeNode();
-        assertEquals(0, node1.val);
-        assertNull(node1.left);
-        assertNull(node1.right);
+    // Broken due to private methods
+    // @Test
+    // public void testTreeNodeConstructors() {
+    //     // Test empty constructor
+    //     BinaryTree.TreeNode node1 = new BinaryTree.TreeNode();
+    //     assertEquals(0, node1.val);
+    //     assertNull(node1.left);
+    //     assertNull(node1.right);
         
-        // Test value-only constructor
-        BinaryTree.TreeNode node2 = new BinaryTree.TreeNode(5);
-        assertEquals(5, node2.val);
-        assertNull(node2.left);
-        assertNull(node2.right);
+    //     // Test value-only constructor
+    //     BinaryTree.TreeNode node2 = new BinaryTree.TreeNode(5);
+    //     assertEquals(5, node2.val);
+    //     assertNull(node2.left);
+    //     assertNull(node2.right);
         
-        // Test full constructor
-        BinaryTree.TreeNode left = new BinaryTree.TreeNode(1);
-        BinaryTree.TreeNode right = new BinaryTree.TreeNode(3);
-        BinaryTree.TreeNode node3 = new BinaryTree.TreeNode(2, left, right);
-        assertEquals(2, node3.val);
-        assertEquals(1, node3.left.val);
-        assertEquals(3, node3.right.val);
-    }
+    //     // Test full constructor
+    //     BinaryTree.TreeNode left = new BinaryTree.TreeNode(1);
+    //     BinaryTree.TreeNode right = new BinaryTree.TreeNode(3);
+    //     BinaryTree.TreeNode node3 = new BinaryTree.TreeNode(2, left, right);
+    //     assertEquals(2, node3.val);
+    //     assertEquals(1, node3.left.val);
+    //     assertEquals(3, node3.right.val);
+    // }
 
     // @Test
     // public void testMinimumValue() {

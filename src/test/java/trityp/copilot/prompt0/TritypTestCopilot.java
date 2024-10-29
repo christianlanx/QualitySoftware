@@ -1,7 +1,9 @@
-package trityp;
+package trityp.copilot.prompt0;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
+import trityp.Trityp;
 
 public class TritypTestCopilot {
 

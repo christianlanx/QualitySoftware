@@ -1,6 +1,9 @@
-package trityp;
+package trityp.ai21Jamba.prompt0;
 
 import org.junit.Test;
+
+import trityp.Trityp;
+
 import static org.junit.Assert.assertEquals;
 
 public class TritypTestAI21Jamba {

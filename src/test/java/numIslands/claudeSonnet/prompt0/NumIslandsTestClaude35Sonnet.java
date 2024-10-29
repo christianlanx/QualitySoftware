@@ -1,8 +1,10 @@
-package numIslands;
+package numIslands.claudeSonnet.prompt0;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import numIslands.NumIslands;
 
 public class NumIslandsTestClaude35Sonnet {
     private NumIslands solution;

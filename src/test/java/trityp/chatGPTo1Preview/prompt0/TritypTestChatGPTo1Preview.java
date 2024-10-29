@@ -1,6 +1,9 @@
-package trityp;
+package trityp.chatGPTo1Preview.prompt0;
 
 import org.junit.Test;
+
+import trityp.Trityp;
+
 import static org.junit.Assert.*;
 
 public class TritypTestChatGPTo1Preview {

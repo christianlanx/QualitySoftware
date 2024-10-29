@@ -1,8 +1,10 @@
-package numIslands;
+package numIslands.chatGPT4o.prompt0;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+
+import numIslands.NumIslands;
 
 public class NumIslandsTestGPT4 {
     private NumIslands solution;

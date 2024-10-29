@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-class CloneGraph {
+public class CloneGraph {
     
     public static class Node {
         public int val;

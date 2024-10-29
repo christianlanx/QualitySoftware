@@ -2,7 +2,7 @@ package numIslands;
 import java.util.Queue;
 import java.util.LinkedList;
 
-class NumIslands {
+public class NumIslands {
     class Pair {
         public int first, second;
 
