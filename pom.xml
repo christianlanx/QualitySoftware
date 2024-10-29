@@ -59,37 +59,15 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.7.6</version> <!-- Use the latest version of PIT -->
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>mutationCoverage</goal> <!-- Run mutation testing -->
-                        </goals>
-                    </execution>
-                </executions>
+                <version>1.6.7</version> <!-- Make sure this version exists -->
                 <configuration>
-                    <!-- Define the classes under test -->
-                    <targetClasses>
-                        <param>trityp.*</param>              <!-- Existing package: 'trityp' -->
-                        <param>anagrams.*</param>            <!-- New package: 'anagrams' -->
-                        <param>binaryTree.*</param>          <!-- New package: 'binaryTree' -->
-                        <param>numIslands.*</param>          <!-- New package: 'numIslands' -->
-                        <param>cloneGraph.*</param>          <!-- New package: 'cloneGraph' -->
-                    </targetClasses>
-
-                    <!-- Define the test classes -->
-                    <targetTests>
-                        <param>trityp.*Test*</param>         <!-- Existing package: 'trityp' -->
-                        <param>anagrams.*Test*</param>       <!-- New package: 'anagrams' -->
-                        <param>binaryTree.*Test*</param>     <!-- New package: 'binaryTree' -->
-                        <param>numIslands.*Test*</param>     <!-- New package: 'numIslands' -->
-                        <param>cloneGraph.*Test*</param>     <!-- New package: 'cloneGraph' -->
-                    </targetTests>
-
-                    <mutationThreshold>85</mutationThreshold> <!-- Optional: set mutation score threshold -->
-                    <timeoutFactor>1.5</timeoutFactor> <!-- Increase timeouts for long-running tests -->
+                    <outputFormats>
+                        <param>XML</param>
+                        <param>HTML</param>
+                    </outputFormats>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 </project>

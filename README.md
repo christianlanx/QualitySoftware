@@ -28,4 +28,3 @@ Triangle Tester Class. Takes three integers and returns the type of triangle
 # Etc
 More software under test to be added
 
-

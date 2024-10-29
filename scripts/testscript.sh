@@ -1,3 +1,11 @@
+# Check if a class under test is provided as an argument
+if [ -z "$1" ]; then
+    echo "Usage: $0 <class_under_test>"
+    exit 1
+fi
+class=$1
+testdir="./src/test/java/$class"
+
 for testclass in $(ls ./src/test/java/trityp/); do 
     # Strip the .java extension to get the test class name
     testclass_name="${testclass%.java}"
