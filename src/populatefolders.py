@@ -19,4 +19,8 @@ for folder_name in os.listdir(main_dir):
             for prompt_num in range(num_prompts):
                 target_path = os.path.join(test_dir, folder_name, model, f'prompt{prompt_num}')
                 os.makedirs(target_path, exist_ok=True)
-                print(f"Created: {target_path}")
+                readme_path = os.path.join(target_path, 'README.md')
+                with open(readme_path, 'w') as readme_file:
+                    readme_file.write(f"# {folder_name} - {model} - prompt{prompt_num}\n\nThis is a placeholder README file.")
+                
+                print(f"Created: {target_path} with README.md")
