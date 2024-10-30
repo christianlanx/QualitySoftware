@@ -2,44 +2,68 @@ import subprocess
 import sys
 import os
 
-def run_pit_tests(class_name, test_class_name=None):
-    # Define the Maven command for PIT based on whether a test class is provided
-    if test_class_name:
-        mvn_cmd = [
-            "mvn", "org.pitest:pitest-maven:mutationCoverage",
-            f"-DtargetClasses={class_name}",
-            f"-DtargetTests={test_class_name}"
-        ]
-        print(f"Running PIT mutation tests for specified test class '{test_class_name}' on class '{class_name}'...")
-    else:
-        # Run PIT with all test classes related to the specified class
-        mvn_cmd = [
-            "mvn", "org.pitest:pitest-maven:mutationCoverage",
-            f"-DtargetClasses={class_name}"
-        ]
-        print(f"Running PIT mutation tests for all test classes on class '{class_name}'...")
-
-    try:
-        # Execute the Maven command
-        result = subprocess.run(mvn_cmd, capture_output=True, text=True, check=True)
-        
-        # Print Maven output
-        print(result.stdout)
-    except subprocess.CalledProcessError as e:
-        print("An error occurred while running PIT mutation tests:")
-        print(e.stdout)
-        print(e.stderr)
+def run_maven_clean():
+    """Clean the project to remove any existing compiled classes and any existing reports."""
+    print("Cleaning project...")
+    result = subprocess.run(["mvn", "clean"], capture_output=True, text=True)
+    if result.returncode != 0:
+        print("Error cleaning project")
+        print(result.stderr)
         sys.exit(1)
+    print("Clean successful.")
+
+def run_maven_compile():
+    """Compile all classes in the project"""
+    print("Compiling project...")
+    result = subprocess.run(["mvn", "compile"], capture_output=True, text=True)
+    if result.returncode != 0:
+        print("Error during compilation:")
+        print(result.stderr)
+        sys.exit(1)
+    print("Compilation successful.")
+
+def run_maven_test_compile():
+    """Compile all test classes in the project"""
+    print("Compiling project test classes...")
+    result = subprocess.run(["mvn", "test-compile"], capture_output=True, text=True)
+    if result.returncode != 0:
+        print("Error during test compilation:")
+        print(result.stderr)
+        sys.exit(1)
+    print("Test compilation successful.")
+
+def run_pit(target_class, target_test):
+    """Run PIT mutation testing for a specific target class and test class."""
+    print(f"Running PIT for class '{target_class}' with test '{target_test}'...")
+    
+    # Construct the PIT command
+    pit_command = [
+        "mvn", "org.pitest:pitest-maven:mutationCoverage",
+        f"-DtargetClasses={target_class}",
+        f"-DtargetTests={target_test}",
+        "-Dverbose=true"  # Optional: add for more detailed output
+    ]
+
+    # Execute the PIT command
+    result = subprocess.run(pit_command, capture_output=True, text=True)
+    if result.returncode != 0:
+        print("Error during PIT execution:")
+        print(result.stderr)
+        sys.exit(1)
+    
+    # Print PIT output
+    print("PIT run successful.")
+    print(result.stdout)
 
 if __name__ == "__main__":
-    # Check for required arguments
-    if len(sys.argv) < 2:
-        print("Usage: python run_pit.py <class_name> [<test_class_name>]")
+    if len(sys.argv) < 3:
+        print("Usage: python run_pit.py <target_class> <target_test>")
         sys.exit(1)
+    
+    target_class = sys.argv[1]
+    target_test = sys.argv[2]
 
-    # Get class name and optional test class name from arguments
-    class_name = sys.argv[1]
-    test_class_name = sys.argv[2] if len(sys.argv) > 2 else None
-
-    # Run the PIT mutation tests
-    run_pit_tests(class_name, test_class_name)
+    run_maven_clean()
+    run_maven_compile()
+    run_maven_test_compile()
+    run_pit(target_class, target_test)
