@@ -1,6 +1,6 @@
 package RegularExpressionMatching;
 //Leetcode Hard: https://leetcode.com/problems/regular-expression-matching/
-class Regular {
+public class Regular {
     public boolean isMatch(String s, String p) {
         int[][] dp = new int[s.length() + 1][p.length() + 1];
         return tryMatch(0, 0, s, p, dp);

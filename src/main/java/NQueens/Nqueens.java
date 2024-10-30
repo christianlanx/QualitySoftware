@@ -2,7 +2,7 @@ package NQueens;
 import java.util.List;
 import java.util.ArrayList;
 //Leetcode Hard, might be hard to generate tests: https://leetcode.com/problems/n-queens/submissions/1024199429/
-class Nqueens {
+public class Nqueens {
     public List<List<String>> solveNQueens(int n) {
         List<List<String>> ret = new ArrayList<>();
         int[][] board = new int[n][n];
