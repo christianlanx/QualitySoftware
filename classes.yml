@@ -1,0 +1,18 @@
+# Description of all the classes under test
+Trityp:
+  package: trityp
+  difficulty: easy
+  tags:
+  - primitives
+  - conditionals
+NumIslands:
+  package: numIslands
+  difficulty: medium
+  tags:
+  - Queue
+  - LinkedList
+  - reference
+  - loops
+  - conditionals
+  subclasses:
+  - Pair
