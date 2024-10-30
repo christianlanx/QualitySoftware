@@ -2,7 +2,7 @@ package orangesRotting;
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class orangesRot {
+public class OrangesRot {
     int[][] dir = new int[][]{{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     
     public int orangesRotting(int[][] grid) {
