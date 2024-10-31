@@ -32,12 +32,16 @@ def explore_project(root_path):
         # Organize test classes by LLM and prompt
         for test_package, test_class_list in test_classes.items():
             if test_package.startswith(package):
-                _, llm, prompt = test_package.split('.')[-3:]
-                if llm not in organized_test_classes:
-                    organized_test_classes[llm] = {}
-                
-                organized_test_classes[llm][prompt] = test_class_list[0] if test_class_list else None
-
+                try:
+                    # Unpacking test_package components with error handling
+                    _, llm, prompt = test_package.split('.')[-3:]
+                    if llm not in organized_test_classes:
+                        organized_test_classes[llm] = {}
+                    organized_test_classes[llm][prompt] = test_class_list[0] if test_class_list else None
+                except ValueError as e:
+                    print(f"Error processing test_package '{test_package}': {e}")
+                    print("Ensure test_package has the correct format: '...<llm>.<prompt>...'")
+                    continue
         package_info = {
             'package': package,
             'classes': classes,
