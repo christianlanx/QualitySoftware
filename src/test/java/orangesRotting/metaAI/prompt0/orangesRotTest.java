@@ -3,11 +3,11 @@ package orangesRotting.metaAI.prompt0;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-import orangesRotting.orangesRot;
+import orangesRotting.OrangesRot;
 
 public class orangesRotTest {
 
-    orangesRot rot = new orangesRot();
+    OrangesRot rot = new OrangesRot();
 
     // Test no oranges
     @Test

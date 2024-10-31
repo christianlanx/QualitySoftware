@@ -1,5 +1,5 @@
 package orangesRotting.ai21Jamba.prompt0;
-import orangesRotting.orangesRot;
+import orangesRotting.OrangesRot;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,7 +9,7 @@ public class orangesRotTest {
 
     @Test
     public void testOrangesRotting() {
-        orangesRot orangesRot = new orangesRot();
+        OrangesRot orangesRot = new OrangesRot();
 
         // Test case 1: No oranges
         int[][] grid1 = {
