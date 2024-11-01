@@ -1,18 +1,19 @@
 # Description of all the classes under test
-Trityp:
-  package: trityp
-  difficulty: easy
-  tags:
-  - primitives
-  - conditionals
+Anagrams:
+  package: anagrams
+BinaryTree:
+  package: binaryTree
+CloneGraph:
+  package: cloneGraph
+OrangesRot:
+  package: orangesRotting
 NumIslands:
   package: numIslands
-  difficulty: medium
-  tags:
-  - Queue
-  - LinkedList
-  - reference
-  - loops
-  - conditionals
-  subclasses:
-  - Pair
+Nqueens:
+  package: NQueens
+Median:
+  package: MedianSortedArrays
+Regular:
+  package: RegularExpressionMatching
+Trityp:
+  package: trityp
