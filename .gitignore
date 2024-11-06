@@ -30,3 +30,6 @@ target/
 
 # Windows specific files
 Thumbs.db
+
+# Venv
+venv/
