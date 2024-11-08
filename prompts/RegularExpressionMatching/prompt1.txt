@@ -34,7 +34,7 @@ It is guaranteed for each appearance of the character '*', there will be a previ
 
  and follow this method signature: 
 
-class Solution {
+public class Regular {
     public boolean isMatch(String s, String p) {
         
     }

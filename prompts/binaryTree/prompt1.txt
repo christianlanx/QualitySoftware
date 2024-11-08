@@ -33,7 +33,7 @@ and follow this method signature:
  *     }
  * }
  */
-class Solution {
+public class BinaryTree {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         
     }

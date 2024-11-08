@@ -24,7 +24,7 @@ Constraints:
 1 <= n <= 9
 
 and follow this method signature: 
-class Solution {
+public class Nqueens {
     public List<List<String>> solveNQueens(int n) {
         
     }

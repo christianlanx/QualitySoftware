@@ -33,7 +33,7 @@ n == grid[i].length
 grid[i][j] is '0' or '1'.
 
 and follow this method signature: 
-class Solution {
+public class NumIslands {
     public int numIslands(char[][] grid) {
         
     }
