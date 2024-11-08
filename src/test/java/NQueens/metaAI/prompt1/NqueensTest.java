@@ -4,48 +4,55 @@ import NQueens.Nqueens;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
 
 public class NqueensTest {
 
     Nqueens nqueens = new Nqueens();
 
     @Test
-    public void testExample1() {
+    public void testNQueens_Example1() {
         int n = 4;
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList(".Q..", "...Q", "Q...", "..Q."),
-                Arrays.asList("..Q.", "Q...", "...Q", ".Q..")
+        List<List<String>> expected = List.of(
+            List.of(".Q..", "...Q", "Q...", "..Q."),
+            List.of("..Q.", "Q...", "...Q", ".Q..")
         );
-        assertEquals(expected, nqueens.solveNQueens(n));
+        List<List<String>> actual = nqueens.solveNQueens(n);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testExample2() {
+    public void testNQueens_Example2() {
         int n = 1;
-        List<List<String>> expected = Arrays.asList(Arrays.asList("Q"));
-        assertEquals(expected, nqueens.solveNQueens(n));
+        List<List<String>> expected = List.of(List.of("Q"));
+        List<List<String>> actual = nqueens.solveNQueens(n);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testSmallBoard() {
-        int n = 2;
-        List<List<String>> expected = new ArrayList<>();
-        assertEquals(expected, nqueens.solveNQueens(n));
+    public void testNQueens_Constraints_LowerBound() {
+        int n = 1;
+        List<List<String>> actual = nqueens.solveNQueens(n);
+        assertNotNull(actual);
     }
 
     @Test
-    public void testLargeBoard() {
-        int n = 8;
-        List<List<String>> expected = nqueens.solveNQueens(n);
-        assertTrue(expected.size() > 0);
+    public void testNQueens_Constraints_UpperBound() {
+        int n = 9;
+        List<List<String>> actual = nqueens.solveNQueens(n);
+        assertNotNull(actual);
     }
 
-    private void assertEquals(List<List<String>> expected, List<List<String>> actual) {
-        assertEquals(expected.size(), actual.size());
-        for (int i = 0; i < expected.size(); i++) {
-            assertEquals(expected.get(i), actual.get(i));
-        }
+    @Test
+    public void testNQueens_EmptyBoard() {
+        int n = 0;
+        List<List<String>> actual = nqueens.solveNQueens(n);
+        assertTrue(actual.isEmpty());
+    }
+
+    @Test
+    public void testNQueens_Null() {
+        int n = -1;
+        List<List<String>> actual = nqueens.solveNQueens(n);
+        assertTrue(actual.isEmpty());
     }
 }

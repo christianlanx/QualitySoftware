@@ -1,9 +1,16 @@
 package cloneGraph.ai21Jamba.prompt1;
 import cloneGraph.CloneGraph;
+import cloneGraph.CloneGraph.Node;
 
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.After;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,36 +114,5 @@ public class CloneGraphTest {
         Node clonedNode6 = clonedGraph.neighbors.get(3);
         assertEquals(6, clonedNode6.val);
         assertEquals(1, clonedNode6.neighbors.size());
-    }
-}
-```
-
-To complete this test suite, you need to implement the `cloneGraph` method in the `CloneGraph` class. Here is a possible implementation:
-
-```java
-public class CloneGraph {
-    public Node cloneGraph(Node node) {
-        if (node == null) {
-            return null;
-        }
-
-        // Use a HashMap to keep track of visited nodes and their clones
-        HashMap<Node, Node> visited = new HashMap<>();
-        return cloneGraphHelper(node, visited);
-    }
-
-    private Node cloneGraphHelper(Node node, HashMap<Node, Node> visited) {
-        if (visited.containsKey(node)) {
-            return visited.get(node);
-        }
-
-        Node cloneNode = new Node(node.val);
-        visited.put(node, cloneNode);
-
-        for (Node neighbor : node.neighbors) {
-            cloneNode.neighbors.add(cloneGraphHelper(neighbor, visited));
-        }
-
-        return cloneNode;
     }
 }
