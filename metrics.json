@@ -1,276 +1,2800 @@
-{"name": "TritypTest",
- "package": "trityp",
- "llm": "metaAI",
- "prompt": "prompt0",
- "class_path": "trityp.metaAI.prompt0.TritypTest",
- "directory_path": "../src/test/java/trityp/metaAI/prompt0/TritypTest.java",
- "jacoco_metrics": {"counters": [{"name": "INSTRUCTION",
-    "total": 83,
-    "covered": 78,
-    "missed": 5,
-    "coverage": 93.97590361445783},
-   {"name": "BRANCH",
-    "total": 34,
-    "covered": 31,
-    "missed": 3,
-    "coverage": 91.17647058823529},
-   {"name": "LINE",
-    "total": 23,
-    "covered": 21,
-    "missed": 2,
-    "coverage": 91.30434782608695},
-   {"name": "COMPLEXITY",
-    "total": 19,
-    "covered": 15,
-    "missed": 4,
-    "coverage": 78.94736842105263},
-   {"name": "METHOD", "total": 2, "covered": 1, "missed": 1, "coverage": 50.0},
-   {"name": "CLASS",
-    "total": 1,
-    "covered": 1,
-    "missed": 0,
-    "coverage": 100.0}]},
- "pit_metrics": {"total_tests_run": 675,
-  "total_killed": 334,
-  "total_survived": 114,
-  "total_detected": 334,
-  "total_undetected": 123,
-  "total_no_coverage": 9,
-  "mutators": [{"name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
-    "tests_run": 26,
-    "killed": 1,
-    "survived": 9,
-    "detected": 1,
-    "undetected": 9,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
-    "tests_run": 4,
-    "killed": 3,
-    "survived": 0,
-    "detected": 3,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-    "tests_run": 15,
-    "killed": 11,
-    "survived": 1,
-    "detected": 11,
-    "undetected": 2,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-    "tests_run": 6,
-    "killed": 6,
-    "survived": 0,
-    "detected": 6,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-    "tests_run": 22,
-    "killed": 17,
-    "survived": 0,
-    "detected": 17,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
-    "tests_run": 7,
-    "killed": 7,
-    "survived": 0,
-    "detected": 7,
-    "undetected": 1,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-    "tests_run": 12,
-    "killed": 7,
-    "survived": 0,
-    "detected": 7,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-    "tests_run": 13,
-    "killed": 7,
-    "survived": 0,
-    "detected": 7,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
-    "tests_run": 16,
-    "killed": 8,
-    "survived": 2,
-    "detected": 8,
-    "undetected": 2,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-    "tests_run": 23,
-    "killed": 6,
-    "survived": 4,
-    "detected": 6,
-    "undetected": 4,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-    "tests_run": 7,
-    "killed": 7,
-    "survived": 0,
-    "detected": 7,
-    "undetected": 1,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator",
-    "tests_run": 5,
-    "killed": 3,
-    "survived": 0,
-    "detected": 3,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
-    "tests_run": 49,
-    "killed": 28,
-    "survived": 4,
-    "detected": 28,
-    "undetected": 4,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD1Mutator",
-    "tests_run": 6,
-    "killed": 5,
-    "survived": 1,
-    "detected": 5,
-    "undetected": 1,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD2Mutator",
-    "tests_run": 6,
-    "killed": 4,
-    "survived": 2,
-    "detected": 4,
-    "undetected": 2,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR1Mutator",
-    "tests_run": 6,
-    "killed": 6,
-    "survived": 0,
-    "detected": 6,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR2Mutator",
-    "tests_run": 9,
-    "killed": 0,
-    "survived": 6,
-    "detected": 0,
-    "undetected": 6,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR3Mutator",
-    "tests_run": 6,
-    "killed": 6,
-    "survived": 0,
-    "detected": 6,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR4Mutator",
-    "tests_run": 6,
-    "killed": 5,
-    "survived": 1,
-    "detected": 5,
-    "undetected": 1,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR1Mutator",
-    "tests_run": 12,
-    "killed": 10,
-    "survived": 0,
-    "detected": 10,
-    "undetected": 1,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR2Mutator",
-    "tests_run": 12,
-    "killed": 11,
-    "survived": 0,
-    "detected": 11,
-    "undetected": 1,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR3Mutator",
-    "tests_run": 14,
-    "killed": 12,
-    "survived": 0,
-    "detected": 12,
-    "undetected": 1,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR4Mutator",
-    "tests_run": 12,
-    "killed": 11,
-    "survived": 0,
-    "detected": 11,
-    "undetected": 1,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR5Mutator",
-    "tests_run": 15,
-    "killed": 11,
-    "survived": 1,
-    "detected": 11,
-    "undetected": 2,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR6Mutator",
-    "tests_run": 14,
-    "killed": 12,
-    "survived": 0,
-    "detected": 12,
-    "undetected": 1,
-    "no_coverage": 1},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
-    "tests_run": 39,
-    "killed": 9,
-    "survived": 8,
-    "detected": 9,
-    "undetected": 8,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
-    "tests_run": 24,
-    "killed": 17,
-    "survived": 0,
-    "detected": 17,
-    "undetected": 0,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
-    "tests_run": 32,
-    "killed": 13,
-    "survived": 4,
-    "detected": 13,
-    "undetected": 4,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
-    "tests_run": 33,
-    "killed": 13,
-    "survived": 4,
-    "detected": 13,
-    "undetected": 4,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
-    "tests_run": 25,
-    "killed": 15,
-    "survived": 2,
-    "detected": 15,
-    "undetected": 2,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
-    "tests_run": 56,
-    "killed": 13,
-    "survived": 19,
-    "detected": 13,
-    "undetected": 19,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
-    "tests_run": 56,
-    "killed": 13,
-    "survived": 19,
-    "detected": 13,
-    "undetected": 19,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
-    "tests_run": 45,
-    "killed": 17,
-    "survived": 15,
-    "detected": 17,
-    "undetected": 15,
-    "no_coverage": 0},
-   {"name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
-    "tests_run": 42,
-    "killed": 20,
-    "survived": 12,
-    "detected": 20,
-    "undetected": 12,
-    "no_coverage": 0}]}}
+{
+    "anagrams.chatGPT4o.prompt1.AnagramsTest": {
+        "name": "AnagramsTest",
+        "package": "anagrams",
+        "llm": "chatGPT4o",
+        "prompt": "prompt1",
+        "class_path": "anagrams.chatGPT4o.prompt1.AnagramsTest",
+        "directory_path": "../src/test/java/anagrams/chatGPT4o/prompt1/AnagramsTest.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 57,
+                    "covered": 57,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 4,
+                    "covered": 4,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "LINE",
+                    "total": 10,
+                    "covered": 10,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 4,
+                    "covered": 4,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 58,
+            "total_killed": 36,
+            "total_survived": 1,
+            "total_detected": 37,
+            "total_undetected": 1,
+            "total_no_coverage": 0,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+                    "tests_run": 7,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+                    "tests_run": 8,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 5,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 5,
+                    "killed": 0,
+                    "survived": 1,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 5,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 4,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            ]
+        }
+    },
+    "anagrams.chatGPT4o.prompt0.AnagramsChatGPT4o": {
+        "name": "AnagramsChatGPT4o",
+        "package": "anagrams",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "anagrams.chatGPT4o.prompt0.AnagramsChatGPT4o",
+        "directory_path": "../src/test/java/anagrams/chatGPT4o/prompt0/AnagramsChatGPT4o.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 57,
+                    "covered": 57,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 4,
+                    "covered": 4,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "LINE",
+                    "total": 10,
+                    "covered": 10,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 4,
+                    "covered": 4,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 40,
+            "total_killed": 36,
+            "total_survived": 1,
+            "total_detected": 37,
+            "total_undetected": 1,
+            "total_no_coverage": 0,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+                    "tests_run": 4,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 4,
+                    "killed": 0,
+                    "survived": 1,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            ]
+        }
+    },
+    "binaryTree.chatGPT4o.prompt0.binaryTreechatGPT4oTest": {
+        "name": "binaryTreechatGPT4oTest",
+        "package": "binaryTree",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "binaryTree.chatGPT4o.prompt0.binaryTreechatGPT4oTest",
+        "directory_path": "../src/test/java/binaryTree/chatGPT4o/prompt0/binaryTreechatGPT4oTest.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 66,
+                    "covered": 0,
+                    "missed": 66,
+                    "coverage": 0.0
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 4,
+                    "covered": 0,
+                    "missed": 4,
+                    "coverage": 0.0
+                },
+                {
+                    "name": "LINE",
+                    "total": 13,
+                    "covered": 0,
+                    "missed": 13,
+                    "coverage": 0.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 5,
+                    "covered": 0,
+                    "missed": 5,
+                    "coverage": 0.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 0,
+                    "missed": 3,
+                    "coverage": 0.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 0,
+                    "missed": 1,
+                    "coverage": 0.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 0,
+            "total_killed": 0,
+            "total_survived": 0,
+            "total_detected": 0,
+            "total_undetected": 121,
+            "total_no_coverage": 121,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 5,
+                    "no_coverage": 5
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 6,
+                    "no_coverage": 6
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR1Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 3,
+                    "no_coverage": 3
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR3Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 5,
+                    "no_coverage": 5
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR5Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 5,
+                    "no_coverage": 5
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR6Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 5,
+                    "no_coverage": 5
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 3,
+                    "no_coverage": 3
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 4,
+                    "no_coverage": 4
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 9,
+                    "no_coverage": 9
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD1Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD2Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR1Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR2Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR3Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR4Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR2Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 3,
+                    "no_coverage": 3
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR4Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 3,
+                    "no_coverage": 3
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 2
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 9,
+                    "no_coverage": 9
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 9,
+                    "no_coverage": 9
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 9,
+                    "no_coverage": 9
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 0,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 9,
+                    "no_coverage": 9
+                }
+            ]
+        }
+    },
+    "orangesRotting.chatGPT4o.prompt0.OrangesRotTest": {
+        "name": "OrangesRotTest",
+        "package": "orangesRotting",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "orangesRotting.chatGPT4o.prompt0.OrangesRotTest",
+        "directory_path": "../src/test/java/orangesRotting/chatGPT4o/prompt0/OrangesRotTest.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 257,
+                    "covered": 257,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 34,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "LINE",
+                    "total": 38,
+                    "covered": 38,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 20,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 1883,
+            "total_killed": 618,
+            "total_survived": 118,
+            "total_detected": 651,
+            "total_undetected": 118,
+            "total_no_coverage": 0,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+                    "tests_run": 236,
+                    "killed": 35,
+                    "survived": 19,
+                    "detected": 35,
+                    "undetected": 19,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+                    "tests_run": 4,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR1Mutator",
+                    "tests_run": 129,
+                    "killed": 29,
+                    "survived": 8,
+                    "detected": 30,
+                    "undetected": 8,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR2Mutator",
+                    "tests_run": 108,
+                    "killed": 24,
+                    "survived": 7,
+                    "detected": 24,
+                    "undetected": 7,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR3Mutator",
+                    "tests_run": 105,
+                    "killed": 45,
+                    "survived": 5,
+                    "detected": 45,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR4Mutator",
+                    "tests_run": 70,
+                    "killed": 26,
+                    "survived": 5,
+                    "detected": 26,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR5Mutator",
+                    "tests_run": 206,
+                    "killed": 37,
+                    "survived": 17,
+                    "detected": 37,
+                    "undetected": 17,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR6Mutator",
+                    "tests_run": 157,
+                    "killed": 45,
+                    "survived": 8,
+                    "detected": 46,
+                    "undetected": 8,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 10,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 20,
+                    "killed": 13,
+                    "survived": 0,
+                    "detected": 16,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+                    "tests_run": 15,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 4,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 103,
+                    "killed": 39,
+                    "survived": 7,
+                    "detected": 39,
+                    "undetected": 7,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 38,
+                    "killed": 10,
+                    "survived": 4,
+                    "detected": 12,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 39,
+                    "killed": 13,
+                    "survived": 2,
+                    "detected": 14,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 43,
+                    "killed": 12,
+                    "survived": 3,
+                    "detected": 13,
+                    "undetected": 3,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 50,
+                    "killed": 10,
+                    "survived": 5,
+                    "detected": 11,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 24,
+                    "killed": 13,
+                    "survived": 0,
+                    "detected": 16,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 114,
+                    "killed": 33,
+                    "survived": 12,
+                    "detected": 34,
+                    "undetected": 12,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 95,
+                    "killed": 27,
+                    "survived": 13,
+                    "detected": 33,
+                    "undetected": 13,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 83,
+                    "killed": 45,
+                    "survived": 0,
+                    "detected": 46,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 70,
+                    "killed": 41,
+                    "survived": 1,
+                    "detected": 45,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+                    "tests_run": 2,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 11,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 11,
+                    "killed": 9,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+                    "tests_run": 6,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+                    "tests_run": 3,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 26,
+                    "killed": 8,
+                    "survived": 1,
+                    "detected": 9,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 21,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 10,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator",
+                    "tests_run": 8,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 7,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD1Mutator",
+                    "tests_run": 11,
+                    "killed": 9,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD2Mutator",
+                    "tests_run": 15,
+                    "killed": 7,
+                    "survived": 1,
+                    "detected": 8,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR1Mutator",
+                    "tests_run": 11,
+                    "killed": 9,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR2Mutator",
+                    "tests_run": 10,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR3Mutator",
+                    "tests_run": 9,
+                    "killed": 9,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR4Mutator",
+                    "tests_run": 9,
+                    "killed": 9,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            ]
+        }
+    },
+    "numIslands.chatGPT4o.prompt0.NumIslandsTestGPT4": {
+        "name": "NumIslandsTestGPT4",
+        "package": "numIslands",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "numIslands.chatGPT4o.prompt0.NumIslandsTestGPT4",
+        "directory_path": "../src/test/java/numIslands/chatGPT4o/prompt0/NumIslandsTestGPT4.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 1026,
+            "total_killed": 408,
+            "total_survived": 83,
+            "total_detected": 425,
+            "total_undetected": 83,
+            "total_no_coverage": 0,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 10,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+                    "tests_run": 111,
+                    "killed": 22,
+                    "survived": 14,
+                    "detected": 23,
+                    "undetected": 14,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 10,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 15,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 8,
+                    "killed": 5,
+                    "survived": 0,
+                    "detected": 5,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 5,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+                    "tests_run": 14,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 62,
+                    "killed": 30,
+                    "survived": 4,
+                    "detected": 30,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD1Mutator",
+                    "tests_run": 4,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD2Mutator",
+                    "tests_run": 4,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR1Mutator",
+                    "tests_run": 10,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR2Mutator",
+                    "tests_run": 4,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR3Mutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR4Mutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR1Mutator",
+                    "tests_run": 69,
+                    "killed": 20,
+                    "survived": 7,
+                    "detected": 20,
+                    "undetected": 7,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR2Mutator",
+                    "tests_run": 47,
+                    "killed": 15,
+                    "survived": 5,
+                    "detected": 16,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR3Mutator",
+                    "tests_run": 56,
+                    "killed": 31,
+                    "survived": 4,
+                    "detected": 31,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR4Mutator",
+                    "tests_run": 40,
+                    "killed": 17,
+                    "survived": 4,
+                    "detected": 17,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR5Mutator",
+                    "tests_run": 100,
+                    "killed": 24,
+                    "survived": 12,
+                    "detected": 25,
+                    "undetected": 12,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR6Mutator",
+                    "tests_run": 71,
+                    "killed": 29,
+                    "survived": 7,
+                    "detected": 30,
+                    "undetected": 7,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 28,
+                    "killed": 8,
+                    "survived": 2,
+                    "detected": 9,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 19,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 22,
+                    "killed": 8,
+                    "survived": 3,
+                    "detected": 8,
+                    "undetected": 3,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 32,
+                    "killed": 7,
+                    "survived": 4,
+                    "detected": 7,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 17,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 79,
+                    "killed": 28,
+                    "survived": 6,
+                    "detected": 28,
+                    "undetected": 6,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 64,
+                    "killed": 25,
+                    "survived": 5,
+                    "detected": 29,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 55,
+                    "killed": 32,
+                    "survived": 2,
+                    "detected": 32,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 42,
+                    "killed": 31,
+                    "survived": 0,
+                    "detected": 34,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 2,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            ]
+        }
+    },
+    "cloneGraph.chatGPT4o.prompt0.cloneGraphchatGPT4oTest": {
+        "name": "cloneGraphchatGPT4oTest",
+        "package": "cloneGraph",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "cloneGraph.chatGPT4o.prompt0.cloneGraphchatGPT4oTest",
+        "directory_path": "../src/test/java/cloneGraph/chatGPT4o/prompt0/cloneGraphchatGPT4oTest.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 65,
+            "total_killed": 46,
+            "total_survived": 4,
+            "total_detected": 49,
+            "total_undetected": 4,
+            "total_no_coverage": 0,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+                    "tests_run": 5,
+                    "killed": 5,
+                    "survived": 0,
+                    "detected": 5,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+                    "tests_run": 4,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 4,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+                    "tests_run": 12,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 3,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 4,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 4,
+                    "killed": 1,
+                    "survived": 1,
+                    "detected": 1,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 4,
+                    "killed": 1,
+                    "survived": 1,
+                    "detected": 1,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 2,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 4,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 1,
+                    "detected": 1,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 1,
+                    "detected": 1,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 3,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 3,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            ]
+        }
+    },
+    "NQueens.chatGPT4o.prompt0.NQueensTest": {
+        "name": "NQueensTest",
+        "package": "NQueens",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "NQueens.chatGPT4o.prompt0.NQueensTest",
+        "directory_path": "../src/test/java/NQueens/chatGPT4o/prompt0/NQueensTest.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 173,
+                    "covered": 173,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 30,
+                    "covered": 30,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "LINE",
+                    "total": 38,
+                    "covered": 38,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 20,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 5,
+                    "covered": 5,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 857,
+            "total_killed": 402,
+            "total_survived": 50,
+            "total_detected": 405,
+            "total_undetected": 50,
+            "total_no_coverage": 0,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 11,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+                    "tests_run": 40,
+                    "killed": 19,
+                    "survived": 1,
+                    "detected": 19,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 22,
+                    "killed": 15,
+                    "survived": 0,
+                    "detected": 15,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+                    "tests_run": 13,
+                    "killed": 5,
+                    "survived": 1,
+                    "detected": 5,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 24,
+                    "killed": 9,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 12,
+                    "killed": 9,
+                    "survived": 0,
+                    "detected": 9,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+                    "tests_run": 10,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
+                    "tests_run": 5,
+                    "killed": 1,
+                    "survived": 1,
+                    "detected": 1,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator",
+                    "tests_run": 9,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 5,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 62,
+                    "killed": 26,
+                    "survived": 7,
+                    "detected": 26,
+                    "undetected": 7,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR1Mutator",
+                    "tests_run": 24,
+                    "killed": 11,
+                    "survived": 1,
+                    "detected": 11,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR2Mutator",
+                    "tests_run": 21,
+                    "killed": 9,
+                    "survived": 1,
+                    "detected": 9,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR3Mutator",
+                    "tests_run": 47,
+                    "killed": 14,
+                    "survived": 6,
+                    "detected": 14,
+                    "undetected": 6,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR4Mutator",
+                    "tests_run": 35,
+                    "killed": 4,
+                    "survived": 6,
+                    "detected": 4,
+                    "undetected": 6,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR5Mutator",
+                    "tests_run": 51,
+                    "killed": 15,
+                    "survived": 5,
+                    "detected": 15,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR6Mutator",
+                    "tests_run": 33,
+                    "killed": 19,
+                    "survived": 1,
+                    "detected": 19,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 27,
+                    "killed": 14,
+                    "survived": 1,
+                    "detected": 14,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 35,
+                    "killed": 12,
+                    "survived": 3,
+                    "detected": 12,
+                    "undetected": 3,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 36,
+                    "killed": 10,
+                    "survived": 5,
+                    "detected": 10,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 39,
+                    "killed": 12,
+                    "survived": 3,
+                    "detected": 12,
+                    "undetected": 3,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 22,
+                    "killed": 15,
+                    "survived": 0,
+                    "detected": 15,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 80,
+                    "killed": 29,
+                    "survived": 4,
+                    "detected": 29,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 54,
+                    "killed": 27,
+                    "survived": 4,
+                    "detected": 29,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 53,
+                    "killed": 33,
+                    "survived": 0,
+                    "detected": 33,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 37,
+                    "killed": 33,
+                    "survived": 0,
+                    "detected": 33,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 7,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD1Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD2Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR1Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR2Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR3Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR4Mutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            ]
+        }
+    },
+    "MedianSortedArrays.chatGPT4o.prompt0.MedianSortedArrays": {
+        "name": "MedianSortedArrays",
+        "package": "MedianSortedArrays",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "MedianSortedArrays.chatGPT4o.prompt0.MedianSortedArrays",
+        "directory_path": "../src/test/java/MedianSortedArrays/chatGPT4o/prompt0/MedianSortedArrays.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 140,
+                    "covered": 136,
+                    "missed": 4,
+                    "coverage": 97.14285714285714
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 18,
+                    "covered": 16,
+                    "missed": 2,
+                    "coverage": 88.88888888888889
+                },
+                {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 24,
+                    "missed": 1,
+                    "coverage": 96.0
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 11,
+                    "covered": 9,
+                    "missed": 2,
+                    "coverage": 81.81818181818183
+                },
+                {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 0,
+            "total_killed": 0,
+            "total_survived": 0,
+            "total_detected": 0,
+            "total_undetected": 0,
+            "total_no_coverage": 0,
+            "mutators": []
+        }
+    },
+    "RegularExpressionMatching.chatGPT4o.prompt0.RegularTest": {
+        "name": "RegularTest",
+        "package": "RegularExpressionMatching",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "RegularExpressionMatching.chatGPT4o.prompt0.RegularTest",
+        "directory_path": "../src/test/java/RegularExpressionMatching/chatGPT4o/prompt0/RegularTest.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 150,
+                    "missed": 13,
+                    "coverage": 92.02453987730061
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 28,
+                    "missed": 6,
+                    "coverage": 82.35294117647058
+                },
+                {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 15,
+                    "missed": 5,
+                    "coverage": 75.0
+                },
+                {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 0,
+            "total_killed": 0,
+            "total_survived": 0,
+            "total_detected": 0,
+            "total_undetected": 0,
+            "total_no_coverage": 0,
+            "mutators": []
+        }
+    },
+    "trityp.chatGPT4o.prompt0.TritypTestChatGPT4o": {
+        "name": "TritypTestChatGPT4o",
+        "package": "trityp",
+        "llm": "chatGPT4o",
+        "prompt": "prompt0",
+        "class_path": "trityp.chatGPT4o.prompt0.TritypTestChatGPT4o",
+        "directory_path": "../src/test/java/trityp/chatGPT4o/prompt0/TritypTestChatGPT4o.java",
+        "jacoco_metrics": {
+            "counters": [
+                {
+                    "name": "INSTRUCTION",
+                    "total": 83,
+                    "covered": 80,
+                    "missed": 3,
+                    "coverage": 96.3855421686747
+                },
+                {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 27,
+                    "missed": 7,
+                    "coverage": 79.41176470588235
+                },
+                {
+                    "name": "LINE",
+                    "total": 23,
+                    "covered": 22,
+                    "missed": 1,
+                    "coverage": 95.65217391304348
+                },
+                {
+                    "name": "COMPLEXITY",
+                    "total": 19,
+                    "covered": 11,
+                    "missed": 8,
+                    "coverage": 57.89473684210527
+                },
+                {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 1,
+                    "missed": 1,
+                    "coverage": 50.0
+                },
+                {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            ]
+        },
+        "pit_metrics": {
+            "total_tests_run": 690,
+            "total_killed": 324,
+            "total_survived": 133,
+            "total_detected": 324,
+            "total_undetected": 133,
+            "total_no_coverage": 0,
+            "mutators": [
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 20,
+                    "killed": 2,
+                    "survived": 8,
+                    "detected": 2,
+                    "undetected": 8,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 4,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+                    "tests_run": 17,
+                    "killed": 12,
+                    "survived": 1,
+                    "detected": 12,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 22,
+                    "killed": 17,
+                    "survived": 0,
+                    "detected": 17,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+                    "tests_run": 17,
+                    "killed": 7,
+                    "survived": 0,
+                    "detected": 7,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+                    "tests_run": 10,
+                    "killed": 6,
+                    "survived": 1,
+                    "detected": 6,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+                    "tests_run": 19,
+                    "killed": 8,
+                    "survived": 2,
+                    "detected": 8,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+                    "tests_run": 17,
+                    "killed": 5,
+                    "survived": 5,
+                    "detected": 5,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator",
+                    "tests_run": 4,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ABSMutator",
+                    "tests_run": 59,
+                    "killed": 27,
+                    "survived": 5,
+                    "detected": 27,
+                    "undetected": 5,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD1Mutator",
+                    "tests_run": 8,
+                    "killed": 3,
+                    "survived": 3,
+                    "detected": 3,
+                    "undetected": 3,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOD2Mutator",
+                    "tests_run": 8,
+                    "killed": 2,
+                    "survived": 4,
+                    "detected": 2,
+                    "undetected": 4,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR1Mutator",
+                    "tests_run": 8,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR2Mutator",
+                    "tests_run": 8,
+                    "killed": 0,
+                    "survived": 6,
+                    "detected": 0,
+                    "undetected": 6,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR3Mutator",
+                    "tests_run": 8,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.AOR4Mutator",
+                    "tests_run": 8,
+                    "killed": 5,
+                    "survived": 1,
+                    "detected": 5,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR1Mutator",
+                    "tests_run": 13,
+                    "killed": 11,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR2Mutator",
+                    "tests_run": 15,
+                    "killed": 12,
+                    "survived": 0,
+                    "detected": 12,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR3Mutator",
+                    "tests_run": 16,
+                    "killed": 13,
+                    "survived": 0,
+                    "detected": 13,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR4Mutator",
+                    "tests_run": 15,
+                    "killed": 12,
+                    "survived": 0,
+                    "detected": 12,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR5Mutator",
+                    "tests_run": 17,
+                    "killed": 12,
+                    "survived": 1,
+                    "detected": 12,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.CRCR6Mutator",
+                    "tests_run": 16,
+                    "killed": 13,
+                    "survived": 0,
+                    "detected": 13,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR1Mutator",
+                    "tests_run": 31,
+                    "killed": 9,
+                    "survived": 8,
+                    "detected": 9,
+                    "undetected": 8,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR2Mutator",
+                    "tests_run": 24,
+                    "killed": 17,
+                    "survived": 0,
+                    "detected": 17,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR3Mutator",
+                    "tests_run": 31,
+                    "killed": 11,
+                    "survived": 6,
+                    "detected": 11,
+                    "undetected": 6,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR4Mutator",
+                    "tests_run": 31,
+                    "killed": 11,
+                    "survived": 6,
+                    "detected": 11,
+                    "undetected": 6,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.ROR5Mutator",
+                    "tests_run": 25,
+                    "killed": 15,
+                    "survived": 2,
+                    "detected": 15,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI1Mutator",
+                    "tests_run": 49,
+                    "killed": 12,
+                    "survived": 20,
+                    "detected": 12,
+                    "undetected": 20,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI2Mutator",
+                    "tests_run": 53,
+                    "killed": 11,
+                    "survived": 21,
+                    "detected": 11,
+                    "undetected": 21,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI3Mutator",
+                    "tests_run": 45,
+                    "killed": 16,
+                    "survived": 16,
+                    "detected": 16,
+                    "undetected": 16,
+                    "no_coverage": 0
+                },
+                {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.rv.UOI4Mutator",
+                    "tests_run": 48,
+                    "killed": 15,
+                    "survived": 17,
+                    "detected": 15,
+                    "undetected": 17,
+                    "no_coverage": 0
+                }
+            ]
+        }
+    }
+}
