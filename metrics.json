@@ -60,6 +60,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "anagrams.metaAI.prompt0.AnagramsTest": {
@@ -123,6 +128,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "anagrams.ai21Jamba.prompt1.AnagramsTest": {
@@ -186,6 +196,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 3,
+            "failed": 4,
+            "skipped": 0
         }
     },
     "anagrams.ai21Jamba.prompt0.AnagramsTest": {
@@ -249,6 +264,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "anagrams.chatGPT4o.prompt1.AnagramsTest": {
@@ -484,6 +504,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "anagrams.chatGPT4o.prompt0.AnagramsChatGPT4o": {
@@ -719,6 +744,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "anagrams.chatGPTo1Preview.prompt0.anagramschatGPTo1PreviewTest": {
@@ -782,6 +812,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "anagrams.claudeSonnet.prompt1.anagramsclaudeSonnetTest": {
@@ -1017,6 +1052,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 8,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "anagrams.claudeSonnet.prompt0.AnagramsTestClaude35Sonnet": {
@@ -1252,6 +1292,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "anagrams.copilot.prompt1.anagramscopilotTest": {
@@ -1315,6 +1360,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 2,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "binaryTree.metaAI.prompt1.BinaryTreeTest": {
@@ -1694,6 +1744,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "binaryTree.metaAI.prompt0.BinaryTreeTest": {
@@ -1757,6 +1812,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "binaryTree.ai21Jamba.prompt1.BinaryTreeTest": {
@@ -1820,6 +1880,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 1,
+            "failed": 7,
+            "skipped": 0
         }
     },
     "binaryTree.chatGPT4o.prompt0.binaryTreechatGPT4oTest": {
@@ -2199,6 +2264,11 @@
                     "no_coverage": 9
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "binaryTree.chatGPTo1Preview.prompt0.binaryTreechatGPTo1PreviewTest": {
@@ -2578,6 +2648,11 @@
                     "no_coverage": 9
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "binaryTree.claudeSonnet.prompt1.binaryTreeclaudeSonnetTest": {
@@ -2641,6 +2716,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "binaryTree.claudeSonnet.prompt0.BinaryTreeTestClaude35Sonnet": {
@@ -3020,6 +3100,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "binaryTree.copilot.prompt1.binaryTreecopilotTest": {
@@ -3399,6 +3484,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 2,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "orangesRotting.metaAI.prompt1.OrangesRotTest": {
@@ -3805,6 +3895,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "orangesRotting.metaAI.prompt0.orangesRotTest": {
@@ -3868,6 +3963,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "orangesRotting.ai21Jamba.prompt1.OrangesRotTest": {
@@ -3931,6 +4031,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "orangesRotting.ai21Jamba.prompt0.orangesRotTest": {
@@ -3994,6 +4099,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "orangesRotting.chatGPT4o.prompt0.OrangesRotTest": {
@@ -4400,6 +4510,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 8,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "orangesRotting.chatGPTo1Preview.prompt0.OrangesRotTest": {
@@ -4806,6 +4921,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 14,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "orangesRotting.claudeSonnet.prompt1.orangesRottingclaudeSonnetTest": {
@@ -4869,6 +4989,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 11,
+            "failed": 3,
+            "skipped": 0
         }
     },
     "orangesRotting.claudeSonnet.prompt0.orangesRottingTestClaude35Sonnet": {
@@ -4932,6 +5057,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 11,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "orangesRotting.copilot.prompt1.orangesRottingcopilotTest": {
@@ -5338,6 +5468,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "numIslands.metaAI.prompt1.NumIslandsTest": {
@@ -5735,6 +5870,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "numIslands.metaAI.prompt0.NumIslandsTest": {
@@ -5798,6 +5938,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "numIslands.ai21Jamba.prompt1.NumIslandsTest": {
@@ -5861,6 +6006,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "numIslands.ai21Jamba.prompt0.NumIslandsTest": {
@@ -5924,6 +6074,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "numIslands.chatGPT4o.prompt0.NumIslandsTestGPT4": {
@@ -6321,6 +6476,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "numIslands.chatGPTo1Preview.prompt0.numIslandsTest": {
@@ -6384,6 +6544,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 8,
+            "failed": 3,
+            "skipped": 0
         }
     },
     "numIslands.claudeSonnet.prompt1.numIslandsclaudeSonnetTest": {
@@ -6447,6 +6612,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 11,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "numIslands.claudeSonnet.prompt0.NumIslandsTestClaude35Sonnet": {
@@ -6844,6 +7014,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 12,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "numIslands.copilot.prompt1.numIslandscopilotTest": {
@@ -6907,6 +7082,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "cloneGraph.metaAI.prompt1.CloneGraphTest": {
@@ -6970,6 +7150,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "cloneGraph.metaAI.prompt0.CloneGraphTest": {
@@ -7033,6 +7218,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "cloneGraph.ai21Jamba.prompt1.CloneGraphTest": {
@@ -7259,6 +7449,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "cloneGraph.ai21Jamba.prompt0.CloneGraphTest": {
@@ -7322,6 +7517,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "cloneGraph.chatGPT4o.prompt0.cloneGraphchatGPT4oTest": {
@@ -7548,6 +7748,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "cloneGraph.chatGPTo1Preview.prompt0.cloneGraphchatGPTo1PreviewTest": {
@@ -7774,6 +7979,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "cloneGraph.claudeSonnet.prompt1.cloneGraphclaudeSonnetTest": {
@@ -8000,6 +8210,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "cloneGraph.claudeSonnet.prompt0.CloneGraphTestClaude35Sonnet": {
@@ -8226,6 +8441,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "cloneGraph.copilot.prompt1.cloneGraphcopilotTest": {
@@ -8452,6 +8672,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "NQueens.metaAI.prompt1.NqueensTest": {
@@ -8515,6 +8740,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "NQueens.metaAI.prompt0.NqueensTest": {
@@ -8578,6 +8808,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 3,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "NQueens.ai21Jamba.prompt0.NqueensTest": {
@@ -8641,6 +8876,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "NQueens.chatGPT4o.prompt0.NQueensTest": {
@@ -9065,6 +9305,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "NQueens.chatGPTo1Preview.prompt0.NQueensTest": {
@@ -9128,6 +9373,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "NQueens.claudeSonnet.prompt1.NQueensclaudeSonnetTest": {
@@ -9191,6 +9441,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 3,
+            "skipped": 0
         }
     },
     "NQueens.copilot.prompt1.NQueenscopilotTest": {
@@ -9615,6 +9870,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.metaAI.prompt1.MedianTest": {
@@ -9985,6 +10245,11 @@
                     "no_coverage": 1
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.metaAI.prompt0.MedianTest": {
@@ -10355,6 +10620,11 @@
                     "no_coverage": 1
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.ai21Jamba.prompt1.MedianTest": {
@@ -10418,6 +10688,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 4,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.ai21Jamba.prompt0.MedianTest": {
@@ -10481,6 +10756,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.chatGPT4o.prompt0.MedianSortedArrays": {
@@ -10544,6 +10824,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 8,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.chatGPTo1Preview.prompt0.MedianTest": {
@@ -10607,6 +10892,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 11,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.claudeSonnet.prompt1.MedianSortedArraysclaudeSonnetTest": {
@@ -10977,6 +11267,11 @@
                     "no_coverage": 1
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 11,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.claudeSonnet.prompt0.MedianSortedArraysTestClaude35Sonnet": {
@@ -11040,6 +11335,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 10,
+            "failed": 3,
+            "skipped": 0
         }
     },
     "MedianSortedArrays.copilot.prompt1.MedianSortedArrayscopilotTest": {
@@ -11103,6 +11403,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.metaAI.prompt1.RegularTest": {
@@ -11473,6 +11778,11 @@
                     "no_coverage": 3
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 8,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.metaAI.prompt0.RegularTest": {
@@ -11536,6 +11846,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.ai21Jamba.prompt1.RegularTest": {
@@ -11599,6 +11914,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 18,
+            "failed": 3,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.ai21Jamba.prompt0.RegularTest": {
@@ -11662,6 +11982,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.chatGPT4o.prompt0.RegularTest": {
@@ -11725,6 +12050,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 13,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.chatGPTo1Preview.prompt0.RegularTest": {
@@ -12095,6 +12425,11 @@
                     "no_coverage": 3
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 16,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.claudeSonnet.prompt1.RegularExpressionMatchingclaudeSonnetTest": {
@@ -12158,6 +12493,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 9,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.claudeSonnet.prompt0.RegularTest": {
@@ -12221,6 +12561,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 9,
+            "failed": 1,
+            "skipped": 0
         }
     },
     "RegularExpressionMatching.copilot.prompt1.RegularExpressionMatchingcopilotTest": {
@@ -12591,6 +12936,11 @@
                     "no_coverage": 3
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "trityp.metaAI.prompt1.TritypTest": {
@@ -12654,6 +13004,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 3,
+            "failed": 3,
+            "skipped": 0
         }
     },
     "trityp.metaAI.prompt0.TritypTest": {
@@ -13024,6 +13379,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "trityp.ai21Jamba.prompt1.TritypTest": {
@@ -13087,6 +13447,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 6,
+            "failed": 4,
+            "skipped": 0
         }
     },
     "trityp.ai21Jamba.prompt0.TritypTest": {
@@ -13457,6 +13822,11 @@
                     "no_coverage": 3
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "trityp.chatGPT4o.prompt0.TritypTestChatGPT4o": {
@@ -13827,6 +14197,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "trityp.chatGPTo1Preview.prompt0.TritypTestChatGPTo1Preview": {
@@ -14197,6 +14572,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 12,
+            "failed": 0,
+            "skipped": 0
         }
     },
     "trityp.claudeSonnet.prompt0.TritypTest": {
@@ -14260,6 +14640,11 @@
             "total_undetected": 0,
             "total_no_coverage": 0,
             "mutators": []
+        },
+        "pass_metrics": {
+            "passed": 3,
+            "failed": 2,
+            "skipped": 0
         }
     },
     "trityp.copilot.prompt0.TritypTestCopilot": {
@@ -14630,6 +15015,11 @@
                     "no_coverage": 0
                 }
             ]
+        },
+        "pass_metrics": {
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0
         }
     }
 }
