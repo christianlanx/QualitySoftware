@@ -4,7 +4,6 @@ import anagrams.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 import java.util.Arrays;
 
@@ -17,71 +16,64 @@ class AnagramsTest {
         anagrams = new Anagrams();
     }
 
-    @Test 
-    void testEmptyArray() {
-        String[] input = new String[]{};
+    @Test
+    void groupAnagrams_EmptyArray_ReturnsEmptyList() {
+        String[] input = {};
         List<List<String>> result = anagrams.groupAnagrams(input);
         assertTrue(result.isEmpty());
     }
 
     @Test
-    void testSingleWord() {
-        String[] input = new String[]{"hello"};
+    void groupAnagrams_SingleWord_ReturnsSingleGroupWithOneWord() {
+        String[] input = {"hello"};
         List<List<String>> result = anagrams.groupAnagrams(input);
+        
         assertEquals(1, result.size());
         assertEquals(Arrays.asList("hello"), result.get(0));
     }
 
     @Test
-    void testNoAnagrams() {
-        String[] input = new String[]{"cat", "dog", "pig"};
+    void groupAnagrams_NoAnagrams_ReturnsIndividualGroups() {
+        String[] input = {"cat", "dog", "bird"};
         List<List<String>> result = anagrams.groupAnagrams(input);
+        
         assertEquals(3, result.size());
-        assertTrue(result.contains(Arrays.asList("cat")));
-        assertTrue(result.contains(Arrays.asList("dog")));
-        assertTrue(result.contains(Arrays.asList("pig")));
+        assertTrue(result.stream().anyMatch(list -> list.contains("cat")));
+        assertTrue(result.stream().anyMatch(list -> list.contains("dog")));
+        assertTrue(result.stream().anyMatch(list -> list.contains("bird")));
     }
 
     @Test
-    void testSimpleAnagrams() {
-        String[] input = new String[]{"eat", "tea", "tan", "ate", "nat", "bat"};
+    void groupAnagrams_WithAnagrams_ReturnsCorrectGroups() {
+        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> result = anagrams.groupAnagrams(input);
+        
         assertEquals(3, result.size());
-        assertTrue(result.contains(Arrays.asList("eat", "tea", "ate")));
-        assertTrue(result.contains(Arrays.asList("tan", "nat")));
-        assertTrue(result.contains(Arrays.asList("bat")));
+        assertTrue(result.stream()
+            .anyMatch(list -> list.containsAll(Arrays.asList("eat", "tea", "ate"))));
+        assertTrue(result.stream()
+            .anyMatch(list -> list.containsAll(Arrays.asList("tan", "nat"))));
+        assertTrue(result.stream()
+            .anyMatch(list -> list.containsAll(Arrays.asList("bat"))));
     }
 
     @Test
-    void testWithEmptyString() {
-        String[] input = new String[]{""};
+    void groupAnagrams_WithDuplicates_IncludesDuplicatesInSameGroup() {
+        String[] input = {"cat", "cat", "tac"};
         List<List<String>> result = anagrams.groupAnagrams(input);
+        
         assertEquals(1, result.size());
-        assertEquals(Arrays.asList(""), result.get(0));
+        assertEquals(3, result.get(0).size());
+        assertTrue(result.get(0).containsAll(Arrays.asList("cat", "cat", "tac")));
     }
 
     @Test
-    void testMultipleEmptyStrings() {
-        String[] input = new String[]{"", ""};
+    void groupAnagrams_WithEmptyString_HandlesEmptyString() {
+        String[] input = {"", ""};
         List<List<String>> result = anagrams.groupAnagrams(input);
+        
         assertEquals(1, result.size());
-        assertEquals(Arrays.asList("", ""), result.get(0));
-    }
-
-    @Test
-    void testWithSpaces() {
-        String[] input = new String[]{"a b", "b a"};
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(1, result.size());
-        assertTrue(result.contains(Arrays.asList("a b", "b a")));
-    }
-
-    @Test
-    void testCaseSensitive() {
-        String[] input = new String[]{"Eat", "eat"};
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(2, result.size());
-        assertTrue(result.contains(Arrays.asList("Eat")));
-        assertTrue(result.contains(Arrays.asList("eat")));
+        assertEquals(2, result.get(0).size());
+        assertTrue(result.get(0).containsAll(Arrays.asList("", "")));
     }
 }

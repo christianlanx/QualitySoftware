@@ -3,6 +3,9 @@ import anagrams.*;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AnagramsTest {
     
