@@ -2,6 +2,11 @@
 target/
 maven_project/target/
 
+# python stuff
+scripts/__pycache__/
+scripts/.ipynb_checkpoints
+scripts/secrets.py
+
 # Compiled class files
 *.class
 

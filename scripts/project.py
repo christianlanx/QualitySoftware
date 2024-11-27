@@ -28,3 +28,42 @@ all_packages = [
     "cloneGraph", 
     "numIslands"
 ]
+
+all_classes = {
+    "Anagrams": {
+        "package": "anagrams",
+        "difficulty": "medium"
+    },
+    "BinaryTree": {
+        "package": "binaryTree",
+        "difficulty": "medium"
+    },
+    "CloneGraph": {
+        "package": "cloneGraph",
+        "difficulty": "medium"
+    },
+    "Median": {
+        "package": "MedianSortedArrays",
+        "difficulty": "hard"
+    },
+    "Nqueens": {
+        "package": "NQueens",
+        "difficulty": "hard"
+    },
+    "NumIslands": {
+        "package": "numIslands",
+        "difficulty": "medium"
+    },
+    "OrangesRot": {
+        "package": "orangesRotting",
+        "difficulty": "medium"
+    },
+    "Regular": {
+        "package": "RegularExpressionMatching",
+        "difficulty": "hard"
+    },
+    "Trityp": {
+        "package": "trityp",
+        "difficulty": "easy"
+    }
+}
