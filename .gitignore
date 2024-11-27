@@ -1,5 +1,6 @@
 # Maven target directory
 target/
+maven_project/target/
 
 # Compiled class files
 *.class
