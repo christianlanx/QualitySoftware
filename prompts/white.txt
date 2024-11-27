@@ -1,0 +1,4 @@
+You are a test engineer.
+Write me a test suite to cover the following class.
+Write the test class using Junit5.
+Just return the code for the test class.
