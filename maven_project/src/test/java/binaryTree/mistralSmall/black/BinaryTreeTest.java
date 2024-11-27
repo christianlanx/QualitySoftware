@@ -1,34 +1,11 @@
 package binaryTree.mistralSmall.black;
 import binaryTree.*;
+import binaryTree.BinaryTree.*;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
-
-class BinaryTree {
-    // Assume this method is implemented according to the given description
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        // Implementation goes here
-        return null; // Placeholder
-    }
-}
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {}
-
-    TreeNode(int val) { this.val = val; }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
 
 public class BinaryTreeTest {
 
