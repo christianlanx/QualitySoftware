@@ -8,19 +8,19 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 
 public class BinaryTreeTest {
-
-    private BinaryTree.TreeNode root;
+    private BinaryTree binaryTree;
 
     @BeforeEach
     public void setUp() {
         // Initialize your test data here
+        binaryTree = new BinaryTree();
     }
 
     @Test
     public void testBuildTree_EmptyPreorder() {
         int[] preorder = {};
         int[] inorder = {};
-        root = BinaryTree.buildTree(preorder, inorder);
+        BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
         // Assert the expected structure of the empty tree
     }
 
@@ -28,7 +28,7 @@ public class BinaryTreeTest {
     public void testBuildTree_SingleNode() {
         int[] preorder = {1};
         int[] inorder = {1};
-        root = BinaryTree.buildTree(preorder, inorder);
+        BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
         // Assert the single node tree structure
     }
 
@@ -36,7 +36,7 @@ public class BinaryTreeTest {
     public void testBuildTree_SimpleTree() {
         int[] preorder = {1, 2, 3};
         int[] inorder = {2, 1, 3};
-        root = BinaryTree.buildTree(preorder, inorder);
+        BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
         // Assert the structure of the simple tree
     }
 
@@ -44,7 +44,7 @@ public class BinaryTreeTest {
     public void testBuildTree_ComplexTree() {
         int[] preorder = {1, 2, 3, 4, 5, 6};
         int[] inorder = {2, 4, 1, 6, 3, 5};
-        root = BinaryTree.buildTree(preorder, inorder);
+        BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
         // Assert the structure of the complex tree
     }
 
@@ -52,7 +52,7 @@ public class BinaryTreeTest {
     public void testBuildTree_DuplicateValues() {
         int[] preorder = {1, 2, 2, 3};
         int[] inorder = {2, 1, 3};
-        root = BinaryTree.buildTree(preorder, inorder);
+        BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
         // Assert the structure considering duplicate values
     }
 
