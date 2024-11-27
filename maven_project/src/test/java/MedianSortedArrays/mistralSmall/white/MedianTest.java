@@ -2,29 +2,52 @@ package MedianSortedArrays.mistralSmall.white;
 import MedianSortedArrays.*;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MedianTest {
 
-    private final Median median = new Median();
-
     @Test
-    public void testMedianOfTwoSortedArrays() {
-        assertArrayEquals(new int[]{4}, median.findMedianSortedArrays(new int[]{1, 3}, new int[]{2}), 0.0001);
-        assertArrayEquals(new int[]{4, 5}, median.findMedianSortedArrays(new int[]{1, 3}, new int[]{2, 4, 5}), 0.0001);
-        assertArrayEquals(new int[]{2.5}, median.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}), 0.0001);
-        assertArrayEquals(new int[]{2.5}, median.findMedianSortedArrays(new int[]{0, 0, 1, 1}, new int[]{1, 2}), 0.0001);
-        assertArrayEquals(new int[]{2}, median.findMedianSortedArrays(new int[]{1, 3}, new int[]{2}), 0.0001);
-        assertArrayEquals(new int[]{5}, median.findMedianSortedArrays(new int[]{1, 2, 3, 4}, new int[]{5, 6, 7, 8}), 0.0001);
-        assertArrayEquals(new int[]{6}, median.findMedianSortedArrays(new int[]{1, 3, 5, 7}, new int[]{2, 4, 6, 8}), 0.0001);
-        assertArrayEquals(new int[]{4}, median.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}), 0.0001);
-    }
+    public void testMedianSortedArrays() {
+        Median median = new Median();
 
-    @Test
-    public void testEdgeCases() {
-        assertArrayEquals(new int[]{5}, median.findMedianSortedArrays(new int[]{1, 3}, new int[]{5, 7}), 0.0001); // One element in one array
-        assertArrayEquals(new int[]{2}, median.findMedianSortedArrays(new int[]{1}, new int[]{2, 3}), 0.0001); // One element in one array
-        assertArrayEquals(new int[]{2, 3}, median.findMedianSortedArrays(new int[]{1, 2}, new int[]{2, 3, 4}), 0.0001); // Duplicate elements
-        assertArrayEquals(new int[]{2}, median.findMedianSortedArrays(new int[]{1}, new int[]{2}), 0.0001); // Empty array
+        // Test case 1
+        int[] nums1 = {1, 3};
+        int[] nums2 = {2};
+        assertEquals(2.0, median.findMedianSortedArrays(nums1, nums2));
+
+        // Test case 2
+        nums1 = new int[]{1, 2};
+        nums2 = new int[]{3, 4};
+        assertEquals(2.5, median.findMedianSortedArrays(nums1, nums2));
+
+        // Test case 3
+        nums1 = new int[]{0, 0};
+        nums2 = new int[]{0, 0};
+        assertEquals(0.0, median.findMedianSortedArrays(nums1, nums2));
+
+        // Test case 4
+        nums1 = new int[]{1};
+        nums2 = new int[]{2, 3};
+        assertEquals(2.0, median.findMedianSortedArrays(nums1, nums2));
+
+        // Test case 5
+        nums1 = new int[]{1, 2, 3};
+        nums2 = new int[]{4, 5};
+        assertEquals(3.0, median.findMedianSortedArrays(nums1, nums2));
+
+        // Test case 6
+        nums1 = new int[]{1, 3, 5};
+        nums2 = new int[]{2, 4, 6};
+        assertEquals(3.5, median.findMedianSortedArrays(nums1, nums2));
+
+        // Test case 7
+        nums1 = new int[]{};
+        nums2 = new int[]{1};
+        assertEquals(1.0, median.findMedianSortedArrays(nums1, nums2));
+
+        // Test case 8
+        nums1 = new int[]{1, 3};
+        nums2 = new int[]{2};
+        assertEquals(2.0, median.findMedianSortedArrays(nums1, nums2));
     }
 }

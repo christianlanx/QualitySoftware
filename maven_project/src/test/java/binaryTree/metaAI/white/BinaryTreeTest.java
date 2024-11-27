@@ -1,63 +1,72 @@
 package binaryTree.metaAI.white;
 import binaryTree.*;
-import binaryTree.BinaryTree.*;
 
-
+import binaryTree.BinaryTree;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BinaryTreeTest {
 
-    private BinaryTree binaryTree = new BinaryTree();
+    private BinaryTree binaryTree;
 
-    @Test
-    public void testBuildTree_Example1() {
-        int[] preorder = {3, 9, 20, 15, 7};
-        int[] inorder = {9, 3, 15, 20, 7};
-        TreeNode expected = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(equals(expected, actual));
+    @BeforeEach
+    public void setup() {
+        binaryTree = new BinaryTree();
     }
 
     @Test
-    public void testBuildTree_Example2() {
-        int[] preorder = {-1};
-        int[] inorder = {-1};
-        TreeNode expected = new TreeNode(-1);
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(equals(expected, actual));
+    public void testBuildTree_Null_Preorder() {
+        assertThrows(NullPointerException.class, () -> binaryTree.buildTree(null, new int[]{1, 2, 3}));
     }
 
     @Test
-    public void testBuildTree_EmptyArrays() {
-        int[] preorder = {};
-        int[] inorder = {};
-        TreeNode expected = null;
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected, actual);
+    public void testBuildTree_Null_Inorder() {
+        assertThrows(NullPointerException.class, () -> binaryTree.buildTree(new int[]{1, 2, 3}, null));
     }
 
     @Test
-    public void testBuildTree_LeftSkewedTree() {
-        int[] preorder = {1, 2, 3};
-        int[] inorder = {3, 2, 1};
-        TreeNode expected = new TreeNode(1, new TreeNode(2, new TreeNode(3)), null);
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(equals(expected, actual));
+    public void testBuildTree_Empty_Preorder() {
+        assertNull(binaryTree.buildTree(new int[]{}, new int[]{1, 2, 3}));
     }
 
     @Test
-    public void testBuildTree_RightSkewedTree() {
-        int[] preorder = {1, 2, 3};
-        int[] inorder = {1, 2, 3};
-        TreeNode expected = new TreeNode(1, null, new TreeNode(2, null, new TreeNode(3)));
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(equals(expected, actual));
+    public void testBuildTree_Empty_Inorder() {
+        assertNull(binaryTree.buildTree(new int[]{1, 2, 3}, new int[]{}));
     }
 
-    private boolean equals(BinaryTree.TreeNode t1, BinaryTree.TreeNode t2) {
-        if (t1 == null && t2 == null) return true;
-        if (t1 == null || t2 == null) return false;
-        return t1.val == t2.val && equals(t1.left, t2.left) && equals(t1.right, t2.right);
+    @Test
+    public void testBuildTree_Simple_Tree() {
+        int[] preorder = {1, 2, 4, 5, 3, 6, 7};
+        int[] inorder = {4, 2, 5, 1, 6, 3, 7};
+        BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
+        assertNotNull(root);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(3, root.right.val);
+        assertEquals(4, root.left.left.val);
+        assertEquals(5, root.left.right.val);
+        assertEquals(6, root.right.left.val);
+        assertEquals(7, root.right.right.val);
+    }
+
+    @Test
+    public void testBuildTree_Complex_Tree() {
+        int[] preorder = {1, 2, 4, 8, 9, 5, 10, 11, 3, 6, 7};
+        int[] inorder = {8, 4, 9, 2, 10, 5, 11, 1, 6, 3, 7};
+        BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
+        assertNotNull(root);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(3, root.right.val);
+        assertEquals(4, root.left.left.val);
+        assertEquals(5, root.left.right.val);
+        assertEquals(6, root.right.left.val);
+        assertEquals(7, root.right.right.val);
+        assertEquals(8, root.left.left.left.val);
+        assertEquals(9, root.left.left.right.val);
+        assertEquals(10, root.left.right.left.val);
+        assertEquals(11, root.left.right.right.val);
     }
 }

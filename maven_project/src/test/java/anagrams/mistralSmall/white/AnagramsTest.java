@@ -2,48 +2,74 @@ package anagrams.mistralSmall.white;
 import anagrams.*;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Assertions;
 import java.util.List;
 
-class AnagramsTest {
-
-    private final Anagrams anagrams = new Anagrams();
+public class AnagramsTest {
 
     @Test
-    void testGroupAnagramsEmptyArray() {
+    public void testGroupAnagrams() {
+        Anagrams anagrams = new Anagrams();
+
+        String[] strs = {"cat", "dog", "tac", "good", "act", "god"};
+        List<List<String>> result = anagrams.groupAnagrams(strs);
+
+        List<String> expectedGroup1 = List.of("cat", "tac", "act");
+        List<String> expectedGroup2 = List.of("dog", "god");
+
+        Assertions.assertEquals(2, result.size());
+        Assertions.assertTrue(result.contains(expectedGroup1));
+        Assertions.assertTrue(result.contains(expectedGroup2));
+    }
+
+    @Test
+    public void testGroupAnagramsEmptyInput() {
+        Anagrams anagrams = new Anagrams();
+
         String[] strs = {};
         List<List<String>> result = anagrams.groupAnagrams(strs);
-        assertEquals(0, result.size());
+
+        Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
-    void testGroupAnagramsSingleWord() {
-        String[] strs = {"listen"};
+    public void testGroupAnagramsSingleElement() {
+        Anagrams anagrams = new Anagrams();
+
+        String[] strs = {"cat"};
         List<List<String>> result = anagrams.groupAnagrams(strs);
-        assertEquals(1, result.size());
-        assertEquals(1, result.get(0).size());
-        assertEquals("listen", result.get(0).get(0));
+
+        List<String> expectedGroup = List.of("cat");
+
+        Assertions.assertEquals(1, result.size());
+        Assertions.assertTrue(result.contains(expectedGroup));
     }
 
-    @ParameterizedTest
-    @CsvSource({
-        "\"cat, dog, god, act, tac\"",
-        "\"foo, bar, car, tar, rat\"",
-        "\"abc, bca, cab\"",
-        "\"hello, world, drowl, llohe\"",
-        "\"debit card, bad credit, elvis, lives\"",
-        "\"joy, oy, oy, joy, joy, oy, oy, jy, oy\"",
-        "\"restful, fluster, wolves, wolfes, elvis, lives\"",
-        "\"listen, silent, enlist, google, gooegl, gooelg, goggle, elgoog\"",
-        "\"abc, abc, abc, abc, abc\"",
-        "\"a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z\"",
-        "\"\" "
-    })
-    void testGroupAnagrams(String input) {
-        String[] strs = input.split(",\\s*");
+    @Test
+    public void testGroupAnagramsAllSame() {
+        Anagrams anagrams = new Anagrams();
+
+        String[] strs = {"cat", "cat", "cat"};
         List<List<String>> result = anagrams.groupAnagrams(strs);
-        assertEquals(strs.length, result.stream().mapToInt(List::size).sum());
+
+        List<String> expectedGroup = List.of("cat", "cat", "cat");
+
+        Assertions.assertEquals(1, result.size());
+        Assertions.assertTrue(result.contains(expectedGroup));
+    }
+
+    @Test
+    public void testGroupAnagramsMixedCase() {
+        Anagrams anagrams = new Anagrams();
+
+        String[] strs = {"Cat", "cat", "tac", "Dog", "god", "God"};
+        List<List<String>> result = anagrams.groupAnagrams(strs);
+
+        List<String> expectedGroup1 = List.of("Cat", "cat", "tac", "act");
+        List<String> expectedGroup2 = List.of("Dog", "god", "God");
+
+        Assertions.assertEquals(2, result.size());
+        Assertions.assertTrue(result.contains(expectedGroup1));
+        Assertions.assertTrue(result.contains(expectedGroup2));
     }
 }

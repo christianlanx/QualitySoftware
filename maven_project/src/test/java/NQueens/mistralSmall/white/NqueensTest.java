@@ -2,61 +2,53 @@ package NQueens.mistralSmall.white;
 import NQueens.*;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class NqueensTest {
-
-    private final Nqueens nqueens = new Nqueens();
+public class NqueensTest {
 
     @Test
-    void testSolveNQueens_1() {
+    public void testSolveNQueens_1() {
+        Nqueens nqueens = new Nqueens();
         List<List<String>> result = nqueens.solveNQueens(1);
-        List<String> expected = List.of(List.of("Q"));
         assertEquals(1, result.size());
-        assertEquals(expected, result.get(0));
+        assertEquals("[Q]", result.get(0).toString());
     }
 
     @Test
-    void testSolveNQueens_2() {
+    public void testSolveNQueens_2() {
+        Nqueens nqueens = new Nqueens();
         List<List<String>> result = nqueens.solveNQueens(2);
-        List<String> expected1 = List.of(List.of(".", "Q"), List.of("Q", "."));
-        List<String> expected2 = List.of(List.of("Q", "."), List.of(".", "Q"));
-        assertEquals(2, result.size());
-        assertTrue(result.contains(expected1) || result.contains(expected2));
-    }
-
-    @Test
-    void testSolveNQueens_3() {
-        List<List<String>> result = nqueens.solveNQueens(3);
-        List<String> expected1 = List.of(List.of(".", ".", "Q"), List.of("Q", ".", "."), List.of(".", "Q", "."));
-        List<String> expected2 = List.of(List.of("Q", ".", "."), List.of(".", "Q", "."), List.of(".", ".", "Q"));
-        List<String> expected3 = List.of(List.of(".", "Q", "."), List.of(".", ".", "Q"), List.of("Q", ".", "."));
-        assertEquals(3, result.size());
-        assertTrue(result.contains(expected1) || result.contains(expected2) || result.contains(expected3));
-    }
-
-    @Test
-    void testSolveNQueens_4() {
-        List<List<String>> result = nqueens.solveNQueens(4);
-        List<String> expected1 = List.of(List.of(".", ".", ".", "Q"), List.of(".", ".", "Q", "."), List.of(".", "Q", ".", "."), List.of("Q", ".", ".", "."));
-        List<String> expected2 = List.of(List.of(".", ".", "Q", "."), List.of(".", "Q", ".", "."), List.of("Q", ".", ".", "."), List.of(".", ".", ".", "Q"));
-        List<String> expected3 = List.of(List.of(".", "Q", ".", "."), List.of("Q", ".", ".", "."), List.of(".", ".", ".", "Q"), List.of(".", ".", "Q", "."));
-        List<String> expected4 = List.of(List.of("Q", ".", ".", "."), List.of(".", ".", ".", "Q"), List.of(".", ".", "Q", "."), List.of(".", "Q", ".", "."));
-        assertEquals(4, result.size());
-        assertTrue(result.contains(expected1) || result.contains(expected2) || result.contains(expected3) || result.contains(expected4));
-    }
-
-    @Test
-    void testSolveNQueens_0() {
-        List<List<String>> result = nqueens.solveNQueens(0);
         assertEquals(0, result.size());
     }
 
     @Test
-    void testSolveNQueens_5() {
+    public void testSolveNQueens_3() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(3);
+        assertEquals(0, result.size());
+    }
+
+    @Test
+    public void testSolveNQueens_4() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(4);
+        assertEquals(2, result.size());
+        assertEquals("[Q...\n.Q..\n..Q.\n...Q]", result.get(0).toString());
+        assertEquals("[Q...\n..Q.\n.Q..\n...Q]", result.get(1).toString());
+    }
+
+    @Test
+    public void testSolveNQueens_5() {
+        Nqueens nqueens = new Nqueens();
         List<List<String>> result = nqueens.solveNQueens(5);
-        assertEquals(10, result.size()); // There should be 10 valid solutions for 5 queens
+        assertEquals(10, result.size());
+    }
+
+    @Test
+    public void testSolveNQueens_8() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(8);
+        assertEquals(92, result.size());
     }
 }
