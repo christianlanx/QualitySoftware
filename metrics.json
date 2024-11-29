@@ -11711,5 +11711,5003 @@
                 }
             }
         }
+    },
+    "RegularExpressionMatching.claude35Sonnet.white.RegularTest": {
+        "static": {
+            "lines_of_code": 78,
+            "num_tests": 8,
+            "num_assertions": 31
+        },
+        "test": {
+            "total_tests": 8,
+            "tests_passed": 8,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 30,
+                "survived": 3,
+                "no_coverage": 2,
+                "detected": 30,
+                "undetected": 5
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 13,
+                    "survived": 3,
+                    "detected": 13,
+                    "undetected": 4,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpt35Turbo.black.RegularTest": {
+        "static": {
+            "lines_of_code": 39,
+            "num_tests": 5,
+            "num_assertions": 7
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 29,
+                "survived": 4,
+                "no_coverage": 2,
+                "detected": 29,
+                "undetected": 6
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 12,
+                    "survived": 4,
+                    "detected": 12,
+                    "undetected": 5,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpt35Turbo.white.RegularTest": {
+        "static": {
+            "lines_of_code": 19,
+            "num_tests": 1,
+            "num_assertions": 5
+        },
+        "test": {
+            "total_tests": 1,
+            "tests_passed": 0,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 93,
+                    "missed": 70,
+                    "coverage": 57.05521472392638
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 11,
+                    "missed": 23,
+                    "coverage": 32.35294117647059
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 12,
+                    "missed": 4,
+                    "coverage": 75.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 4,
+                    "missed": 16,
+                    "coverage": 20.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpt4oMini.black.RegularTest": {
+        "static": {
+            "lines_of_code": 61,
+            "num_tests": 6,
+            "num_assertions": 27
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 5,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpt4oMini.white.RegularTest": {
+        "static": {
+            "lines_of_code": 66,
+            "num_tests": 7,
+            "num_assertions": 23
+        },
+        "test": {
+            "total_tests": 7,
+            "tests_passed": 4,
+            "tests_failed": 3,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpt4o.black.RegularTest": {
+        "static": {
+            "lines_of_code": 90,
+            "num_tests": 16,
+            "num_assertions": 16
+        },
+        "test": {
+            "total_tests": 16,
+            "tests_passed": 15,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpt4o.white.RegularTest": {
+        "static": {
+            "lines_of_code": 49,
+            "num_tests": 6,
+            "num_assertions": 15
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 6,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 30,
+                "survived": 3,
+                "no_coverage": 2,
+                "detected": 30,
+                "undetected": 5
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 13,
+                    "survived": 3,
+                    "detected": 13,
+                    "undetected": 4,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpto1Mini.black.RegularTest": {
+        "static": {
+            "lines_of_code": 132,
+            "num_tests": 16,
+            "num_assertions": 17
+        },
+        "test": {
+            "total_tests": 16,
+            "tests_passed": 16,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 30,
+                "survived": 3,
+                "no_coverage": 2,
+                "detected": 30,
+                "undetected": 5
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 13,
+                    "survived": 3,
+                    "detected": 13,
+                    "undetected": 4,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.gpto1Mini.white.RegularTest": {
+        "static": {
+            "lines_of_code": 41,
+            "num_tests": 1,
+            "num_assertions": 1
+        },
+        "test": {
+            "total_tests": 22,
+            "tests_passed": 22,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 30,
+                "survived": 3,
+                "no_coverage": 2,
+                "detected": 30,
+                "undetected": 5
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 13,
+                    "survived": 3,
+                    "detected": 13,
+                    "undetected": 4,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.metaAI.black.RegularTest": {
+        "static": {
+            "lines_of_code": 73,
+            "num_tests": 7,
+            "num_assertions": 7
+        },
+        "test": {
+            "total_tests": 7,
+            "tests_passed": 7,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 150,
+                    "missed": 13,
+                    "coverage": 92.02453987730061
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 26,
+                    "missed": 8,
+                    "coverage": 76.47058823529412
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 13,
+                    "missed": 7,
+                    "coverage": 65.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 28,
+                "survived": 5,
+                "no_coverage": 2,
+                "detected": 28,
+                "undetected": 7
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 3,
+                    "survived": 1,
+                    "detected": 3,
+                    "undetected": 2,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 12,
+                    "survived": 4,
+                    "detected": 12,
+                    "undetected": 5,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.metaAI.white.RegularTest": {
+        "static": {
+            "lines_of_code": 82,
+            "num_tests": 8,
+            "num_assertions": 8
+        },
+        "test": {
+            "total_tests": 8,
+            "tests_passed": 8,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 150,
+                    "missed": 13,
+                    "coverage": 92.02453987730061
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 28,
+                    "missed": 6,
+                    "coverage": 82.35294117647058
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 15,
+                    "missed": 5,
+                    "coverage": 75.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 28,
+                "survived": 5,
+                "no_coverage": 2,
+                "detected": 28,
+                "undetected": 7
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 3,
+                    "survived": 1,
+                    "detected": 3,
+                    "undetected": 2,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 12,
+                    "survived": 4,
+                    "detected": 12,
+                    "undetected": 5,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.mistralSmall.black.RegularTest": {
+        "static": {
+            "lines_of_code": 120,
+            "num_tests": 14,
+            "num_assertions": 14
+        },
+        "test": {
+            "total_tests": 14,
+            "tests_passed": 14,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 28,
+                    "missed": 6,
+                    "coverage": 82.35294117647058
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 15,
+                    "missed": 5,
+                    "coverage": 75.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 30,
+                "survived": 3,
+                "no_coverage": 2,
+                "detected": 30,
+                "undetected": 5
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 13,
+                    "survived": 3,
+                    "detected": 13,
+                    "undetected": 4,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.mistralSmall.white.RegularTest": {
+        "static": {
+            "lines_of_code": 54,
+            "num_tests": 5,
+            "num_assertions": 21
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 2,
+            "tests_failed": 3,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 30,
+                    "missed": 4,
+                    "coverage": 88.23529411764706
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 17,
+                    "missed": 3,
+                    "coverage": 85.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.mistralLarge.black.RegularTest": {
+        "static": {
+            "lines_of_code": 92,
+            "num_tests": 14,
+            "num_assertions": 14
+        },
+        "test": {
+            "total_tests": 14,
+            "tests_passed": 14,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 152,
+                    "missed": 11,
+                    "coverage": 93.25153374233128
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 31,
+                    "missed": 3,
+                    "coverage": 91.17647058823529
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 15,
+                    "missed": 1,
+                    "coverage": 93.75
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 18,
+                    "missed": 2,
+                    "coverage": 90.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 30,
+                "survived": 3,
+                "no_coverage": 2,
+                "detected": 30,
+                "undetected": 5
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 8,
+                    "killed": 8,
+                    "survived": 0,
+                    "detected": 8,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator",
+                    "tests_run": 5,
+                    "killed": 4,
+                    "survived": 0,
+                    "detected": 4,
+                    "undetected": 1,
+                    "no_coverage": 1
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 2,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 2,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 17,
+                    "killed": 13,
+                    "survived": 3,
+                    "detected": 13,
+                    "undetected": 4,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "RegularExpressionMatching.mistralLarge.white.RegularTest": {
+        "static": {
+            "lines_of_code": 34,
+            "num_tests": 1,
+            "num_assertions": 18
+        },
+        "test": {
+            "total_tests": 1,
+            "tests_passed": 0,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 163,
+                    "covered": 93,
+                    "missed": 70,
+                    "coverage": 57.05521472392638
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 34,
+                    "covered": 11,
+                    "missed": 23,
+                    "coverage": 32.35294117647059
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 12,
+                    "missed": 4,
+                    "coverage": 75.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 20,
+                    "covered": 4,
+                    "missed": 16,
+                    "coverage": 20.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "cloneGraph.ai21Jamba15Mini.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 50,
+            "num_tests": 3,
+            "num_assertions": 0
+        },
+        "test": {
+            "total_tests": 3,
+            "tests_passed": 3,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 1,
+                "survived": 3,
+                "no_coverage": 0,
+                "detected": 1,
+                "undetected": 3
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 1,
+                    "survived": 2,
+                    "detected": 1,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 0,
+                    "survived": 1,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.ai21Jamba15Mini.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 64,
+            "num_tests": 4,
+            "num_assertions": 20
+        },
+        "test": {
+            "total_tests": 4,
+            "tests_passed": 2,
+            "tests_failed": 2,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 79,
+                    "missed": 3,
+                    "coverage": 96.34146341463415
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 6,
+                    "missed": 2,
+                    "coverage": 75.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 4,
+                    "missed": 2,
+                    "coverage": 66.66666666666666
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "cloneGraph.ai21Jamba15Large.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 118,
+            "num_tests": 4,
+            "num_assertions": 4
+        },
+        "test": {
+            "total_tests": 4,
+            "tests_passed": 3,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 80,
+                    "missed": 2,
+                    "coverage": 97.5609756097561
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 7,
+                    "missed": 1,
+                    "coverage": 87.5
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 5,
+                    "missed": 1,
+                    "coverage": 83.33333333333334
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "cloneGraph.ai21Jamba15Large.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 98,
+            "num_tests": 5,
+            "num_assertions": 27
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.claude35Haiku.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 102,
+            "num_tests": 5,
+            "num_assertions": 17
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.claude35Haiku.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 115,
+            "num_tests": 5,
+            "num_assertions": 17
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.claude35Sonnet.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 112,
+            "num_tests": 5,
+            "num_assertions": 30
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.claude35Sonnet.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 100,
+            "num_tests": 5,
+            "num_assertions": 24
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.gpt35Turbo.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 45,
+            "num_tests": 1,
+            "num_assertions": 7
+        },
+        "test": {
+            "total_tests": 1,
+            "tests_passed": 0,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 80,
+                    "missed": 2,
+                    "coverage": 97.5609756097561
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 7,
+                    "missed": 1,
+                    "coverage": 87.5
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 5,
+                    "missed": 1,
+                    "coverage": 83.33333333333334
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "cloneGraph.gpt35Turbo.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 50,
+            "num_tests": 2,
+            "num_assertions": 10
+        },
+        "test": {
+            "total_tests": 2,
+            "tests_passed": 2,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.gpt4oMini.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 98,
+            "num_tests": 4,
+            "num_assertions": 4
+        },
+        "test": {
+            "total_tests": 4,
+            "tests_passed": 3,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "cloneGraph.gpt4oMini.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 104,
+            "num_tests": 5,
+            "num_assertions": 24
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.gpt4o.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 125,
+            "num_tests": 5,
+            "num_assertions": 6
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 3,
+            "tests_failed": 2,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "cloneGraph.gpt4o.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 113,
+            "num_tests": 5,
+            "num_assertions": 27
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.gpto1Mini.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 261,
+            "num_tests": 6,
+            "num_assertions": 17
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 6,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 0,
+                    "missed": 82,
+                    "coverage": 0.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 0,
+                    "missed": 8,
+                    "coverage": 0.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 0,
+                    "missed": 16,
+                    "coverage": 0.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 0,
+                    "missed": 6,
+                    "coverage": 0.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 0,
+                    "missed": 2,
+                    "coverage": 0.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 0,
+                    "missed": 1,
+                    "coverage": 0.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 0,
+                "survived": 0,
+                "no_coverage": 4,
+                "detected": 0,
+                "undetected": 4
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 3,
+                    "no_coverage": 3
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 0,
+                    "survived": 0,
+                    "detected": 0,
+                    "undetected": 1,
+                    "no_coverage": 1
+                }
+            }
+        }
+    },
+    "cloneGraph.gpto1Mini.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 184,
+            "num_tests": 7,
+            "num_assertions": 21
+        },
+        "test": {
+            "total_tests": 7,
+            "tests_passed": 7,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 3,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 2,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.metaAI.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 58,
+            "num_tests": 3,
+            "num_assertions": 7
+        },
+        "test": {
+            "total_tests": 3,
+            "tests_passed": 3,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 3,
+                "survived": 1,
+                "no_coverage": 0,
+                "detected": 3,
+                "undetected": 1
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 2,
+                    "survived": 1,
+                    "detected": 2,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.metaAI.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 74,
+            "num_tests": 4,
+            "num_assertions": 10
+        },
+        "test": {
+            "total_tests": 4,
+            "tests_passed": 4,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 3,
+                "survived": 1,
+                "no_coverage": 0,
+                "detected": 3,
+                "undetected": 1
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 2,
+                    "survived": 1,
+                    "detected": 2,
+                    "undetected": 1,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.mistralSmall.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 89,
+            "num_tests": 5,
+            "num_assertions": 15
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.mistralSmall.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 79,
+            "num_tests": 6,
+            "num_assertions": 18
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 6,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.mistralLarge.black.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 71,
+            "num_tests": 3,
+            "num_assertions": 11
+        },
+        "test": {
+            "total_tests": 3,
+            "tests_passed": 3,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "cloneGraph.mistralLarge.white.CloneGraphTest": {
+        "static": {
+            "lines_of_code": 114,
+            "num_tests": 5,
+            "num_assertions": 27
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 5,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 82,
+                    "covered": 82,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 8,
+                    "covered": 8,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 16,
+                    "covered": 16,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 6,
+                    "covered": 6,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 4,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 4,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 3,
+                    "killed": 3,
+                    "survived": 0,
+                    "detected": 3,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.ai21Jamba15Mini.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 47,
+            "num_tests": 3,
+            "num_assertions": 3
+        },
+        "test": {
+            "total_tests": 3,
+            "tests_passed": 2,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.ai21Jamba15Mini.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 74,
+            "num_tests": 6,
+            "num_assertions": 6
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 2,
+            "tests_failed": 4,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.ai21Jamba15Large.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 104,
+            "num_tests": 8,
+            "num_assertions": 9
+        },
+        "test": {
+            "total_tests": 8,
+            "tests_passed": 6,
+            "tests_failed": 2,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.ai21Jamba15Large.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 67,
+            "num_tests": 5,
+            "num_assertions": 5
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 3,
+            "tests_failed": 2,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.claude35Haiku.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 97,
+            "num_tests": 9,
+            "num_assertions": 8
+        },
+        "test": {
+            "total_tests": 9,
+            "tests_passed": 7,
+            "tests_failed": 2,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.claude35Haiku.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 95,
+            "num_tests": 9,
+            "num_assertions": 9
+        },
+        "test": {
+            "total_tests": 9,
+            "tests_passed": 8,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.claude35Sonnet.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 107,
+            "num_tests": 11,
+            "num_assertions": 10
+        },
+        "test": {
+            "total_tests": 11,
+            "tests_passed": 10,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.claude35Sonnet.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 104,
+            "num_tests": 9,
+            "num_assertions": 9
+        },
+        "test": {
+            "total_tests": 9,
+            "tests_passed": 9,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.gpt35Turbo.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 34,
+            "num_tests": 2,
+            "num_assertions": 3
+        },
+        "test": {
+            "total_tests": 2,
+            "tests_passed": 2,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.gpt35Turbo.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 44,
+            "num_tests": 1,
+            "num_assertions": 4
+        },
+        "test": {
+            "total_tests": 1,
+            "tests_passed": 1,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.gpt4oMini.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 93,
+            "num_tests": 8,
+            "num_assertions": 9
+        },
+        "test": {
+            "total_tests": 8,
+            "tests_passed": 8,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.gpt4oMini.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 87,
+            "num_tests": 7,
+            "num_assertions": 8
+        },
+        "test": {
+            "total_tests": 7,
+            "tests_passed": 3,
+            "tests_failed": 4,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.gpt4o.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 105,
+            "num_tests": 8,
+            "num_assertions": 9
+        },
+        "test": {
+            "total_tests": 8,
+            "tests_passed": 8,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.gpt4o.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 95,
+            "num_tests": 8,
+            "num_assertions": 9
+        },
+        "test": {
+            "total_tests": 8,
+            "tests_passed": 8,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.gpto1Mini.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 96,
+            "num_tests": 9,
+            "num_assertions": 10
+        },
+        "test": {
+            "total_tests": 9,
+            "tests_passed": 7,
+            "tests_failed": 2,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.gpto1Mini.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 100,
+            "num_tests": 10,
+            "num_assertions": 9
+        },
+        "test": {
+            "total_tests": 10,
+            "tests_passed": 9,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.metaAI.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 70,
+            "num_tests": 5,
+            "num_assertions": 5
+        },
+        "test": {
+            "total_tests": 5,
+            "tests_passed": 4,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.metaAI.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 83,
+            "num_tests": 6,
+            "num_assertions": 6
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 5,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.mistralSmall.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 83,
+            "num_tests": 6,
+            "num_assertions": 6
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 4,
+            "tests_failed": 2,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.mistralSmall.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 55,
+            "num_tests": 1,
+            "num_assertions": 5
+        },
+        "test": {
+            "total_tests": 1,
+            "tests_passed": 0,
+            "tests_failed": 1,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        }
+    },
+    "numIslands.mistralLarge.black.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 83,
+            "num_tests": 6,
+            "num_assertions": 7
+        },
+        "test": {
+            "total_tests": 6,
+            "tests_passed": 6,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
+    "numIslands.mistralLarge.white.NumIslandsTest": {
+        "static": {
+            "lines_of_code": 87,
+            "num_tests": 7,
+            "num_assertions": 7
+        },
+        "test": {
+            "total_tests": 7,
+            "tests_passed": 7,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 215,
+                    "covered": 215,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 24,
+                    "covered": 24,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 25,
+                    "covered": 25,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 15,
+                    "covered": 15,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 3,
+                    "covered": 3,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 19,
+                "survived": 2,
+                "no_coverage": 0,
+                "detected": 20,
+                "undetected": 2
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+                    "tests_run": 6,
+                    "killed": 6,
+                    "survived": 0,
+                    "detected": 6,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+                    "tests_run": 2,
+                    "killed": 0,
+                    "survived": 2,
+                    "detected": 0,
+                    "undetected": 2,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 11,
+                    "killed": 10,
+                    "survived": 0,
+                    "detected": 11,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
     }
 }
