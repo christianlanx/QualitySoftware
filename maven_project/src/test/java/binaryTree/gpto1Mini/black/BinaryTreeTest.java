@@ -1,5 +1,6 @@
 package binaryTree.gpto1Mini.black;
 import binaryTree.*;
+import binaryTree.BinaryTree.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
@@ -145,44 +146,5 @@ public class BinaryTreeTest {
         List<Integer> expected = Arrays.asList(10,5,15,3,7,12,18);
         List<Integer> actual = serialize(root);
         assertEquals(expected, actual);
-    }
-}
-
-// Assuming TreeNode and BinaryTree classes are defined as follows:
-
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
-class BinaryTree {
-    private Map<Integer, Integer> inorderIndexMap;
-    
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
-        inorderIndexMap = new HashMap<>();
-        for(int i=0;i<inorder.length;i++) {
-            inorderIndexMap.put(inorder[i], i);
-        }
-        return build(preorder, 0, preorder.length -1, 0, inorder.length -1);
-    }
-    
-    private TreeNode build(int[] preorder, int preStart, int preEnd, 
-                           int inStart, int inEnd){
-        if(preStart > preEnd || inStart > inEnd) return null;
-        int rootVal = preorder[preStart];
-        TreeNode root = new TreeNode(rootVal);
-        int inRoot = inorderIndexMap.get(rootVal);
-        int numsLeft = inRoot - inStart;
-        root.left = build(preorder, preStart +1, preStart + numsLeft, inStart, inRoot -1);
-        root.right = build(preorder, preStart + numsLeft +1, preEnd, inRoot +1, inEnd);
-        return root;
     }
 }
