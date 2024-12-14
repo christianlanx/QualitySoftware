@@ -1,111 +1,114 @@
 package anagrams.gpt4o.black;
 
+import anagrams.Anagrams;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-import anagrams.gpt4o.black.Anagrams;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AnagramsTest {
 
-    private final Anagrams anagrams = new Anagrams();
-
-    private boolean containsSameElements(List<List<String>> actual, List<List<String>> expected) {
-        for (List<String> expectedGroup : expected) {
-            boolean found = false;
-            for (List<String> actualGroup : actual) {
-                if (actualGroup.containsAll(expectedGroup) && expectedGroup.containsAll(actualGroup)) {
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     @Test
     public void testGroupAnagramsExample1() {
+        Anagrams anagrams = new Anagrams();
         String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> expected = Arrays.asList(
+        List<List<String>> expectedOutput = Arrays.asList(
             Arrays.asList("bat"),
             Arrays.asList("nat", "tan"),
             Arrays.asList("ate", "eat", "tea")
         );
 
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertEquals(expected.size(), result.size());
-        assertTrue(containsSameElements(result, expected));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        assertEquals(expectedOutput.size(), actualOutput.size());
+        assertAnagramsEqual(expectedOutput, actualOutput);
     }
 
     @Test
     public void testGroupAnagramsExample2() {
+        Anagrams anagrams = new Anagrams();
         String[] input = {""};
-        List<List<String>> expected = Arrays.asList(
+        List<List<String>> expectedOutput = Arrays.asList(
             Arrays.asList("")
         );
 
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertEquals(expected.size(), result.size());
-        assertTrue(containsSameElements(result, expected));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        assertEquals(expectedOutput.size(), actualOutput.size());
+        assertAnagramsEqual(expectedOutput, actualOutput);
     }
 
     @Test
     public void testGroupAnagramsExample3() {
+        Anagrams anagrams = new Anagrams();
         String[] input = {"a"};
-        List<List<String>> expected = Arrays.asList(
+        List<List<String>> expectedOutput = Arrays.asList(
             Arrays.asList("a")
         );
 
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertEquals(expected.size(), result.size());
-        assertTrue(containsSameElements(result, expected));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        assertEquals(expectedOutput.size(), actualOutput.size());
+        assertAnagramsEqual(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testGroupAnagramsEmptyStringArray() {
+        Anagrams anagrams = new Anagrams();
+        String[] input = {};
+        List<List<String>> expectedOutput = Arrays.asList();
+
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        assertEquals(expectedOutput.size(), actualOutput.size());
+    }
+
+    @Test
+    public void testGroupAnagramsStringWithDifferentLengths() {
+        Anagrams anagrams = new Anagrams();
+        String[] input = {"abc", "bca", "cab", "abcd", "dcba", "bacd", "ab"};
+        List<List<String>> expectedOutput = Arrays.asList(
+            Arrays.asList("abc", "bca", "cab"),
+            Arrays.asList("abcd", "dcba", "bacd"),
+            Arrays.asList("ab")
+        );
+
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        assertEquals(expectedOutput.size(), actualOutput.size());
+        assertAnagramsEqual(expectedOutput, actualOutput);
+    }
+
+    @Test
+    public void testGroupAnagramsSingleCharacterStrings() {
+        Anagrams anagrams = new Anagrams();
+        String[] input = {"a", "b", "c", "a"};
+        List<List<String>> expectedOutput = Arrays.asList(
+            Arrays.asList("a", "a"),
+            Arrays.asList("b"),
+            Arrays.asList("c")
+        );
+
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        assertEquals(expectedOutput.size(), actualOutput.size());
+        assertAnagramsEqual(expectedOutput, actualOutput);
     }
     
-    @Test
-    public void testGroupAnagramsEmptyInput() {
-        String[] input = {};
-        List<List<String>> expected = new ArrayList<>();
-
-        List<List<String>> result = anagrams.groupAnagrams(input);
-
-        assertEquals(expected.size(), result.size());
-        assertTrue(result.isEmpty());
-    }
-
-    @Test
-    public void testGroupAnagramsNoAnagrams() {
-        String[] input = {"abc", "def", "ghi"};
-        List<List<String>> expected = Arrays.asList(
-            Arrays.asList("abc"),
-            Arrays.asList("def"),
-            Arrays.asList("ghi")
-        );
-
-        List<List<String>> result = anagrams.groupAnagrams(input);
-
-        assertEquals(expected.size(), result.size());
-        assertTrue(containsSameElements(result, expected));
-    }
-
-    @Test
-    public void testGroupAnagramsAllAnagrams() {
-        String[] input = {"abcd", "bcda", "cdab", "dabc"};
-        List<List<String>> expected = Arrays.asList(
-            Arrays.asList("abcd", "bcda", "cdab", "dabc")
-        );
-
-        List<List<String>> result = anagrams.groupAnagrams(input);
-
-        assertEquals(expected.size(), result.size());
-        assertTrue(containsSameElements(result, expected));
+    private void assertAnagramsEqual(List<List<String>> expected, List<List<String>> actual) {
+        Set<Set<String>> expectedSet = new HashSet<>();
+        for (List<String> group : expected) {
+            expectedSet.add(new HashSet<>(group));
+        }
+        
+        Set<Set<String>> actualSet = new HashSet<>();
+        for (List<String> group : actual) {
+            actualSet.add(new HashSet<>(group));
+        }
+        
+        assertEquals(expectedSet, actualSet);
     }
 }

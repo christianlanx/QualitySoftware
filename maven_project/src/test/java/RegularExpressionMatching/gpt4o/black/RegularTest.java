@@ -1,90 +1,100 @@
 package RegularExpressionMatching.gpt4o.black;
-import RegularExpressionMatching.*;
 
-import org.junit.jupiter.api.Test;
+import RegularExpressionMatching.Regular;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class RegularTest {
 
-    private final Regular regular = new Regular();
+    private Regular regular;
 
-    @Test
-    public void testExample1() {
-        assertFalse(regular.isMatch("aa", "a"), "Pattern 'a' should not match string 'aa'.");
+    @BeforeEach
+    public void setUp() {
+        regular = new Regular();
     }
 
     @Test
-    public void testExample2() {
-        assertTrue(regular.isMatch("aa", "a*"), "Pattern 'a*' should match string 'aa'.");
+    public void testSimpleNoMatch() {
+        String s = "aa";
+        String p = "a";
+        assertFalse(regular.isMatch(s, p), "Expect 'a' not to match 'aa'");
     }
 
     @Test
-    public void testExample3() {
-        assertTrue(regular.isMatch("ab", ".*"), "Pattern '.*' should match string 'ab'.");
+    public void testSimpleMatchWithStar() {
+        String s = "aa";
+        String p = "a*";
+        assertTrue(regular.isMatch(s, p), "Expect 'a*' to match 'aa'");
     }
 
     @Test
-    public void testSingleCharacterMatch() {
-        assertTrue(regular.isMatch("a", "a"), "Pattern 'a' should match string 'a'.");
+    public void testDotStarMatch() {
+        String s = "ab";
+        String p = ".*";
+        assertTrue(regular.isMatch(s, p), "Expect '.*' to match 'ab'");
     }
 
     @Test
-    public void testSingleCharacterNoMatch() {
-        assertFalse(regular.isMatch("a", "b"), "Pattern 'b' should not match string 'a'.");
-    }
-
-    @Test
-    public void testDotCharacter() {
-        assertTrue(regular.isMatch("a", "."), "Pattern '.' should match string 'a'.");
-    }
-
-    @Test
-    public void testStarWithMultipleChars() {
-        assertTrue(regular.isMatch("aaa", "a*"), "Pattern 'a*' should match string 'aaa'.");
-    }
-
-    @Test
-    public void testStarWithZeroPrecedingChar() {
-        assertTrue(regular.isMatch("b", "a*b"), "Pattern 'a*b' should match string 'b'.");
-    }
-
-    @Test
-    public void testDotAndStarCombination() {
-        assertTrue(regular.isMatch("abc", ".*c"), "Pattern '.*c' should match string 'abc'.");
-    }
-
-    @Test
-    public void testComplexPattern() {
-        assertTrue(regular.isMatch("aab", "c*a*b"), "Pattern 'c*a*b' should match string 'aab'.");
-    }
-
-    @Test
-    public void testNoMatchDueToExtraChar() {
-        assertFalse(regular.isMatch("mississippi", "mis*is*p*."), "Pattern 'mis*is*p*.' should not match string 'mississippi'.");
+    public void testComplexMatch() {
+        String s = "aab";
+        String p = "c*a*b";
+        assertTrue(regular.isMatch(s, p), "Expect 'c*a*b' to match 'aab'");
     }
 
     @Test
     public void testExactMatch() {
-        assertTrue(regular.isMatch("abc", "abc"), "Pattern 'abc' should exactly match string 'abc'.");
+        String s = "mississippi";
+        String p = "mis*is*p*.";
+        assertFalse(regular.isMatch(s, p), "Expect 'mis*is*p*.' not to match 'mississippi'");
     }
 
     @Test
-    public void testPatternWithConsecutiveStars() {
-        assertTrue(regular.isMatch("aaaa", "a*a"), "Pattern 'a*a' should match string 'aaaa'.");
+    public void testPatternWithDotCharOnly() {
+        String s = "abcd";
+        String p = "....";
+        assertTrue(regular.isMatch(s, p), "Expect '....' to match 'abcd'");
+    }
+
+    @Test
+    public void testPatternWithMultipleStars() {
+        String s = "aaa";
+        String p = "a*a";
+        assertTrue(regular.isMatch(s, p), "Expect 'a*a' to match 'aaa'");
+    }
+
+    @Test
+    public void testZeroOccurrenceWithStar() {
+        String s = "ab";
+        String p = ".*c";
+        assertFalse(regular.isMatch(s, p), "Expect '.*c' not to match 'ab'");
+    }
+
+    @Test
+    public void testEmptyStringWithStarPattern() {
+        String s = "";
+        String p = ".*";
+        assertTrue(regular.isMatch(s, p), "Expect '.*' to match empty string");
     }
 
     @Test
     public void testEmptyStringWithEmptyPattern() {
-        assertTrue(regular.isMatch("", ""), "Empty pattern should match empty string.");
+        String s = "";
+        String p = "";
+        assertTrue(regular.isMatch(s, p), "Expect empty pattern to match empty string");
     }
 
     @Test
-    public void testEmptyStringWithPattern() {
-        assertFalse(regular.isMatch("", "a*b*"), "Pattern 'a*b*' should match empty string due to zero occurrences rule.");
+    public void testSingleCharacter() {
+        String s = "a";
+        String p = ".";
+        assertTrue(regular.isMatch(s, p), "Expect '.' to match 'a'");
     }
 
     @Test
-    public void testStringWithEmptyPattern() {
-        assertFalse(regular.isMatch("a", ""), "Non-empty string should not match empty pattern.");
+    public void testLongStringMatch() {
+        String s = "mississippi";
+        String p = "mis*is*ip*.";
+        assertTrue(regular.isMatch(s, p), "Expect 'mis*is*ip*.' to match 'mississippi'");
     }
 }

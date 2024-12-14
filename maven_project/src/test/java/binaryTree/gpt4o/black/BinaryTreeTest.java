@@ -1,76 +1,103 @@
 package binaryTree.gpt4o.black;
-import binaryTree.*;
-import binaryTree.BinaryTree.*;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import binaryTree.BinaryTree;
+import binaryTree.BinaryTree.TreeNode;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BinaryTreeTest {
 
-    private BinaryTree binaryTree = new BinaryTree();
+    private boolean isSameTree(TreeNode p, TreeNode q) {
+        if (p == null && q == null) {
+            return true;
+        }
+        if (p == null || q == null) {
+            return false;
+        }
+        if (p.val != q.val) {
+            return false;
+        }
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    }
 
     @Test
-    public void testBuildTreeExample1() {
+    public void testExample1() {
+        BinaryTree binaryTree = new BinaryTree();
         int[] preorder = {3, 9, 20, 15, 7};
         int[] inorder = {9, 3, 15, 20, 7};
-        TreeNode expected = new TreeNode(3,
-                             new TreeNode(9),
-                             new TreeNode(20,
-                                   new TreeNode(15),
-                                   new TreeNode(7))
-                );
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(compareTrees(expected, actual));
+
+        TreeNode expected = new TreeNode(3);
+        expected.left = new TreeNode(9);
+        expected.right = new TreeNode(20);
+        expected.right.left = new TreeNode(15);
+        expected.right.right = new TreeNode(7);
+
+        TreeNode result = binaryTree.buildTree(preorder, inorder);
+        assertTrue(isSameTree(expected, result));
     }
 
     @Test
-    public void testBuildTreeExample2() {
+    public void testExample2() {
+        BinaryTree binaryTree = new BinaryTree();
         int[] preorder = {-1};
         int[] inorder = {-1};
+
         TreeNode expected = new TreeNode(-1);
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(compareTrees(expected, actual));
+
+        TreeNode result = binaryTree.buildTree(preorder, inorder);
+        assertTrue(isSameTree(expected, result));
     }
 
     @Test
-    public void testBuildTreeSingleElement() {
-        int[] preorder = {42};
-        int[] inorder = {42};
-        TreeNode expected = new TreeNode(42);
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(compareTrees(expected, actual));
+    public void testWithSingleNode() {
+        BinaryTree binaryTree = new BinaryTree();
+        int[] preorder = {1};
+        int[] inorder = {1};
+
+        TreeNode expected = new TreeNode(1);
+
+        TreeNode result = binaryTree.buildTree(preorder, inorder);
+        assertTrue(isSameTree(expected, result));
     }
 
     @Test
-    public void testBuildTreeLeftSkewed() {
-        int[] preorder = {3, 2, 1};
-        int[] inorder = {1, 2, 3};
-        TreeNode expected = new TreeNode(3,
-                             new TreeNode(2,
-                                   new TreeNode(1),
-                                   null),
-                             null);
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(compareTrees(expected, actual));
+    public void testWithTwoNodes() {
+        BinaryTree binaryTree = new BinaryTree();
+        int[] preorder = {1,2};
+        int[] inorder = {1,2};
+
+        TreeNode expected = new TreeNode(1);
+        expected.right = new TreeNode(2);
+
+        TreeNode result = binaryTree.buildTree(preorder, inorder);
+        assertTrue(isSameTree(expected, result));
     }
 
     @Test
-    public void testBuildTreeRightSkewed() {
-        int[] preorder = {1, 2, 3};
-        int[] inorder = {1, 2, 3};
-        TreeNode expected = new TreeNode(1,
-                             null,
-                             new TreeNode(2,
-                                   null,
-                                   new TreeNode(3)));
-        TreeNode actual = binaryTree.buildTree(preorder, inorder);
-        assertTrue(compareTrees(expected, actual));
+    public void testWithLeftSkewedTree() {
+        BinaryTree binaryTree = new BinaryTree();
+        int[] preorder = {3,2,1};
+        int[] inorder = {1,2,3};
+
+        TreeNode expected = new TreeNode(3);
+        expected.left = new TreeNode(2);
+        expected.left.left = new TreeNode(1);
+
+        TreeNode result = binaryTree.buildTree(preorder, inorder);
+        assertTrue(isSameTree(expected, result));
     }
-  
-    private boolean compareTrees(TreeNode t1, TreeNode t2) {
-        if (t1 == null && t2 == null) return true;
-        if (t1 == null || t2 == null) return false;
-        return (t1.val == t2.val) && compareTrees(t1.left, t2.left) && compareTrees(t1.right, t2.right);
+
+    @Test
+    public void testWithRightSkewedTree() {
+        BinaryTree binaryTree = new BinaryTree();
+        int[] preorder = {1,2,3};
+        int[] inorder = {1,2,3};
+
+        TreeNode expected = new TreeNode(1);
+        expected.right = new TreeNode(2);
+        expected.right.right = new TreeNode(3);
+
+        TreeNode result = binaryTree.buildTree(preorder, inorder);
+        assertTrue(isSameTree(expected, result));
     }
 }

@@ -1,87 +1,64 @@
 package NQueens.gpt4o.black;
-import NQueens.*;
 
+import NQueens.Nqueens;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.BeforeEach;
-
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class NqueensTest {
 
-    private Nqueens nqueens;
+    @Test
+    public void testSolveNQueens_forNEquals1() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(1);
 
-    @BeforeEach
-    public void setUp() {
-        nqueens = new Nqueens();
+        List<List<String>> expected = Arrays.asList(
+            Arrays.asList("Q")
+        );
+
+        assertEquals(expected, result, "Failed test case for n=1");
     }
 
     @Test
-    public void testSolveNQueensForNEquals1() {
-        int n = 1;
-        List<List<String>> expected = new ArrayList<>();
-        List<String> solution = new ArrayList<>();
-        solution.add("Q");
-        expected.add(solution);
+    public void testSolveNQueens_forNEquals4() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(4);
 
-        List<List<String>> result = nqueens.solveNQueens(n);
-        assertEquals(expected, result, "The solution for n=1 should be [[" + "\"Q\"" + "]]");
+        List<List<String>> expected = Arrays.asList(
+            Arrays.asList(".Q..", "...Q", "Q...", "..Q."),
+            Arrays.asList("..Q.", "Q...", "...Q", ".Q..")
+        );
+
+        assertTrue(result.containsAll(expected) && expected.containsAll(result), 
+            "Failed test case for n=4. Missing expected solutions or contains extra solutions.");
     }
 
     @Test
-    public void testSolveNQueensForNEquals2() {
-        int n = 2;
-        List<List<String>> result = nqueens.solveNQueens(n);
-        assertEquals(0, result.size(), "There should be no solutions for n=2");
+    public void testSolveNQueens_forNEquals5() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(5);
+
+        // Asserting on specific solutions for n=5 can be complex due to the number of solutions.
+        // Hence, here we just check the count. There are 10 solutions for n=5.
+        assertEquals(10, result.size(), "Failed test case for n=5. Incorrect number of solutions.");
     }
 
     @Test
-    public void testSolveNQueensForNEquals3() {
-        int n = 3;
-        List<List<String>> result = nqueens.solveNQueens(n);
-        assertEquals(0, result.size(), "There should be no solutions for n=3");
+    public void testSolveNQueens_forNEquals8() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(8);
+
+        // There are 92 solutions for n=8.
+        assertEquals(92, result.size(), "Failed test case for n=8. Incorrect number of solutions.");
     }
 
     @Test
-    public void testSolveNQueensForNEquals4() {
-        int n = 4;
-        List<List<String>> expected = new ArrayList<>();
+    public void testSolveNQueens_forNEquals9() {
+        Nqueens nqueens = new Nqueens();
+        List<List<String>> result = nqueens.solveNQueens(9);
 
-        List<String> solution1 = new ArrayList<>();
-        solution1.add(".Q..");
-        solution1.add("...Q");
-        solution1.add("Q...");
-        solution1.add("..Q.");
-
-        List<String> solution2 = new ArrayList<>();
-        solution2.add("..Q.");
-        solution2.add("Q...");
-        solution2.add("...Q");
-        solution2.add(".Q..");
-
-        expected.add(solution1);
-        expected.add(solution2);
-
-        List<List<String>> result = nqueens.solveNQueens(n);
-
-        // Since the order of solutions doesn't matter, we can simply compare their sizes
-        assertEquals(expected.size(), result.size(), "There should be 2 solutions for n=4");
+        // There are 352 solutions for n=9.
+        assertEquals(352, result.size(), "Failed test case for n=9. Incorrect number of solutions.");
     }
-
-    @Test
-    public void testSolveNQueensForNEquals5() {
-        int n = 5;
-        List<List<String>> result = nqueens.solveNQueens(n);
-        assertEquals(10, result.size(), "There should be 10 solutions for n=5");
-    }
-
-    @Test
-    public void testSolveNQueensForNEquals8() {
-        int n = 8;
-        List<List<String>> result = nqueens.solveNQueens(n);
-        assertEquals(92, result.size(), "There should be 92 solutions for n=8");
-    }
-
-    // Add more tests if needed for larger sizes like n = 6, 7, 9, etc.
 }

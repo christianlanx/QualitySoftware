@@ -1,125 +1,110 @@
 package cloneGraph.gpt4o.black;
-import cloneGraph.*;
-import cloneGraph.CloneGraph.*;
-
-
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
-class CloneGraphTest {
-    private final CloneGraph cloneGraph = new CloneGraph();
+import cloneGraph.CloneGraph;
+import cloneGraph.CloneGraph.Node;
 
-    @Test
-    void testExample1() {
-        // Create the original graph [[2,4],[1,3],[2,4],[1,3]]
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class CloneGraphTest {
+
+    private List<Node> createGraphFromAdjList(int[][] adjList) {
+        if (adjList == null || adjList.length == 0) return new ArrayList<>();
+
+        Map<Integer, Node> nodes = new HashMap<>();
+        for (int i = 1; i <= adjList.length; i++) {
+            nodes.put(i, new Node(i));
+        }
+
+        for (int i = 0; i < adjList.length; i++) {
+            Node node = nodes.get(i + 1);
+            for (int neighbor : adjList[i]) {
+                node.neighbors.add(nodes.get(neighbor));
+            }
+        }
+
+        return new ArrayList<>(nodes.values());
+    }
+
+    private boolean compareGraphs(Node node1, Node node2, Map<Integer, Node> visited) {
+        if (node1 == null && node2 == null) return true;
+        if (node1 == null || node2 == null) return false;
+        if (node1.val != node2.val) return false;
         
-        node1.neighbors.add(node2);
-        node1.neighbors.add(node4);
+        visited.put(node1.val, node1);
+
+        if (node1.neighbors.size() != node2.neighbors.size()) return false;
+
+        for (int i = 0; i < node1.neighbors.size(); i++) {
+            Node neighbor1 = node1.neighbors.get(i);
+            Node neighbor2 = node2.neighbors.get(i);
+
+            if (!visited.containsKey(neighbor1.val)) {
+                if (!compareGraphs(neighbor1, neighbor2, visited)) return false;
+            } else if (visited.get(neighbor1.val) != neighbor2) {
+                return false;
+            }
+        }
         
-        node2.neighbors.add(node1);
-        node2.neighbors.add(node3);
-        
-        node3.neighbors.add(node2);
-        node3.neighbors.add(node4);
-        
-        node4.neighbors.add(node1);
-        node4.neighbors.add(node3);
-        
-        // Clone the graph
-        Node clonedNode = cloneGraph.cloneGraph(node1);
-        
-        // Verify the cloned graph
-        assertGraphEquality(node1, clonedNode);
+        return true;
     }
 
     @Test
-    void testExample2() {
-        // Create the original graph [[]]
-        Node node1 = new Node(1);
-        
-        // Clone the graph
-        Node clonedNode = cloneGraph.cloneGraph(node1);
-        
-        // Verify the cloned graph
-        assertGraphEquality(node1, clonedNode);
+    public void testGraphCloneExample1() {
+        int[][] adjList = new int[][]{{2, 4}, {1, 3}, {2, 4}, {1, 3}};
+        List<Node> nodes = createGraphFromAdjList(adjList);
+        CloneGraph graph = new CloneGraph();
+
+        Node clonedNode = graph.cloneGraph(nodes.get(0));
+
+        assertTrue(compareGraphs(nodes.get(0), clonedNode, new HashMap<>()));
     }
 
     @Test
-    void testExample3() {
-        // Empty graph test
-        Node clonedNode = cloneGraph.cloneGraph(null);
+    public void testGraphCloneExample2() {
+        int[][] adjList = new int[][]{{}};
+        List<Node> nodes = createGraphFromAdjList(adjList);
+        CloneGraph graph = new CloneGraph();
+
+        Node clonedNode = graph.cloneGraph(nodes.get(0));
+
+        assertTrue(compareGraphs(nodes.get(0), clonedNode, new HashMap<>()));
+    }
+    
+    @Test
+    public void testGraphCloneExample3() {
+        List<Node> nodes = createGraphFromAdjList(new int[][]{});
+        CloneGraph graph = new CloneGraph();
+
+        Node clonedNode = graph.cloneGraph(null);
+
         assertNull(clonedNode);
     }
 
     @Test
-    void testSingleNodeGraph() {
-        // Create a graph with a single node with no neighbors
-        Node node1 = new Node(1);
-        
-        // Clone the graph
-        Node clonedNode = cloneGraph.cloneGraph(node1);
-        
-        // Verify the cloned graph
-        assertGraphEquality(node1, clonedNode);
+    public void testSingleNodeGraph() {
+        int[][] adjList = new int[][]{{}};
+        List<Node> nodes = createGraphFromAdjList(adjList);
+        CloneGraph graph = new CloneGraph();
+
+        Node clonedNode = graph.cloneGraph(nodes.get(0));
+
+        assertTrue(compareGraphs(nodes.get(0), clonedNode, new HashMap<>()));
     }
 
     @Test
-    void testLineGraph() {
-        // Create a line graph 1-2-3-4
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        
-        node1.neighbors.add(node2);
-        node2.neighbors.add(node1);
-        node2.neighbors.add(node3);
-        node3.neighbors.add(node2);
-        node3.neighbors.add(node4);
-        node4.neighbors.add(node3);
-        
-        // Clone the graph
-        Node clonedNode = cloneGraph.cloneGraph(node1);
-        
-        // Verify the cloned graph
-        assertGraphEquality(node1, clonedNode);
-    }
+    public void testTwoNodesConnected() {
+        int[][] adjList = new int[][]{{2}, {1}};
+        List<Node> nodes = createGraphFromAdjList(adjList);
+        CloneGraph graph = new CloneGraph();
 
-    private void assertGraphEquality(Node original, Node cloned) {
-        // Using a set to avoid cycles and infinite loops
-        Set<Node> visitedOriginal = new HashSet<>();
-        Set<Node> visitedCloned = new HashSet<>();
-        assertGraphEqualityHelper(original, cloned, visitedOriginal, visitedCloned);
-    }
+        Node clonedNode = graph.cloneGraph(nodes.get(0));
 
-    private void assertGraphEqualityHelper(Node original, Node cloned, Set<Node> visitedOriginal, Set<Node> visitedCloned) {
-        if (original == null) {
-            assertNull(cloned);
-            return;
-        }
-
-        assertNotNull(cloned);
-        assertEquals(original.val, cloned.val);
-
-        if (!visitedOriginal.contains(original)) {
-            visitedOriginal.add(original);
-            visitedCloned.add(cloned);
-            
-            assertEquals(original.neighbors.size(), cloned.neighbors.size());
-            for (int i = 0; i < original.neighbors.size(); i++) {
-                assertFalse(visitedCloned.contains(cloned.neighbors.get(i)));
-                assertGraphEqualityHelper(original.neighbors.get(i), cloned.neighbors.get(i), visitedOriginal, visitedCloned);
-            }
-        }
+        assertTrue(compareGraphs(nodes.get(0), clonedNode, new HashMap<>()));
     }
 }

@@ -1,105 +1,120 @@
 package numIslands.gpt4o.black;
-import numIslands.*;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import numIslands.NumIslands;
 
-class NumIslandsTest {
-
+public class NumIslandsTest {
+    
     @Test
-    void testSingleIsland() {
-        NumIslands numIslands = new NumIslands();
+    public void testSingleIsland() {
         char[][] grid = {
             {'1', '1', '1', '1', '0'},
             {'1', '1', '0', '1', '0'},
             {'1', '1', '0', '0', '0'},
             {'0', '0', '0', '0', '0'}
         };
+        NumIslands numIslands = new NumIslands();
         assertEquals(1, numIslands.numIslands(grid));
     }
-
+    
     @Test
-    void testMultipleIslands() {
-        NumIslands numIslands = new NumIslands();
+    public void testMultipleIslands() {
         char[][] grid = {
             {'1', '1', '0', '0', '0'},
             {'1', '1', '0', '0', '0'},
             {'0', '0', '1', '0', '0'},
             {'0', '0', '0', '1', '1'}
         };
+        NumIslands numIslands = new NumIslands();
         assertEquals(3, numIslands.numIslands(grid));
     }
-
+    
     @Test
-    void testNoIslands() {
-        NumIslands numIslands = new NumIslands();
+    public void testNoIsland() {
         char[][] grid = {
-            {'0', '0', '0', '0', '0'},
-            {'0', '0', '0', '0', '0'},
-            {'0', '0', '0', '0', '0'},
-            {'0', '0', '0', '0', '0'}
+            {'0', '0', '0'},
+            {'0', '0', '0'},
+            {'0', '0', '0'}
         };
+        NumIslands numIslands = new NumIslands();
         assertEquals(0, numIslands.numIslands(grid));
     }
 
     @Test
-    void testAllLandSingleIsland() {
-        NumIslands numIslands = new NumIslands();
+    public void testAllLand() {
         char[][] grid = {
             {'1', '1', '1'},
             {'1', '1', '1'},
             {'1', '1', '1'}
         };
+        NumIslands numIslands = new NumIslands();
+        assertEquals(1, numIslands.numIslands(grid));
+    }    
+
+    @Test
+    public void testDiagonalLandNotConnected() {
+        char[][] grid = {
+            {'1', '0', '1'},
+            {'0', '1', '0'},
+            {'1', '0', '1'}
+        };
+        NumIslands numIslands = new NumIslands();
+        assertEquals(5, numIslands.numIslands(grid));
+    }
+
+    @Test
+    public void testThinStripIsland() {
+        char[][] grid = {
+            {'1', '0', '0', '0'},
+            {'1', '1', '0', '0'},
+            {'0', '1', '0', '0'},
+            {'0', '1', '1', '1'}
+        };
+        NumIslands numIslands = new NumIslands();
         assertEquals(1, numIslands.numIslands(grid));
     }
 
     @Test
-    void testSingleCellIsland() {
-        NumIslands numIslands = new NumIslands();
-        
-        // Island
-        char[][] grid1 = {
-            {'1'}
+    public void testMixedIslands() {
+        char[][] grid = {
+            {'1', '1', '0', '0', '1'},
+            {'1', '0', '0', '1', '1'},
+            {'0', '0', '1', '0', '0'},
+            {'1', '1', '0', '1', '0'}
         };
-        assertEquals(1, numIslands.numIslands(grid1));
-        
-        // Water
-        char[][] grid2 = {
+        NumIslands numIslands = new NumIslands();
+        assertEquals(4, numIslands.numIslands(grid));
+    }
+
+    @Test
+    public void testSingleCellLand() {
+        char[][] grid = {
+            {'0', '0'},
+            {'0', '1'}
+        };
+        NumIslands numIslands = new NumIslands();
+        assertEquals(1, numIslands.numIslands(grid));
+    }
+
+    @Test
+    public void testSingleCellWater() {
+        char[][] grid = {
             {'0'}
         };
-        assertEquals(0, numIslands.numIslands(grid2));
+        NumIslands numIslands = new NumIslands();
+        assertEquals(0, numIslands.numIslands(grid));
     }
 
     @Test
-    void testSingleRowMultipleIslands() {
+    public void testLargeGridWithOneIsland() {
+        char[][] grid = new char[300][300];
+        for (int i = 0; i < 300; i++) {
+            for (int j = 0; j < 300; j++) {
+                grid[i][j] = '1';
+            }
+        }
         NumIslands numIslands = new NumIslands();
-        char[][] grid = {
-            {'1', '0', '1', '0', '1'}
-        };
-        assertEquals(3, numIslands.numIslands(grid));
-    }
-
-    @Test
-    void testSingleColumnMultipleIslands() {
-        NumIslands numIslands = new NumIslands();
-        char[][] grid = {
-            {'1'},
-            {'0'},
-            {'1'},
-            {'0'},
-            {'1'}
-        };
-        assertEquals(3, numIslands.numIslands(grid));
-    }
-
-    @Test
-    void testConnectedDiagonally() {
-        NumIslands numIslands = new NumIslands();
-        char[][] grid = {
-            {'1', '0', '0'},
-            {'0', '1', '0'},
-            {'0', '0', '1'}
-        };
-        assertEquals(3, numIslands.numIslands(grid));  // Diagonal connections don't count
+        assertEquals(1, numIslands.numIslands(grid));
     }
 }
