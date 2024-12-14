@@ -1,106 +1,89 @@
 package MedianSortedArrays.gpto1Mini.white;
-import MedianSortedArrays.*;
 
+import MedianSortedArrays.Median;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MedianTest {
 
-    private final Median median = new Median();
-
     @Test
-    public void testBothArraysEmpty() {
-        // Depending on implementation, this might return 0.0 or throw an exception.
-        // Here, we assume it returns 0.0
-        double result = median.findMedianSortedArrays(new int[]{}, new int[]{});
-        assertEquals(0.0, result, "Median of two empty arrays should be 0.0");
-    }
-
-    @Test
-    public void testFirstArrayEmptySecondArrayOdd() {
-        int[] nums1 = {};
-        int[] nums2 = {1};
-        double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(1.0, result, "Median should be 1.0");
-    }
-
-    @Test
-    public void testFirstArrayEmptySecondArrayEven() {
-        int[] nums1 = {};
-        int[] nums2 = {1, 2};
-        double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(1.5, result, "Median should be 1.5");
-    }
-
-    @Test
-    public void testSecondArrayEmptyFirstArrayOdd() {
-        int[] nums1 = {2};
-        int[] nums2 = {};
-        double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(2.0, result, "Median should be 2.0");
-    }
-
-    @Test
-    public void testSecondArrayEmptyFirstArrayEven() {
-        int[] nums1 = {2, 3};
-        int[] nums2 = {};
-        double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(2.5, result, "Median should be 2.5");
-    }
-
-    @Test
-    public void testSingleElementInEachArray() {
-        int[] nums1 = {1};
-        int[] nums2 = {2};
-        double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(1.5, result, "Median should be 1.5");
-    }
-
-    @Test
-    public void testDifferentLengthArrays() {
+    void testFindMedianOddTotalLength() {
+        Median median = new Median();
         int[] nums1 = {1, 3};
         int[] nums2 = {2};
+        double expected = 2.0;
         double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(2.0, result, "Median should be 2.0");
+        assertEquals(expected, result, 1e-5);
     }
 
     @Test
-    public void testOverlappingArrays() {
+    void testFindMedianEvenTotalLength() {
+        Median median = new Median();
         int[] nums1 = {1, 2};
         int[] nums2 = {3, 4};
+        double expected = 2.5;
         double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(2.5, result, "Median should be 2.5");
+        assertEquals(expected, result, 1e-5);
     }
 
     @Test
-    public void testWithDuplicates() {
-        int[] nums1 = {1, 1};
-        int[] nums2 = {1, 1};
+    void testFindMedianBothArraysHaveDuplicates() {
+        Median median = new Median();
+        int[] nums1 = {0, 0};
+        int[] nums2 = {0, 0};
+        double expected = 0.0;
         double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(1.0, result, "Median should be 1.0");
+        assertEquals(expected, result, 1e-5);
     }
 
     @Test
-    public void testNegativeNumbers() {
-        int[] nums1 = {-3, -1};
-        int[] nums2 = {-2, 0};
+    void testFindMedianFirstArrayEmpty() {
+        Median median = new Median();
+        int[] nums1 = {};
+        int[] nums2 = {1};
+        double expected = 1.0;
         double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(-1.5, result, "Median should be -1.5");
+        assertEquals(expected, result, 1e-5);
     }
 
     @Test
-    public void testOneArrayAllLessThanOther() {
-        int[] nums1 = {1, 2, 3};
-        int[] nums2 = {4, 5, 6};
+    void testFindMedianSecondArrayEmpty() {
+        Median median = new Median();
+        int[] nums1 = {2};
+        int[] nums2 = {};
+        double expected = 2.0;
         double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(3.5, result, "Median should be 3.5");
+        assertEquals(expected, result, 1e-5);
     }
 
     @Test
-    public void testLargeCombinedArray() {
-        int[] nums1 = {1, 3, 5, 7, 9};
-        int[] nums2 = {2, 4, 6, 8, 10};
+    void testFindMedianLargeArrays() {
+        Median median = new Median();
+        int[] nums1 = {1, 2, 3, 4, 5};
+        int[] nums2 = {6, 7, 8, 9, 10};
+        double expected = 5.5;
         double result = median.findMedianSortedArrays(nums1, nums2);
-        assertEquals(5.5, result, "Median should be 5.5");
+        assertEquals(expected, result, 1e-5);
     }
+
+    @Test
+    void testFindMedianDifferentLengths() {
+        Median median = new Median();
+        int[] nums1 = {1};
+        int[] nums2 = {2, 3, 4};
+        double expected = 2.5;
+        double result = median.findMedianSortedArrays(nums1, nums2);
+        assertEquals(expected, result, 1e-5);
+    }
+
+    @Test
+    void testFindMedianWithNegativeNumbers() {
+        Median median = new Median();
+        int[] nums1 = {-5, -3, -1};
+        int[] nums2 = {-2, 0, 2, 4};
+        double expected = -1.5;
+        double result = median.findMedianSortedArrays(nums1, nums2);
+        assertEquals(expected, result, 1e-5);
+    }
+
 }

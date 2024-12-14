@@ -90,6 +90,8 @@ def generate_test_class(prompt: str, prompt_text: str, llm: str) -> str:
                 response_text = submit_prompt_gpt(prompt_text, model='gpt-4o-mini')
             case "gpt4o":
                 response_text = submit_prompt_gpt(prompt_text, model='gpt-4o')
+            case "gpto1Mini":
+                response_text = submit_prompt_gpt(prompt_text, model="o1-mini")
             case "metaAI":
                 response_text = submit_prompt_meta(prompt_text)
             case "mistralSmall":
