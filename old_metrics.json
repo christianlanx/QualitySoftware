@@ -1,4 +1,101 @@
 {
+    "anagrams.gpto1Mini.black.AnagramsTest": {
+        "static": {
+            "lines_of_code": 152,
+            "num_tests": 9,
+            "num_assertions": 4
+        },
+        "test": {
+            "total_tests": 9,
+            "tests_passed": 9,
+            "tests_failed": 0,
+            "tests_skipped": 0
+        },
+        "jacoco": {
+            "counters": {
+                "INSTRUCTION": {
+                    "name": "INSTRUCTION",
+                    "total": 57,
+                    "covered": 57,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "BRANCH": {
+                    "name": "BRANCH",
+                    "total": 4,
+                    "covered": 4,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "LINE": {
+                    "name": "LINE",
+                    "total": 10,
+                    "covered": 10,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "COMPLEXITY": {
+                    "name": "COMPLEXITY",
+                    "total": 4,
+                    "covered": 4,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "METHOD": {
+                    "name": "METHOD",
+                    "total": 2,
+                    "covered": 2,
+                    "missed": 0,
+                    "coverage": 100.0
+                },
+                "CLASS": {
+                    "name": "CLASS",
+                    "total": 1,
+                    "covered": 1,
+                    "missed": 0,
+                    "coverage": 100.0
+                }
+            }
+        },
+        "pit": {
+            "totals": {
+                "killed": 3,
+                "survived": 0,
+                "no_coverage": 0,
+                "detected": 3,
+                "undetected": 0
+            },
+            "mutators": {
+                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                },
+                "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator": {
+                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
+                    "tests_run": 1,
+                    "killed": 1,
+                    "survived": 0,
+                    "detected": 1,
+                    "undetected": 0,
+                    "no_coverage": 0
+                }
+            }
+        }
+    },
     "anagrams.ai21Jamba15Mini.black.AnagramsTest": {
         "static": {
             "lines_of_code": 55,
@@ -1003,103 +1100,6 @@
         "test": {
             "total_tests": 5,
             "tests_passed": 5,
-            "tests_failed": 0,
-            "tests_skipped": 0
-        },
-        "jacoco": {
-            "counters": {
-                "INSTRUCTION": {
-                    "name": "INSTRUCTION",
-                    "total": 57,
-                    "covered": 57,
-                    "missed": 0,
-                    "coverage": 100.0
-                },
-                "BRANCH": {
-                    "name": "BRANCH",
-                    "total": 4,
-                    "covered": 4,
-                    "missed": 0,
-                    "coverage": 100.0
-                },
-                "LINE": {
-                    "name": "LINE",
-                    "total": 10,
-                    "covered": 10,
-                    "missed": 0,
-                    "coverage": 100.0
-                },
-                "COMPLEXITY": {
-                    "name": "COMPLEXITY",
-                    "total": 4,
-                    "covered": 4,
-                    "missed": 0,
-                    "coverage": 100.0
-                },
-                "METHOD": {
-                    "name": "METHOD",
-                    "total": 2,
-                    "covered": 2,
-                    "missed": 0,
-                    "coverage": 100.0
-                },
-                "CLASS": {
-                    "name": "CLASS",
-                    "total": 1,
-                    "covered": 1,
-                    "missed": 0,
-                    "coverage": 100.0
-                }
-            }
-        },
-        "pit": {
-            "totals": {
-                "killed": 3,
-                "survived": 0,
-                "no_coverage": 0,
-                "detected": 3,
-                "undetected": 0
-            },
-            "mutators": {
-                "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator": {
-                    "name": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-                    "tests_run": 1,
-                    "killed": 1,
-                    "survived": 0,
-                    "detected": 1,
-                    "undetected": 0,
-                    "no_coverage": 0
-                },
-                "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator": {
-                    "name": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
-                    "tests_run": 1,
-                    "killed": 1,
-                    "survived": 0,
-                    "detected": 1,
-                    "undetected": 0,
-                    "no_coverage": 0
-                },
-                "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator": {
-                    "name": "org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator",
-                    "tests_run": 1,
-                    "killed": 1,
-                    "survived": 0,
-                    "detected": 1,
-                    "undetected": 0,
-                    "no_coverage": 0
-                }
-            }
-        }
-    },
-    "anagrams.gpto1Mini.black.AnagramsTest": {
-        "static": {
-            "lines_of_code": 152,
-            "num_tests": 9,
-            "num_assertions": 4
-        },
-        "test": {
-            "total_tests": 9,
-            "tests_passed": 9,
             "tests_failed": 0,
             "tests_skipped": 0
         },
@@ -4047,7 +4047,7 @@
         },
         "pit": {
             "totals": {
-                "killed": 26,
+                "killed": 27,
                 "survived": 4,
                 "no_coverage": 1,
                 "detected": 31,
@@ -4066,7 +4066,7 @@
                 "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
                     "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
                     "tests_run": 17,
-                    "killed": 14,
+                    "killed": 15,
                     "survived": 0,
                     "detected": 16,
                     "undetected": 1,
@@ -4931,7 +4931,7 @@
         },
         "pit": {
             "totals": {
-                "killed": 26,
+                "killed": 25,
                 "survived": 4,
                 "no_coverage": 1,
                 "detected": 31,
@@ -4950,7 +4950,7 @@
                 "org.pitest.mutationtest.engine.gregor.mutators.MathMutator": {
                     "name": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
                     "tests_run": 17,
-                    "killed": 14,
+                    "killed": 13,
                     "survived": 1,
                     "detected": 15,
                     "undetected": 2,
