@@ -1,4 +1,8 @@
 You are a test engineer.
-Write me a test suite to cover the following class.
+Write me a test suite to cover the class described by the following implementation.
 Write the test class using Junit5.
+Do not implement any of the methods shown in the solution.
+Do import any public classes used from the solution code.
+Do import any helper classes needed for the test suite.
+Do not rely on imports from the implemented solution.
 Just return the code for the test class.
