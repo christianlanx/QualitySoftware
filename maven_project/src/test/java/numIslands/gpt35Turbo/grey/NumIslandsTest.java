@@ -1,6 +1,9 @@
 package numIslands.gpt35Turbo.grey;
 
 import org.junit.jupiter.api.Test;
+
+import numIslands.NumIslands;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NumIslandsTest {

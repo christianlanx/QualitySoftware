@@ -2,6 +2,10 @@ package NQueens.gpt35Turbo.white;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import NQueens.Nqueens;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;

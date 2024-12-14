@@ -2,6 +2,9 @@ package RegularExpressionMatching.gpt35Turbo.white;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import RegularExpressionMatching.Regular;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RegularTest {

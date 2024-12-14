@@ -2,6 +2,9 @@ package orangesRotting.gpt35Turbo.black;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import orangesRotting.OrangesRot;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrangesRotTest {

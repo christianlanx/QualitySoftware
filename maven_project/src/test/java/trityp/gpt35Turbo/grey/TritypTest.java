@@ -3,6 +3,8 @@ package trityp.gpt35Turbo.grey;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import trityp.Trityp;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TritypTest {
