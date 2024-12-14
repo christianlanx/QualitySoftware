@@ -1,66 +1,72 @@
 package MedianSortedArrays.gpt4o.white;
-import MedianSortedArrays.*;
 
+import MedianSortedArrays.Median;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MedianTest {
 
-    private final Median medianFinder = new Median();
-
     @Test
-    void testFindMedianSortedArrays_EvenTotalLength() {
-        int[] nums1 = {1, 3};
-        int[] nums2 = {2, 4};
-        double expected = 2.5;
-        assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2), "The median of [1, 3] and [2, 4] should be 2.5");
-    }
-    
-    @Test
-    void testFindMedianSortedArrays_OddTotalLength() {
-        int[] nums1 = {1, 2};
-        int[] nums2 = {3};
-        double expected = 2.0;
-        assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2), "The median of [1, 2] and [3] should be 2.0");
+    public void testFindMedianSortedArrays_bothEmptyArrays() {
+        Median median = new Median();
+        assertThrows(IllegalArgumentException.class, () -> {
+            median.findMedianSortedArrays(new int[]{}, new int[]{});
+        });
     }
 
     @Test
-    void testFindMedianSortedArrays_EmptyFirstArray() {
-        int[] nums1 = {};
-        int[] nums2 = {1, 2, 3, 4};
-        double expected = 2.5;
-        assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2), "The median of [] and [1, 2, 3, 4] should be 2.5");
+    public void testFindMedianSortedArrays_oneEmptyArray() {
+        Median median = new Median();
+        assertEquals(2.0, median.findMedianSortedArrays(new int[]{1, 2, 3}, new int[]{}));
+        assertEquals(2.0, median.findMedianSortedArrays(new int[]{}, new int[]{1, 2, 3}));
     }
 
     @Test
-    void testFindMedianSortedArrays_EmptySecondArray() {
-        int[] nums1 = {1, 2, 3, 4};
-        int[] nums2 = {};
-        double expected = 2.5;
-        assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2), "The median of [1, 2, 3, 4] and [] should be 2.5");
-    }
-    
-    @Test
-    void testFindMedianSortedArrays_EqualElements() {
-        int[] nums1 = {2, 2};
-        int[] nums2 = {2, 2};
-        double expected = 2.0;
-        assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2), "The median of [2, 2] and [2, 2] should be 2.0");
+    public void testFindMedianSortedArrays_oddTotalLength() {
+        Median median = new Median();
+        assertEquals(2.0, median.findMedianSortedArrays(new int[]{1, 3}, new int[]{2}));
     }
 
     @Test
-    void testFindMedianSortedArrays_SingleElementArrays() {
-        int[] nums1 = {1};
-        int[] nums2 = {2};
-        double expected = 1.5;
-        assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2), "The median of [1] and [2] should be 1.5");
+    public void testFindMedianSortedArrays_evenTotalLength() {
+        Median median = new Median();
+        assertEquals(2.5, median.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4}));
     }
-    
+
     @Test
-    void testFindMedianSortedArrays_VaryingLengths() {
-        int[] nums1 = {1, 5, 8, 10};
-        int[] nums2 = {2, 3};
-        double expected = 3.5;
-        assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2), "The median of [1, 5, 8, 10] and [2, 3] should be 3.5");
+    public void testFindMedianSortedArrays_differentlySizedArrays() {
+        Median median = new Median();
+        assertEquals(3.0, median.findMedianSortedArrays(new int[]{1, 3, 5}, new int[]{2, 4}));
+    }
+
+    @Test
+    public void testFindMedianSortedArrays_negativeNumbers() {
+        Median median = new Median();
+        assertEquals(-2.0, median.findMedianSortedArrays(new int[]{-3, -2, -1}, new int[]{}));
+    }
+
+    @Test
+    public void testFindMedianSortedArrays_identicalNumbers() {
+        Median median = new Median();
+        assertEquals(1.0, median.findMedianSortedArrays(new int[]{1, 1, 1}, new int[]{1, 1}));
+    }
+
+    @Test
+    public void testFindMedianSortedArrays_largeArrays() {
+        Median median = new Median();
+        int[] nums1 = new int[1000];
+        int[] nums2 = new int[1000];
+        for (int i = 0; i < 1000; i++) {
+            nums1[i] = i;
+            nums2[i] = i + 1000;
+        }
+        assertEquals(999.5, median.findMedianSortedArrays(nums1, nums2));
+    }
+
+    @Test
+    public void testFindMedianSortedArrays_singleElementArrays() {
+        Median median = new Median();
+        assertEquals(2.0, median.findMedianSortedArrays(new int[]{1}, new int[]{2, 3}));
+        assertEquals(2.5, median.findMedianSortedArrays(new int[]{1}, new int[]{2, 3, 4}));
     }
 }

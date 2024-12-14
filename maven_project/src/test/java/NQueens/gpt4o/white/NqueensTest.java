@@ -1,77 +1,65 @@
 package NQueens.gpt4o.white;
-import NQueens.*;
 
+import NQueens.Nqueens;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class NqueensTest {
+public class NqueensTest {
 
-    private final Nqueens nQueensSolver = new Nqueens();
+    private Nqueens nQueensSolver;
 
-    @Test
-    void testNQueens1() {
-        List<List<String>> solutions = nQueensSolver.solveNQueens(1);
-        assertEquals(1, solutions.size());
-        assertEquals(List.of(List.of("Q")), solutions);
+    @BeforeEach
+    public void setUp() {
+        nQueensSolver = new Nqueens();
     }
 
     @Test
-    void testNQueens2() {
+    public void testSolveNQueens_withNEquals1() {
+        List<List<String>> solutions = nQueensSolver.solveNQueens(1);
+        assertEquals(1, solutions.size());
+        assertEquals("Q", solutions.get(0).get(0));
+    }
+
+    @Test
+    public void testSolveNQueens_withNEquals4() {
+        List<List<String>> solutions = nQueensSolver.solveNQueens(4);
+        assertEquals(2, solutions.size());
+        // First solution
+        assertEquals(List.of(
+                ".Q..",
+                "...Q",
+                "Q...",
+                "..Q."
+        ), solutions.get(0));
+
+        // Second solution
+        assertEquals(List.of(
+                "..Q.",
+                "Q...",
+                "...Q",
+                ".Q.."
+        ), solutions.get(1));
+    }
+
+    @Test
+    public void testSolveNQueens_withNEquals2() {
         List<List<String>> solutions = nQueensSolver.solveNQueens(2);
         assertEquals(0, solutions.size());
     }
 
     @Test
-    void testNQueens3() {
+    public void testSolveNQueens_withNEquals3() {
         List<List<String>> solutions = nQueensSolver.solveNQueens(3);
         assertEquals(0, solutions.size());
     }
 
     @Test
-    void testNQueens4() {
-        List<List<String>> solutions = nQueensSolver.solveNQueens(4);
-        assertEquals(2, solutions.size());
-
-        List<List<String>> expectedSolutions = List.of(
-                List.of(
-                        ".Q..",
-                        "...Q",
-                        "Q...",
-                        "..Q."
-                ),
-                List.of(
-                        "..Q.",
-                        "Q...",
-                        "...Q",
-                        ".Q.."
-                )
-        );
-
-        assertTrue(solutions.containsAll(expectedSolutions));
-    }
-
-    @Test
-    void testNQueens5() {
-        List<List<String>> solutions = nQueensSolver.solveNQueens(5);
-        assertEquals(10, solutions.size());
-    }
-
-    @Test
-    void testNQueens6() {
-        List<List<String>> solutions = nQueensSolver.solveNQueens(6);
-        assertEquals(4, solutions.size());
-    }
-
-    @Test
-    void testNQueens7() {
-        List<List<String>> solutions = nQueensSolver.solveNQueens(7);
-        assertEquals(40, solutions.size());
-    }
-
-    @Test
-    void testNQueens8() {
-        List<List<String>> solutions = nQueensSolver.solveNQueens(8);
-        assertEquals(92, solutions.size());
+    public void testSolveNQueens_edgeCaseWithNEquals0() {
+        List<List<String>> solutions = nQueensSolver.solveNQueens(0);
+        assertEquals(0, solutions.size());
     }
 }
