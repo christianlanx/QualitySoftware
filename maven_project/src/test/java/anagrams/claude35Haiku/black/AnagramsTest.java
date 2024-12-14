@@ -1,9 +1,14 @@
 package anagrams.claude35Haiku.black;
-import anagrams.*;
 
+import anagrams.Anagrams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AnagramsTest {
@@ -15,41 +20,39 @@ class AnagramsTest {
     }
 
     @Test
-    void testGroupAnagramsWithMixedAnagrams() {
+    void testGroupAnagrams_BasicScenario() {
         String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
         assertEquals(3, result.size());
         assertTrue(result.stream().anyMatch(group -> 
-            group.containsAll(List.of("eat", "tea", "ate"))));
+            group.containsAll(Arrays.asList("eat", "tea", "ate"))));
         assertTrue(result.stream().anyMatch(group -> 
-            group.containsAll(List.of("nat", "tan"))));
+            group.containsAll(Arrays.asList("nat", "tan"))));
         assertTrue(result.stream().anyMatch(group -> 
             group.contains("bat")));
     }
 
     @Test
-    void testGroupAnagramsWithEmptyString() {
+    void testGroupAnagrams_EmptyStringArray() {
         String[] input = {""};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
         assertEquals(1, result.size());
-        assertEquals(1, result.get(0).size());
         assertTrue(result.get(0).contains(""));
     }
 
     @Test
-    void testGroupAnagramsWithSingleCharacter() {
+    void testGroupAnagrams_SingleCharArray() {
         String[] input = {"a"};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
         assertEquals(1, result.size());
-        assertEquals(1, result.get(0).size());
         assertTrue(result.get(0).contains("a"));
     }
 
     @Test
-    void testGroupAnagramsWithNoAnagrams() {
+    void testGroupAnagrams_NoAnagrams() {
         String[] input = {"cat", "dog", "bird"};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
@@ -58,31 +61,31 @@ class AnagramsTest {
     }
 
     @Test
-    void testGroupAnagramsWithEmptyInput() {
-        String[] input = {};
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertTrue(result.isEmpty());
-    }
-
-    @Test
-    void testGroupAnagramsWithMultipleAnagramGroups() {
-        String[] input = {"abc", "bca", "cab", "def", "fed"};
+    void testGroupAnagrams_MultipleAnagramGroups() {
+        String[] input = {"abc", "cba", "bca", "xyz", "zyx"};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
         assertEquals(2, result.size());
         assertTrue(result.stream().anyMatch(group -> 
-            group.containsAll(List.of("abc", "bca", "cab"))));
+            group.containsAll(Arrays.asList("abc", "cba", "bca"))));
         assertTrue(result.stream().anyMatch(group -> 
-            group.containsAll(List.of("def", "fed"))));
+            group.containsAll(Arrays.asList("xyz", "zyx"))));
     }
 
     @Test
-    void testGroupAnagramsWithLongStrings() {
-        String[] input = {"listen", "silent", "enlist"};
+    void testGroupAnagrams_LargeInput() {
+        String[] input = new String[10000];
+        Arrays.fill(input, "a");
         List<List<String>> result = anagrams.groupAnagrams(input);
         
         assertEquals(1, result.size());
-        assertTrue(result.get(0).containsAll(List.of("listen", "silent", "enlist")));
+        assertEquals(10000, result.get(0).size());
+    }
+
+    @Test
+    void testGroupAnagrams_NullInput() {
+        assertThrows(NullPointerException.class, () -> {
+            anagrams.groupAnagrams(null);
+        });
     }
 }

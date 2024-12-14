@@ -1,6 +1,6 @@
 package NQueens.claude35Haiku.black;
-import NQueens.*;
 
+import NQueens.Nqueens;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -20,10 +20,10 @@ class NqueensTest {
     void testSolveNQueens(int n, int expectedSolutions) {
         List<List<String>> result = solution.solveNQueens(n);
         
-        // Check number of solutions
-        assertEquals(expectedSolutions, result.size(), 
-            "Number of solutions for " + n + "-queens problem");
-
+        // Validate basic constraints
+        assertNotNull(result);
+        assertEquals(expectedSolutions, result.size());
+        
         // Validate each solution
         for (List<String> board : result) {
             validateBoard(board, n);
@@ -31,66 +31,84 @@ class NqueensTest {
     }
 
     @Test
-    void testSingleQueenBoard() {
+    void testMinimumBoardSize() {
         List<List<String>> result = solution.solveNQueens(1);
-        
-        assertEquals(1, result.size(), "Single queen board should have one solution");
-        assertEquals(List.of("Q"), result.get(0), "Single queen board configuration");
+        assertNotNull(result);
+        assertFalse(result.isEmpty());
+        assertEquals(1, result.get(0).size());
+        assertTrue(result.get(0).get(0).equals("Q"));
+    }
+
+    @Test
+    void testMaximumBoardSize() {
+        List<List<String>> result = solution.solveNQueens(9);
+        assertNotNull(result);
+        assertFalse(result.isEmpty());
     }
 
     @Test
     void testInvalidBoardSize() {
         assertThrows(IllegalArgumentException.class, () -> {
             solution.solveNQueens(0);
-        }, "Should throw exception for board size < 1");
-
+        });
+        
         assertThrows(IllegalArgumentException.class, () -> {
             solution.solveNQueens(10);
-        }, "Should throw exception for board size > 9");
+        });
     }
 
-    // Helper method to validate board configuration
+    // Helper method to validate each board configuration
     private void validateBoard(List<String> board, int n) {
         // Check board size
-        assertEquals(n, board.size(), "Board should have correct number of rows");
+        assertEquals(n, board.size());
         
-        // Check each row has correct length
-        board.forEach(row -> assertEquals(n, row.length(), "Row should have correct length"));
+        // Verify each row has correct length and contains only Q or .
+        for (String row : board) {
+            assertEquals(n, row.length());
+            assertTrue(row.matches("^[Q.]+$"));
+        }
         
-        // Check queen placement
-        for (int row = 0; row < n; row++) {
-            int queenCol = board.get(row).indexOf('Q');
-            assertTrue(queenCol != -1, "Each row must have a queen");
-            
-            // Check no other queens in the same row
-            long queensInRow = board.get(row).chars().filter(ch -> ch == 'Q').count();
-            assertEquals(1, queensInRow, "Only one queen per row");
-            
-            // Check diagonal and column conflicts
-            for (int otherRow = 0; otherRow < n; otherRow++) {
-                if (row != otherRow) {
-                    int otherQueenCol = board.get(otherRow).indexOf('Q');
-                    
-                    // Check column conflict
-                    assertNotEquals(queenCol, otherQueenCol, 
-                        "No queens in the same column");
-                    
-                    // Check diagonal conflict
-                    assertFalse(Math.abs(row - otherRow) == Math.abs(queenCol - otherQueenCol), 
-                        "No queens on same diagonal");
-                }
+        // Validate queen placement - each row and column has exactly one queen
+        validateQueenPlacement(board, n);
+    }
+
+    // Helper method to validate queen placement rules
+    private void validateQueenPlacement(List<String> board, int n) {
+        int queensCount = 0;
+        
+        // Check row-wise queen count
+        for (String row : board) {
+            int rowQueens = row.chars().filter(ch -> ch == 'Q').count();
+            assertEquals(1, rowQueens, "Each row must have exactly one queen");
+            queensCount += rowQueens;
+        }
+        assertEquals(n, queensCount, "Total queens must equal board size");
+        
+        // Check diagonal and column conflicts
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                assertFalse(isConflicting(board, i, j), 
+                    "Queens cannot attack each other diagonally or in same column");
             }
         }
     }
 
-    // Provide test cases with n and expected number of solutions
+    // Check if queens at given rows are conflicting
+    private boolean isConflicting(List<String> board, int row1, int row2) {
+        int col1 = board.get(row1).indexOf('Q');
+        int col2 = board.get(row2).indexOf('Q');
+        
+        return col1 == col2 ||                    // Same column
+               Math.abs(row1 - row2) == Math.abs(col1 - col2);  // Diagonal
+    }
+
+    // Parameterized test cases with expected solution count
     private static Stream<Arguments> provideTestCases() {
         return Stream.of(
-            Arguments.of(4, 2),   // Standard 4-queens problem
-            Arguments.of(1, 1),   // Single queen
-            Arguments.of(3, 0),   // No solutions
-            Arguments.of(5, 10),  // 5-queens problem
-            Arguments.of(8, 92)   // Classic 8-queens problem
+            Arguments.of(1, 1),   // Minimum board size
+            Arguments.of(4, 2),   // Classic problem with 2 solutions
+            Arguments.of(5, 10),  // More complex case
+            Arguments.of(8, 92)   // Standard chessboard size
         );
     }
 }

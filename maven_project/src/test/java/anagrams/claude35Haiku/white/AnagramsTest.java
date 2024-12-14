@@ -1,6 +1,6 @@
 package anagrams.claude35Haiku.white;
-import anagrams.*;
 
+import anagrams.Anagrams;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,63 +18,60 @@ class AnagramsTest {
     }
 
     @Test
-    void testGroupAnagrams_emptyArray() {
+    void testGroupAnagrams_EmptyArray() {
         String[] input = {};
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertTrue(result.isEmpty(), "Result should be an empty list");
+        assertTrue(result.isEmpty(), "Result should be empty for empty input");
     }
 
     @Test
-    void testGroupAnagrams_singleWord() {
-        String[] input = {"hello"};
+    void testGroupAnagrams_NoAnagrams() {
+        String[] input = {"cat", "dog", "bird"};
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(1, result.size(), "Should have one group");
-        assertEquals(1, result.get(0).size(), "Group should contain one word");
-        assertTrue(result.get(0).contains("hello"), "Group should contain 'hello'");
+        assertEquals(3, result.size(), "Each word should be in its own group");
+        result.forEach(group -> assertEquals(1, group.size(), "Each group should contain one word"));
     }
 
     @Test
-    void testGroupAnagrams_multipleAnagrams() {
+    void testGroupAnagrams_WithAnagrams() {
         String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
-        assertEquals(3, result.size(), "Should have three groups");
+        assertEquals(3, result.size(), "Should have 3 groups of anagrams");
         
-        // Check anagram groups
-        boolean foundEatGroup = result.stream()
+        boolean hasEatGroup = result.stream()
             .anyMatch(group -> group.containsAll(List.of("eat", "tea", "ate")));
-        boolean foundTanGroup = result.stream()
+        
+        boolean hasTanGroup = result.stream()
             .anyMatch(group -> group.containsAll(List.of("tan", "nat")));
-        boolean foundBatGroup = result.stream()
+        
+        boolean hasBatGroup = result.stream()
             .anyMatch(group -> group.contains("bat"));
         
-        assertTrue(foundEatGroup, "Should have anagram group for 'eat', 'tea', 'ate'");
-        assertTrue(foundTanGroup, "Should have anagram group for 'tan', 'nat'");
-        assertTrue(foundBatGroup, "Should have group for 'bat'");
+        assertTrue(hasEatGroup, "Should have a group with eat, tea, ate");
+        assertTrue(hasTanGroup, "Should have a group with tan, nat");
+        assertTrue(hasBatGroup, "Should have a group with bat");
     }
 
     @Test
-    void testGroupAnagrams_wordsWithDifferentCases() {
-        String[] input = {"Eat", "tea", "Ate"};
+    void testGroupAnagrams_SingleCharacterWords() {
+        String[] input = {"a", "b", "c", "a"};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
-        // Case-sensitive comparison
-        assertEquals(3, result.size(), "Should have three separate groups due to case sensitivity");
+        assertEquals(3, result.size(), "Should have 3 groups");
+        
+        result.forEach(group -> {
+            assertTrue(group.size() == 1 || group.size() == 2, 
+                "Each group should have 1 or 2 elements");
+        });
     }
 
     @Test
-    void testGroupAnagrams_duplicateWords() {
-        String[] input = {"eat", "eat", "tea"};
+    void testGroupAnagrams_CaseSensitivity() {
+        String[] input = {"Eat", "eat", "Tea", "tea"};
         List<List<String>> result = anagrams.groupAnagrams(input);
         
-        assertEquals(1, result.size(), "Should have one group");
-        assertEquals(3, result.get(0).size(), "Group should contain all three words");
-    }
-
-    @Test
-    void testGroupAnagrams_nullInput() {
-        assertThrows(NullPointerException.class, () -> {
-            anagrams.groupAnagrams(null);
-        }, "Should throw NullPointerException for null input");
+        assertEquals(4, result.size(), "Should treat uppercase and lowercase as different");
+        result.forEach(group -> assertEquals(1, group.size(), "Each group should have one word"));
     }
 }

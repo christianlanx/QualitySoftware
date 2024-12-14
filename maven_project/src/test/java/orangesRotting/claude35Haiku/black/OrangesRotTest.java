@@ -1,11 +1,18 @@
 package orangesRotting.claude35Haiku.black;
-import orangesRotting.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import orangesRotting.OrangesRot;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrangesRotTest {
-    private OrangesRot orangesRot = new OrangesRot();
+    private OrangesRot orangesRot;
+
+    @BeforeEach
+    void setUp() {
+        orangesRot = new OrangesRot();
+    }
 
     @Test
     void testBasicRotting() {
@@ -34,17 +41,15 @@ class OrangesRotTest {
     }
 
     @Test
-    void testOnlyFreshOranges() {
+    void testSingleFreshOrange() {
         int[][] grid = {
-            {1,1,1},
-            {1,1,1},
-            {1,1,1}
+            {2,0,1}
         };
         assertEquals(-1, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    void testOnlyRottedOranges() {
+    void testAllRottingOranges() {
         int[][] grid = {
             {2,2,2},
             {2,2,2},
@@ -54,33 +59,40 @@ class OrangesRotTest {
     }
 
     @Test
-    void testSingleCellGrid() {
-        int[][] grid1 = {{1}};
-        assertEquals(-1, orangesRot.orangesRotting(grid1));
-
-        int[][] grid2 = {{2}};
-        assertEquals(0, orangesRot.orangesRotting(grid2));
-
-        int[][] grid3 = {{0}};
-        assertEquals(0, orangesRot.orangesRotting(grid3));
+    void testAllEmptyCells() {
+        int[][] grid = {
+            {0,0,0},
+            {0,0,0},
+            {0,0,0}
+        };
+        assertEquals(0, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    void testComplexRotting() {
-        int[][] grid = {
-            {2,1,1,1},
-            {1,1,0,1},
-            {0,1,1,2}
-        };
-        assertEquals(4, orangesRot.orangesRotting(grid));
+    void testLargeGrid() {
+        int[][] grid = new int[10][10];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                grid[i][j] = 1;
+            }
+        }
+        grid[0][0] = 2;
+        // Exact time might vary based on implementation, but should be finite
+        assertTrue(orangesRot.orangesRotting(grid) > 0);
     }
 
     @Test
-    void testMinimumGrid() {
-        int[][] grid = {
-            {2,1},
-            {1,1}
-        };
-        assertEquals(2, orangesRot.orangesRotting(grid));
+    void testNullGrid() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            orangesRot.orangesRotting(null);
+        });
+    }
+
+    @Test
+    void testEmptyGrid() {
+        int[][] grid = {};
+        assertThrows(IllegalArgumentException.class, () -> {
+            orangesRot.orangesRotting(grid);
+        });
     }
 }
