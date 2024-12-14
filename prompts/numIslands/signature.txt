@@ -1,3 +1,5 @@
+package numIslands;
+
 public class NumIslands {
     public int numIslands(char[][] grid) {
         

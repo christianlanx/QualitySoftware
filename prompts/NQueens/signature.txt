@@ -1,3 +1,5 @@
+package NQueens;
+
 public class Nqueens {
     public List<List<String>> solveNQueens(int n) {
         

@@ -1,3 +1,5 @@
+package trityp;
+
 public class Trityp {
     public static int Triang(int Side1, int Side2, int Side3) {
     }
