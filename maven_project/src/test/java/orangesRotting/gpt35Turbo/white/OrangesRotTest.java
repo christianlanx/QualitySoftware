@@ -1,41 +1,47 @@
 package orangesRotting.gpt35Turbo.white;
-import orangesRotting.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class OrangesRotTest {
 
-    @Test
-    public void testOrangesRotting_NoFreshOranges_ReturnsZero() {
-        OrangesRot rotting = new OrangesRot();
-        int[][] grid = {{2}};
-        int result = rotting.orangesRotting(grid);
-        assertEquals(0, result);
+    private OrangesRot orangesRot;
+
+    @BeforeEach
+    void setUp() {
+        orangesRot = new OrangesRot();
     }
 
     @Test
-    public void testOrangesRotting_OneMinuteToRotAllOranges_ReturnsOne() {
-        OrangesRot rotting = new OrangesRot();
-        int[][] grid = {{2, 1}};
-        int result = rotting.orangesRotting(grid);
-        assertEquals(1, result);
+    void testOrangesRotting_NoRottenOranges_ReturnsZero() {
+        int[][] grid = {{0, 0}, {0, 0}};
+        int expected = 0;
+        int actual = orangesRot.orangesRotting(grid);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testOrangesRotting_UnableToRotAllOranges_ReturnsMinusOne() {
-        OrangesRot rotting = new OrangesRot();
+    void testOrangesRotting_AllOrangesRottenInOneMinute_ReturnsZero() {
+        int[][] grid = {{2, 2}, {2, 2}};
+        int expected = 0;
+        int actual = orangesRot.orangesRotting(grid);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void testOrangesRotting_OneMinuteToRottenAllOranges_ReturnsOne() {
         int[][] grid = {{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
-        int result = rotting.orangesRotting(grid);
-        assertEquals(-1, result);
+        int expected = 1;
+        int actual = orangesRot.orangesRotting(grid);
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testOrangesRotting_AllOrangesAlreadyRotten_ReturnsZero() {
-        OrangesRot rotting = new OrangesRot();
-        int[][] grid = {{2, 2, 2}, {2, 2, 2}, {2, 2, 2}};
-        int result = rotting.orangesRotting(grid);
-        assertEquals(0, result);
+    void testOrangesRotting_UnableToRottenAllOranges_ReturnsMinusOne() {
+        int[][] grid = {{2, 1, 1}, {0, 1, 1}, {1, 0, 1}};
+        int expected = -1;
+        int actual = orangesRot.orangesRotting(grid);
+        assertEquals(expected, actual);
     }
-
 }

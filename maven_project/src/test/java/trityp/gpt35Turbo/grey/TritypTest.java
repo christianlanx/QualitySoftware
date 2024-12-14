@@ -1,8 +1,6 @@
-package trityp.gpt35Turbo.white;
+package trityp.gpt35Turbo.grey;
 
-import trityp.Trityp;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,26 +15,22 @@ public class TritypTest {
     }
 
     @Test
-    @DisplayName("Test for scalene triangle")
     void testScaleneTriangle() {
         assertEquals(1, trityp.Triang(3, 4, 5));
     }
 
     @Test
-    @DisplayName("Test for isosceles triangle")
     void testIsoscelesTriangle() {
-        assertEquals(2, trityp.Triang(3, 3, 5));
+        assertEquals(2, trityp.Triang(5, 5, 7));
     }
 
     @Test
-    @DisplayName("Test for equilateral triangle")
     void testEquilateralTriangle() {
-        assertEquals(3, trityp.Triang(5, 5, 5));
+        assertEquals(3, trityp.Triang(6, 6, 6));
     }
 
     @Test
-    @DisplayName("Test for invalid triangle")
     void testInvalidTriangle() {
-        assertEquals(4, trityp.Triang(0, 1, 2));
+        assertEquals(4, trityp.Triang(0, 5, 5));
     }
 }

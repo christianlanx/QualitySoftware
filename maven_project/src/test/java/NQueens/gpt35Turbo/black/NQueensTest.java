@@ -1,47 +1,43 @@
 package NQueens.gpt35Turbo.black;
-import NQueens.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.List;
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class NQueensTest {
 
-    private Nqueens nQueens;
-
-    @BeforeEach
-    public void setup() {
-        nQueens = new Nqueens();
-    }
-
     @Test
-    public void testNQueens_Example1() {
+    void testSolveNQueens_Example1() {
         int n = 4;
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList(".Q..", "...Q", "Q...", "..Q."),
-                Arrays.asList("..Q.", "Q...", "...Q", ".Q..")
-        );
-        List<List<String>> result = nQueens.solveNQueens(n);
-        assertTrue(result.containsAll(expected));
-        assertTrue(expected.containsAll(result));
+        NQueens nQueens = new NQueens();
+        List<List<String>> actualOutput = nQueens.solveNQueens(n);
+        List<List<String>> expectedOutput = Arrays.asList(Arrays.asList(".Q..","...Q","Q...","..Q."), Arrays.asList("..Q.","Q...","...Q",".Q.."));
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
-    public void testNQueens_Example2() {
+    void testSolveNQueens_Example2() {
         int n = 1;
-        List<List<String>> expected = Arrays.asList(Arrays.asList("Q"));
-        List<List<String>> result = nQueens.solveNQueens(n);
-        assertEquals(expected, result);
+        NQueens nQueens = new NQueens();
+        List<List<String>> actualOutput = nQueens.solveNQueens(n);
+        List<List<String>> expectedOutput = Arrays.asList(Collections.singletonList("Q"));
+        assertEquals(expectedOutput, actualOutput);
     }
 
     @Test
-    public void testNQueens_Constraint1() {
+    void testSolveNQueens_ConstraintLowerBound() {
+        int n = 1;
+        NQueens nQueens = new NQueens();
+        List<List<String>> actualOutput = nQueens.solveNQueens(n);
+        List<List<String>> expectedOutput = Arrays.asList(Collections.singletonList("Q"));
+        assertEquals(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void testSolveNQueens_ConstraintUpperBound() {
         int n = 9;
-        List<List<String>> result = nQueens.solveNQueens(n);
-        // Additional assertions for constraint testing
+        NQueens nQueens = new NQueens();
+        List<List<String>> actualOutput = nQueens.solveNQueens(n);
+        // No expected output provided, just checking for any exceptions
+        assertNotNull(actualOutput);
     }
 }

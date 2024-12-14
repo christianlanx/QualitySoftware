@@ -1,34 +1,43 @@
 package numIslands.gpt35Turbo.black;
-import numIslands.*;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class NumIslandsTest {
 
-    @Test
-    void testNumIslandsExample1() {
-        char[][] grid1 = {
-                {'1','1','1','1','0'},
-                {'1','1','0','1','0'},
-                {'1','1','0','0','0'},
-                {'0','0','0','0','0'}
-        };
-        NumIslands numIslands = new NumIslands();
-        int result1 = numIslands.numIslands(grid1);
-        assertEquals(1, result1);
+    private NumIslands numIslands;
+
+    @BeforeEach
+    public void setUp() {
+        numIslands = new NumIslands();
     }
 
     @Test
-    void testNumIslandsExample2() {
-        char[][] grid2 = {
-                {'1','1','0','0','0'},
-                {'1','1','0','0','0'},
-                {'0','0','1','0','0'},
-                {'0','0','0','1','1'}
+    public void testNumIslandsExample1() {
+        char[][] grid = {
+            {'1','1','1','1','0'},
+            {'1','1','0','1','0'},
+            {'1','1','0','0','0'},
+            {'0','0','0','0','0'}
         };
-        NumIslands numIslands = new NumIslands();
-        int result2 = numIslands.numIslands(grid2);
-        assertEquals(3, result2);
+        int expected = 1;
+        int result = numIslands.numIslands(grid);
+        assertEquals(expected, result);
     }
+
+    @Test
+    public void testNumIslandsExample2() {
+        char[][] grid = {
+            {'1','1','0','0','0'},
+            {'1','1','0','0','0'},
+            {'0','0','1','0','0'},
+            {'0','0','0','1','1'}
+        };
+        int expected = 3;
+        int result = numIslands.numIslands(grid);
+        assertEquals(expected, result);
+    }
+
+    // Add more test cases if needed...
 }

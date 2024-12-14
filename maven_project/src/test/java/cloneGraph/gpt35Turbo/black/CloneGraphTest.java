@@ -1,45 +1,48 @@
 package cloneGraph.gpt35Turbo.black;
-import cloneGraph.*;
-import cloneGraph.CloneGraph.*;
 
-
+import cloneGraph.CloneGraph.Node;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CloneGraphTest {
 
     @Test
-    void testCloneGraph() {
-        // Create nodes for testing
+    void testCloneGraphSingleNode() {
+        CloneGraph.Node node = new CloneGraph.Node(1);
+        CloneGraph cloneGraph = new CloneGraph();
+        Node clonedNode = cloneGraph.cloneGraph(node);
+        assertNotNull(clonedNode);
+        assertEquals(node.val, clonedNode.val);
+        assertEquals(0, clonedNode.neighbors.size());
+    }
+
+    @Test
+    void testCloneGraphMultipleNodes() {
+        List<Node> neighbors1 = new ArrayList<>();
+        List<Node> neighbors2 = new ArrayList<>();
         Node node1 = new Node(1);
         Node node2 = new Node(2);
         Node node3 = new Node(3);
-        Node node4 = new Node(4);
+        neighbors1.add(node2);
+        neighbors1.add(node3);
+        node1.neighbors = neighbors1;
+        neighbors2.add(node1);
+        node2.neighbors = neighbors2;
+        node3.neighbors = neighbors2;
 
-        // Setup neighbors for nodes
-        node1.neighbors.add(node2);
-        node1.neighbors.add(node4);
-        node2.neighbors.add(node1);
-        node2.neighbors.add(node3);
-        node3.neighbors.add(node2);
-        node3.neighbors.add(node4);
-        node4.neighbors.add(node1);
-        node4.neighbors.add(node3);
-
-        // Create CloneGraph object and clone graph
         CloneGraph cloneGraph = new CloneGraph();
         Node clonedNode = cloneGraph.cloneGraph(node1);
 
-        // Check if cloned graph has correct neighbors
-        assertEquals(2, clonedNode.neighbors.get(0).val);
-        assertEquals(4, clonedNode.neighbors.get(1).val);
-
-        assertEquals(1, clonedNode.neighbors.get(0).neighbors.get(0).val);
-        assertEquals(3, clonedNode.neighbors.get(0).neighbors.get(1).val);
-
-        assertEquals(2, clonedNode.neighbors.get(1).neighbors.get(0).val);
-        assertEquals(3, clonedNode.neighbors.get(1).neighbors.get(1).val);
+        assertNotNull(clonedNode);
+        assertEquals(node1.val, clonedNode.val);
+        assertEquals(node1.neighbors.size(), clonedNode.neighbors.size());
+        for (int i = 0; i < node1.neighbors.size(); i++) {
+            assertEquals(node1.neighbors.get(i).val, clonedNode.neighbors.get(i).val);
+        }
     }
 }

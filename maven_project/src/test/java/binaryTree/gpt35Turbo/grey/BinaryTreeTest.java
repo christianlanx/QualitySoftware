@@ -1,26 +1,19 @@
-package binaryTree.gpt35Turbo.white;
+package binaryTree.gpt35Turbo.grey;
 
-import org.junit.jupiter.api.BeforeEach;
+import binaryTree.BinaryTree;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BinaryTreeTest {
 
-    private BinaryTree binaryTree;
-
-    @BeforeEach
-    void setUp() {
-        binaryTree = new BinaryTree();
-    }
-
     @Test
-    void testBuildTree_Example1() {
-        int[] preorder = {3,9,20,15,7};
-        int[] inorder = {9,3,15,20,7};
-
+    public void testBuildTreeExample1() {
+        BinaryTree binaryTree = new BinaryTree();
+        int[] preorder = {3, 9, 20, 15, 7};
+        int[] inorder = {9, 3, 15, 20, 7};
         BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
-        
+
         assertEquals(3, root.val);
         assertEquals(9, root.left.val);
         assertEquals(20, root.right.val);
@@ -29,15 +22,12 @@ public class BinaryTreeTest {
     }
 
     @Test
-    void testBuildTree_EmptyInput() {
-        int[] preorder = {};
-        int[] inorder = {};
-
+    public void testBuildTreeExample2() {
+        BinaryTree binaryTree = new BinaryTree();
+        int[] preorder = {-1};
+        int[] inorder = {-1};
         BinaryTree.TreeNode root = binaryTree.buildTree(preorder, inorder);
 
-        assertEquals(null, root);
+        assertEquals(-1, root.val);
     }
-
-    // Add more test cases as needed
-
 }

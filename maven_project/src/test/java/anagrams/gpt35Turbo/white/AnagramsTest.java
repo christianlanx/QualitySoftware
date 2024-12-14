@@ -1,10 +1,13 @@
 package anagrams.gpt35Turbo.white;
-import anagrams.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AnagramsTest {
@@ -12,24 +15,33 @@ public class AnagramsTest {
     private Anagrams anagrams;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         anagrams = new Anagrams();
     }
 
     @Test
-    public void testGroupAnagrams() {
-        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> expected = Arrays.asList(
-            Arrays.asList("eat", "tea", "ate"),
-            Arrays.asList("tan", "nat"),
-            Arrays.asList("bat")
-        );
+    void testGroupAnagrams() {
+        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> expected = new ArrayList<>();
+        expected.add(Arrays.asList("bat"));
+        expected.add(Arrays.asList("eat", "tea", "ate"));
+        expected.add(Arrays.asList("tan", "nat"));
 
-        List<List<String>> result = anagrams.groupAnagrams(strs);
+        List<List<String>> result = anagrams.groupAnagrams(input);
 
         assertEquals(expected.size(), result.size());
-        for (int i = 0; i < expected.size(); i++) {
-            assertTrue(result.containsAll(expected.get(i)));
+        for (List<String> group : expected) {
+            assertTrue(result.contains(group));
         }
+    }
+
+    @Test
+    void testGroupAnagramsEmptyInput() {
+        String[] input = {};
+        List<List<String>> expected = new ArrayList<>();
+
+        List<List<String>> result = anagrams.groupAnagrams(input);
+
+        assertEquals(expected.size(), result.size());
     }
 }
