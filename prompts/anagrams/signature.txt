@@ -1,0 +1,4 @@
+public class Anagrams {
+    public List<List<String>> groupAnagrams(String[] strs) {
+    }
+}

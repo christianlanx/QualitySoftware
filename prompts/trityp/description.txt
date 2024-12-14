@@ -1,8 +1,3 @@
-You are a test engineer.
-Write me a test suite to cover the class described in the following description, using the provided method signature.
-Write the test suite using junit 5.
-Just return the code for the test class.
-
 Given three integers representing the lengths of the sides of a triangle, implement a function to determine the type of triangle these sides would form.
 
 The function should return an integer corresponding to one of the following classifications:
@@ -13,8 +8,3 @@ Equilateral: All three sides are of the same length.
 Invalid Triangle: The given side lengths do not satisfy the triangle inequality, or one or more side lengths are non-positive, meaning they cannot form a valid triangle.
 
 
-and follow this method signature: 
-public class Trityp {
-    public static int Triang(int Side1, int Side2, int Side3) {
-    }
-}
