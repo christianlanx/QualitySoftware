@@ -2,6 +2,7 @@ import argparse
 import os
 import re
 import logging
+import sys
 
 from project import all_llms, all_prompts, all_packages
 from claude import submit_prompt_anthropic
@@ -19,14 +20,56 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s', 
 )
 
-def load_prompt_text(package: str, prompt: str) -> str:
-    prompt_text_path = os.path.join("prompts", package, f"{prompt}.txt")
-    try:
-        with open(prompt_text_path, 'r') as file:
-            return file.read()
-    except FileNotFoundError:
-        logging.error(f"Prompt file not found: {prompt_text_path}")
-        return None
+
+    
+def generate_prompt_text(prompt: str, package: str, llm: str) -> str:
+    # get the base of the prompt text
+    prompt_text_base_path = os.path.join("prompts", f"{prompt}.txt")
+    with open(prompt_text_base_path, 'r') as file:
+        prompt_text = file.read()
+    # add an instruction to include the package statement
+    package_instruction = f"Include the following package statement: 'package {package}.{llm}.{prompt};'\n"
+    prompt_text +=package_instruction;
+    # add the package specific details per prompt type
+    if (prompt == "black"):
+        prompt_text += "\nProblem Description:\n"
+        description_path = os.path.join("prompts", package, "description.txt")
+        with open(description_path, 'r') as file:
+            prompt_text += file.read()
+        prompt_text += "\nClass Signature:\n"
+        signature_path = os.path.join("prompts", package, "signature.txt")
+        with open(signature_path, 'r') as file:
+            prompt_text += file.read()
+    elif (prompt == "grey"):
+        prompt_text += "\nProblem Description:\n"
+        description_path = os.path.join("prompts", package, "description.txt")
+        with open(description_path, 'r') as file:
+            prompt_text += file.read()
+        prompt_text += "\nSolution Implementation\n"
+        solution_path = os.path.join("maven_project", "src", "main", "java", package)
+        files = os.listdir(solution_path)
+        if (len(files) != 1):
+            print(f"Error: expected only one file at path {solution_path}. Found {files}")
+            sys.exit(1)
+        solution_path = os.path.join(solution_path, files[0])
+        with open(solution_path, 'r') as file:
+            prompt_text += file.read()
+    elif (prompt == "white"):
+        prompt_text += "\nImplementation: \n"
+        # retrieve the class implementation
+        solution_path = os.path.join("maven_project", "src", "main", "java", package)
+        files = os.listdir(solution_path)
+        if (len(files) != 1):
+            print(f"Error: expected only one file at path {solution_path}. Found {files}")
+            sys.exit(1)
+        solution_path = os.path.join(solution_path, files[0])
+        with open(solution_path, 'r') as file:
+            prompt_text += file.read()
+    else:
+        print(f"Error: unexpected prompt {prompt}")
+        sys.exit(1)
+    return prompt_text
+
 
 def generate_test_class(prompt: str, prompt_text: str, llm: str) -> str:
     # Submit the prompt to the LLM and get a response
@@ -60,17 +103,24 @@ def generate_test_class(prompt: str, prompt_text: str, llm: str) -> str:
         logging.error(f"Error during LLM submission: {e}")
         return None
 
+    print(response_text)
+
     # Parse the Java code from the response
-    start_index = response_text.find("import")
+    start_index = response_text.find("package")
+    if start_index == -1:
+        # start_index = response_text.find("import")
+        # if start_index == -1:
+        logging.error("Failed to parse Java code: Start marker not found.")
+        return None
     end_index = response_text.rfind("}")
-    if start_index == -1 or end_index == -1:
-        logging.error("Failed to parse Java code: Start or end markers not found.")
+    if end_index == -1:
+        logging.error("Failed to parse Java code: End marker not found.")
         return None
 
     generated_test_class = response_text[start_index:end_index + 1]
 
     # Add package and imports
-    generated_test_class = f"package {package}.{llm}.{prompt};\nimport {package}.*;\n\n{generated_test_class}"
+    # generated_test_class = f"package {package}.{llm}.{prompt};\n\n{generated_test_class}"
     return generated_test_class
 
 if __name__ == "__main__":
@@ -97,7 +147,7 @@ if __name__ == "__main__":
         for llm in llms:
             for prompt in prompts:
                 logging.info(f"Generating for package={package}, LLM={llm}, prompt={prompt}")
-                prompt_text = load_prompt_text(package, prompt)
+                prompt_text = generate_prompt_text(prompt, package, llm)
                 if not prompt_text:
                     continue
 

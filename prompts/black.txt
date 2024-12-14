@@ -2,7 +2,7 @@ You are a test engineer.
 Write me a test suite to cover the class described by the following problem description and class signature.
 Write the test class using Junit5.
 Do not implement any of the methods shown in the method signature.
-Do import any public classes used from the method signature code.
-Do import any helper classes needed for the test suite.
-Do not rely on imports from the method signature.
+Import any classes from the solution code needed for the test suite.
+Import any helper classes needed for the test suite.
+Do not reuse imports from the implemented solution.
 Just return the code for the test class.

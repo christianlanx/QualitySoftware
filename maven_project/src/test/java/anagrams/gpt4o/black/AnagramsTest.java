@@ -1,102 +1,111 @@
 package anagrams.gpt4o.black;
-import anagrams.*;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.*;
+import java.util.List;
+import java.util.Arrays;
 
 public class AnagramsTest {
 
+    private Anagrams anagrams = new Anagrams();
+
     @Test
-    public void testGroupAnagramsExample1() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"eat","tea","tan","ate","nat","bat"};
+    void testGroupAnagramsExample1() {
+        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> expectedOutput = Arrays.asList(
             Arrays.asList("bat"),
             Arrays.asList("nat", "tan"),
             Arrays.asList("ate", "eat", "tea")
         );
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertTrue(compareListsOfLists(expectedOutput, result));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        verifyGroupAnagrams(expectedOutput, actualOutput);
     }
-    
+
     @Test
-    public void testGroupAnagramsExample2() {
-        Anagrams anagrams = new Anagrams();
+    void testGroupAnagramsExample2() {
         String[] input = {""};
         List<List<String>> expectedOutput = Arrays.asList(
-            Collections.singletonList("")
+            Arrays.asList("")
         );
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertTrue(compareListsOfLists(expectedOutput, result));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        verifyGroupAnagrams(expectedOutput, actualOutput);
     }
-    
+
     @Test
-    public void testGroupAnagramsExample3() {
-        Anagrams anagrams = new Anagrams();
+    void testGroupAnagramsExample3() {
         String[] input = {"a"};
         List<List<String>> expectedOutput = Arrays.asList(
-            Collections.singletonList("a")
+            Arrays.asList("a")
         );
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertTrue(compareListsOfLists(expectedOutput, result));
-    }
-    
-    @Test
-    public void testGroupAnagramsEmptyStringArray() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {};
-        List<List<String>> expectedOutput = new ArrayList<>();
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertTrue(compareListsOfLists(expectedOutput, result));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        verifyGroupAnagrams(expectedOutput, actualOutput);
     }
 
     @Test
-    public void testGroupAnagramsSingleElement() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"abc"};
+    void testGroupAnagramsEmptyStrings() {
+        String[] input = {"", "", ""};
         List<List<String>> expectedOutput = Arrays.asList(
-            Collections.singletonList("abc")
+            Arrays.asList("", "", "")
         );
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertTrue(compareListsOfLists(expectedOutput, result));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        verifyGroupAnagrams(expectedOutput, actualOutput);
     }
 
     @Test
-    public void testGroupAnagramsAllAnagrams() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"abc", "bac", "cab"};
+    void testGroupAnagramsSingleCharacterStrings() {
+        String[] input = {"b", "a", "c", "b", "a"};
         List<List<String>> expectedOutput = Arrays.asList(
-            Arrays.asList("abc", "bac", "cab")
+            Arrays.asList("b", "b"),
+            Arrays.asList("a", "a"),
+            Arrays.asList("c")
         );
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        
-        assertTrue(compareListsOfLists(expectedOutput, result));
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        verifyGroupAnagrams(expectedOutput, actualOutput);
     }
 
-    private boolean compareListsOfLists(List<List<String>> expected, List<List<String>> actual) {
-        if (expected.size() != actual.size()) {
-            return false;
+    @Test
+    void testGroupAnagramsNoAnagrams() {
+        String[] input = {"abc", "def", "ghi"};
+        List<List<String>> expectedOutput = Arrays.asList(
+            Arrays.asList("abc"),
+            Arrays.asList("def"),
+            Arrays.asList("ghi")
+        );
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        verifyGroupAnagrams(expectedOutput, actualOutput);
+    }
+
+    @Test
+    void testGroupAnagramsMultipleGroups() {
+        String[] input = {"abc", "bca", "def", "fed", "ghi", "ihg"};
+        List<List<String>> expectedOutput = Arrays.asList(
+            Arrays.asList("abc", "bca"),
+            Arrays.asList("def", "fed"),
+            Arrays.asList("ghi", "ihg")
+        );
+        List<List<String>> actualOutput = anagrams.groupAnagrams(input);
+
+        verifyGroupAnagrams(expectedOutput, actualOutput);
+    }
+
+    private void verifyGroupAnagrams(List<List<String>> expected, List<List<String>> actual) {
+        assertEquals(expected.size(), actual.size(), "The number of groups should be the same");
+        for (List<String> eGroup : expected) {
+            boolean matchFound = false;
+            for (List<String> aGroup : actual) {
+                if (eGroup.containsAll(aGroup) && aGroup.containsAll(eGroup)) {
+                    matchFound = true;
+                    break;
+                }
+            }
+            assertTrue(matchFound, "Expected group " + eGroup + " not found in actual output");
         }
-        for (List<String> list : expected) {
-            list.sort(String::compareTo);
-        }
-        for (List<String> list : actual) {
-            list.sort(String::compareTo);
-        }
-        expected.sort(Comparator.comparing(list -> list.get(0)));
-        actual.sort(Comparator.comparing(list -> list.get(0)));
-        return expected.equals(actual);
     }
 }

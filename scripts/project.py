@@ -14,6 +14,7 @@ all_llms = [
 
 all_prompts = [
     "black",
+    "grey",
     "white"
 ]
 
