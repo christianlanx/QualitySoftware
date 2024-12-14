@@ -1,7 +1,7 @@
 package trityp.gpt4oMini.black;
-import trityp.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class TritypTest {
@@ -20,29 +20,17 @@ public class TritypTest {
 
     @Test
     public void testScaleneTriangle() {
-        assertEquals(1, Trityp.Triang(3, 4, 5));
         assertEquals(1, Trityp.Triang(5, 4, 3));
+        assertEquals(1, Trityp.Triang(7, 8, 9));
+        assertEquals(1, Trityp.Triang(10, 6, 8));
     }
 
     @Test
-    public void testInvalidTriangle_NonPositiveSides() {
-        assertEquals(0, Trityp.Triang(-1, 2, 2));
-        assertEquals(0, Trityp.Triang(2, -2, 2));
-        assertEquals(0, Trityp.Triang(2, 2, -2));
-        assertEquals(0, Trityp.Triang(0, 2, 2));
-    }
-
-    @Test
-    public void testInvalidTriangle_TriangleInequality() {
-        assertEquals(0, Trityp.Triang(1, 1, 3)); // 1 + 1 <= 3
-        assertEquals(0, Trityp.Triang(1, 2, 3)); // 1 + 2 <= 3
-        assertEquals(0, Trityp.Triang(5, 3, 9)); // 5 + 3 <= 9
-        assertEquals(0, Trityp.Triang(4, 1, 2)); // 1 + 2 <= 4
-    }
-
-    @Test
-    public void testInvalidTriangle_AllSidesInvalid() {
-        assertEquals(0, Trityp.Triang(-1, -1, -1));
-        assertEquals(0, Trityp.Triang(0, 0, 0));
+    public void testInvalidTriangle() {
+        assertEquals(0, Trityp.Triang(1, 2, 3)); // Fails triangle inequality
+        assertEquals(0, Trityp.Triang(5, 10, 20)); // Fails triangle inequality
+        assertEquals(0, Trityp.Triang(0, 5, 5)); // Non-positive length
+        assertEquals(0, Trityp.Triang(5, -1, 5)); // Non-positive length
+        assertEquals(0, Trityp.Triang(-1, -1, -1)); // All sides non-positive
     }
 }

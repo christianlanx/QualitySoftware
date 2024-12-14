@@ -1,83 +1,61 @@
 package NQueens.gpt4oMini.black;
-import NQueens.*;
 
+import NQueens.Nqueens;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NqueensTest {
 
     private final Nqueens nqueens = new Nqueens();
 
     @Test
-    public void testSolveNQueensWith4() {
-        int n = 4;
-        List<List<String>> expected = List.of(
-            List.of(".Q..", "...Q", "Q...", "..Q."),
-            List.of("..Q.", "Q...", "...Q", ".Q..")
-        );
+    void testSolveNQueensWithN1() {
+        List<List<String>> result = nqueens.solveNQueens(1);
+        assertEquals(1, result.size());
+        assertEquals(List.of("Q"), result.get(0));
+    }
 
-        List<List<String>> actual = nqueens.solveNQueens(n);
+    @Test
+    void testSolveNQueensWithN4() {
+        List<List<String>> result = nqueens.solveNQueens(4);
+        assertEquals(2, result.size());
         
-        assertEquals(expected.size(), actual.size(), "The number of solutions should match.");
-        for (List<String> solution : expected) {
-            assertEquals(true, actual.contains(solution), "Expected solution not found: " + solution);
-        }
+        // Check for distinct solutions
+        assertTrue(result.contains(List.of(".Q..", "...Q", "Q...", "..Q.")));
+        assertTrue(result.contains(List.of("..Q.", "Q...", "...Q", ".Q..")));
     }
 
     @Test
-    public void testSolveNQueensWith1() {
-        int n = 1;
-        List<List<String>> expected = List.of(
-            List.of("Q")
-        );
-
-        List<List<String>> actual = nqueens.solveNQueens(n);
-
-        assertEquals(expected, actual, "The solutions for n=1 should match.");
+    void testSolveNQueensWithN5() {
+        List<List<String>> result = nqueens.solveNQueens(5);
+        assertEquals(10, result.size()); // Assuming there are 10 solutions for n = 5
     }
 
     @Test
-    public void testSolveNQueensWith2() {
-        int n = 2;
-        List<List<String>> expected = List.of(); // No solutions for n=2
-
-        List<List<String>> actual = nqueens.solveNQueens(n);
-
-        assertEquals(expected, actual, "There should be no solutions for n=2.");
+    void testSolveNQueensWithN9() {
+        List<List<String>> result = nqueens.solveNQueens(9);
+        assertTrue(result.size() > 0); // Just checking if there are solutions
     }
 
     @Test
-    public void testSolveNQueensWith3() {
-        int n = 3;
-        List<List<String>> expected = List.of(); // No solutions for n=3
-
-        List<List<String>> actual = nqueens.solveNQueens(n);
-
-        assertEquals(expected, actual, "There should be no solutions for n=3.");
+    void testSolveNQueensWithN2() {
+        List<List<String>> result = nqueens.solveNQueens(2);
+        assertEquals(0, result.size()); // No solutions exist for n = 2
     }
 
     @Test
-    public void testSolveNQueensWith5() {
-        int n = 5;
-        List<List<String>> expected = List.of(
-            List.of("Q....", "...Q.", ".Q...", "....Q", "..Q.."),
-            List.of("Q...", "..Q.", "....Q", ".Q..", "...Q"),
-            // Add additional expected solutions as necessary
-            List.of(".Q...", "Q...", "....Q", "...Q", "..Q."),
-            List.of("..Q..", "Q...", "...Q", "....Q", ".Q..")
-        );
-
-        List<List<String>> actual = nqueens.solveNQueens(n);
-        
-        assertEquals(expected.size(), actual.size(), "The number of solutions should match.");
-        for (List<String> solution : expected) {
-            assertEquals(true, actual.contains(solution), "Expected solution not found: " + solution);
-        }
+    void testSolveNQueensWithN3() {
+        List<List<String>> result = nqueens.solveNQueens(3);
+        assertEquals(0, result.size()); // No solutions exist for n = 3
     }
 
-    // Additional tests for other values of n can be added as needed.
+    // Additional test case for edge case n = 0
+    @Test
+    void testSolveNQueensWithN0() {
+        List<List<String>> result = nqueens.solveNQueens(0);
+        assertEquals(1, result.size()); // There is one way to solve n-queens for n = 0 (empty board)
+        assertEquals(List.of(), result.get(0)); // The only configuration for n = 0 is an empty board
+    }
 }

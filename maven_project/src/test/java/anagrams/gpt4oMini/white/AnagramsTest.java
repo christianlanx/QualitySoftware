@@ -1,101 +1,75 @@
 package anagrams.gpt4oMini.white;
-import anagrams.*;
 
+import anagrams.Anagrams;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 import java.util.Arrays;
-import java.util.Collections;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AnagramsTest {
-    
+
     private final Anagrams anagrams = new Anagrams();
 
     @Test
     public void testEmptyInput() {
         String[] input = {};
         List<List<String>> expected = Arrays.asList();
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected, result);
+        assertEquals(expected, anagrams.groupAnagrams(input));
     }
-    
+
     @Test
     public void testSingleWord() {
-        String[] input = {"hello"};
-        List<List<String>> expected = Arrays.asList(Arrays.asList("hello"));
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected, result);
+        String[] input = {"test"};
+        List<List<String>> expected = Arrays.asList(Arrays.asList("test"));
+        assertEquals(expected, anagrams.groupAnagrams(input));
     }
-    
+
     @Test
-    public void testNoAnagrams() {
-        String[] input = {"hello", "world", "java"};
-        List<List<String>> expected = Arrays.asList(
-            Arrays.asList("hello"),
-            Arrays.asList("world"),
-            Arrays.asList("java")
-        );
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected, result);
+    public void testMultipleIdenticalWords() {
+        String[] input = {"same", "same", "same"};
+        List<List<String>> expected = Arrays.asList(Arrays.asList("same", "same", "same"));
+        assertEquals(expected, anagrams.groupAnagrams(input));
     }
-    
+
     @Test
-    public void testMultipleAnagrams() {
+    public void testDifferentAnagrams() {
         String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> expected = Arrays.asList(
-            Arrays.asList("eat", "tea", "ate"),
-            Arrays.asList("tan", "nat"),
-            Arrays.asList("bat")
+            Arrays.asList("bat"),
+            Arrays.asList("nat", "tan"),
+            Arrays.asList("ate", "eat", "tea")
         );
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        // Sort both lists to ensure they are in a comparable order
-        result.forEach(Collections::sort);
-        expected.forEach(Collections::sort);
-        
-        assertEquals(expected.size(), result.size());
-        for (int i = 0; i < expected.size(); i++) {
-            assertEquals(expected.get(i), result.get(i));
-        }
-    }
-    
-    @Test
-    public void testAnagramsWithDifferentCases() {
-        String[] input = {"eat", "Tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> expected = Arrays.asList(
-            Arrays.asList("eat", "ate", "Tea"),
-            Arrays.asList("tan", "nat"),
-            Arrays.asList("bat")
-        );
-        
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        // Sort both lists to ensure they are in a comparable order
-        result.forEach(Collections::sort);
-        expected.forEach(Collections::sort);
-        
-        assertEquals(expected.size(), result.size());
-        for (int i = 0; i < expected.size(); i++) {
-            assertEquals(expected.get(i), result.get(i));
-        }
+        assertEquals(expected, anagrams.groupAnagrams(input));
     }
 
     @Test
-    public void testAnagramsWithSpecialCharacters() {
-        String[] input = {"a!bc", "bc!a", "c!ab", "abc!", "def!"};
+    public void testNoAnagrams() {
+        String[] input = {"abc", "def", "ghi"};
         List<List<String>> expected = Arrays.asList(
-            Arrays.asList("a!bc", "bc!a", "c!ab", "abc!"),
-            Arrays.asList("def!")
+            Arrays.asList("abc"),
+            Arrays.asList("def"),
+            Arrays.asList("ghi")
         );
+        assertEquals(expected, anagrams.groupAnagrams(input));
+    }
 
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        // Sort both lists to ensure they are in a comparable order
-        result.forEach(Collections::sort);
-        expected.forEach(Collections::sort);
+    @Test
+    public void testMixedAnagramsAndNonAnagrams() {
+        String[] input = {"listen", "silent", "enlist", "abc", "cba", "bca"};
+        List<List<String>> expected = Arrays.asList(
+            Arrays.asList("abc", "cba", "bca"),
+            Arrays.asList("listen", "silent", "enlist")
+        );
+        assertEquals(expected, anagrams.groupAnagrams(input));
+    }
 
-        assertEquals(expected.size(), result.size());
-        for (int i = 0; i < expected.size(); i++) {
-            assertEquals(expected.get(i), result.get(i));
-        }
+    @Test
+    public void testInputWithCapitalLetters() {
+        String[] input = {"Listen", "Silent", "enlist"};
+        List<List<String>> expected = Arrays.asList(
+            Arrays.asList("Listen", "Silent", "enlist")
+        );
+        assertEquals(expected, anagrams.groupAnagrams(input));
     }
 }

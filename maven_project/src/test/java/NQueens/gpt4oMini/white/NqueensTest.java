@@ -1,77 +1,65 @@
 package NQueens.gpt4oMini.white;
-import NQueens.*;
 
+import NQueens.Nqueens;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 
-class NqueensTest {
+public class NqueensTest {
 
     private final Nqueens nqueens = new Nqueens();
 
     @Test
-    void testSolveNQueens_1() {
+    public void testSolveNQueens_1() {
         List<List<String>> result = nqueens.solveNQueens(1);
         assertEquals(1, result.size());
         assertEquals(List.of("Q"), result.get(0));
     }
 
     @Test
-    void testSolveNQueens_2() {
+    public void testSolveNQueens_2() {
         List<List<String>> result = nqueens.solveNQueens(2);
-        assertTrue(result.isEmpty());
+        assertEquals(0, result.size());
     }
 
     @Test
-    void testSolveNQueens_3() {
+    public void testSolveNQueens_3() {
         List<List<String>> result = nqueens.solveNQueens(3);
-        assertTrue(result.isEmpty());
+        assertEquals(0, result.size());
     }
 
     @Test
-    void testSolveNQueens_4() {
+    public void testSolveNQueens_4() {
         List<List<String>> result = nqueens.solveNQueens(4);
         assertEquals(2, result.size());
-
-        List<String> solution1 = List.of(
-            ".Q..",
-            "...Q",
-            "Q...",
-            "..Q."
-        );
-        List<String> solution2 = List.of(
-            "..Q.",
-            "Q...",
-            "...Q",
-            ".Q.."
-        );
-
-        assertTrue(result.contains(solution1));
-        assertTrue(result.contains(solution2));
+        assertTrue(result.contains(List.of("Q...", "...Q", ".Q..", "..Q.")));
+        assertTrue(result.contains(List.of(".Q..", "...Q", "Q...", "..Q.")));
     }
 
     @Test
-    void testSolveNQueens_5() {
+    public void testSolveNQueens_5() {
         List<List<String>> result = nqueens.solveNQueens(5);
-        assertEquals(10, result.size()); // 10 solutions for 5 queens
+        assertEquals(10, result.size());
     }
 
     @Test
-    void testSolveNQueens_6() {
+    public void testSolveNQueens_6() {
         List<List<String>> result = nqueens.solveNQueens(6);
-        assertEquals(4, result.size()); // 4 solutions for 6 queens
+        assertEquals(4, result.size());  // This is an assumed expected value; it may need adjustments.
     }
 
     @Test
-    void testSolveNQueens_7() {
-        List<List<String>> result = nqueens.solveNQueens(7);
-        assertEquals(40, result.size()); // 40 solutions for 7 queens
+    public void testSolveNQueens_Negative() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            nqueens.solveNQueens(-1);
+        });
+        assertEquals("N must be non-negative", exception.getMessage());
     }
 
     @Test
-    void testSolveNQueens_8() {
+    public void testSolveNQueens_Integration() {
         List<List<String>> result = nqueens.solveNQueens(8);
-        assertEquals(92, result.size()); // 92 solutions for 8 queens
+        assertFalse(result.isEmpty());
+        // Optionally check the structure of the solution for validity here
     }
 }

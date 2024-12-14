@@ -1,70 +1,75 @@
 package orangesRotting.gpt4oMini.white;
-import orangesRotting.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class OrangesRotTest {
+class OrangesRotTest {
 
-    OrangesRot orangesRot = new OrangesRot();
+    private final OrangesRot orangesRot = new OrangesRot();
 
     @Test
-    public void testEmptyGrid() {
+    void testEmptyGrid() {
         int[][] grid = {};
         assertEquals(0, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    public void testAllFreshOranges() {
-        int[][] grid = {{1, 1}, {1, 1}};
-        assertEquals(-1, orangesRot.orangesRotting(grid));
-    }
-
-    @Test
-    public void testAllRottenOranges() {
+    void testAllRottenOranges() {
         int[][] grid = {{2, 2}, {2, 2}};
         assertEquals(0, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    public void testRottenAdjacentToFresh() {
-        int[][] grid = {{2, 1, 1}, {1, 1, 1}, {0, 2, 0}};
+    void testNoFreshOranges() {
+        int[][] grid = {{0, 0}, {0, 0}};
+        assertEquals(0, orangesRot.orangesRotting(grid));
+    }
+
+    @Test
+    void testFreshOrangesBecomeRotten() {
+        int[][] grid = {{1, 2, 1}, {0, 1, 0}, {1, 1, 1}};
         assertEquals(2, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    public void testIsolatedFreshOrange() {
-        int[][] grid = {{2, 1, 0}, {0, 1, 1}, {0, 0, 1}};
+    void testIsolatedFreshOranges() {
+        int[][] grid = {{1, 0, 1}, {0, 2, 0}, {1, 0, 1}};
         assertEquals(-1, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    public void testMixedGridRotting() {
-        int[][] grid = {{2, 1, 0}, {0, 1, 2}, {1, 0, 1}};
+    void testAllFreshOrangesNoRotten() {
+        int[][] grid = {{1, 1}, {1, 1}};
+        assertEquals(-1, orangesRot.orangesRotting(grid));
+    }
+
+    @Test
+    void testMixedGrid() {
+        int[][] grid = {{2, 1, 0}, {1, 1, 1}, {0, 1, 2}};
         assertEquals(1, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    public void testAdjacentFreshAboveAndBelowRotten() {
-        int[][] grid = {{0, 2, 0}, {1, 1, 1}, {0, 2, 0}};
-        assertEquals(1, orangesRot.orangesRotting(grid));
+    void testComplexGrid() {
+        int[][] grid = {{0, 2, 1}, {1, 1, 0}, {2, 0, 1}};
+        assertEquals(2, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    public void testAllZeroes() {
-        int[][] grid = {{0, 0, 0}, {0, 0, 0}};
+    void testBoundaryConditions() {
+        int[][] grid = {{1, 0}, {0, 1}};
+        assertEquals(-1, orangesRot.orangesRotting(grid));
+    }
+
+    @Test
+    void testSingleCellRotten() {
+        int[][] grid = {{2}};
         assertEquals(0, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    public void testSingleOrangeRotting() {
-        int[][] grid = {{0, 1, 0}, {2, 0, 0}, {0, 0, 0}};
-        assertEquals(0, orangesRot.orangesRotting(grid));
-    }
-
-    @Test
-    public void testSingleRowWithRotting() {
-        int[][] grid = {{1, 2, 1, 1}, {0, 0, 0, 0}};
-        assertEquals(1, orangesRot.orangesRotting(grid));
+    void testSingleCellFresh() {
+        int[][] grid = {{1}};
+        assertEquals(-1, orangesRot.orangesRotting(grid));
     }
 }

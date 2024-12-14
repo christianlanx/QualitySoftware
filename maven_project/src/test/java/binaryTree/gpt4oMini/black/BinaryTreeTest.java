@@ -1,92 +1,84 @@
 package binaryTree.gpt4oMini.black;
-import binaryTree.*;
-import binaryTree.BinaryTree.*;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
+import binaryTree.BinaryTree;
+import binaryTree.BinaryTree.TreeNode;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BinaryTreeTest {
-
+    
     private final BinaryTree binaryTree = new BinaryTree();
 
     @Test
-    void testBuildTreeExample1() {
+    void testBuildTree_example1() {
         int[] preorder = {3, 9, 20, 15, 7};
         int[] inorder = {9, 3, 15, 20, 7};
-        TreeNode expected = new TreeNode(3,
-                new TreeNode(9),
-                new TreeNode(20,
-                        new TreeNode(15),
-                        new TreeNode(7)));
-        
         TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected.val, result.val);
-        assertEquals(expected.left.val, result.left.val);
-        assertEquals(expected.right.val, result.right.val);
-        assertEquals(expected.right.left.val, result.right.left.val);
-        assertEquals(expected.right.right.val, result.right.right.val);
+        assertEquals(3, result.val);
+        assertEquals(9, result.left.val);
+        assertEquals(20, result.right.val);
+        assertEquals(15, result.right.left.val);
+        assertEquals(7, result.right.right.val);
     }
 
     @Test
-    void testBuildTreeExample2() {
+    void testBuildTree_example2() {
         int[] preorder = {-1};
         int[] inorder = {-1};
-        TreeNode expected = new TreeNode(-1);
-        
         TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected.val, result.val);
+        assertEquals(-1, result.val);
         assertNull(result.left);
         assertNull(result.right);
     }
 
     @Test
-    void testBuildTreeWithLeftChild() {
-        int[] preorder = {1, 2, 3, 4};
-        int[] inorder = {4, 3, 2, 1};
-        TreeNode expected = new TreeNode(1,
-                new TreeNode(2,
-                        new TreeNode(3,
-                                new TreeNode(4, null, null),
-                                null),
-                        null),
-                null);
-        
+    void testBuildTree_multipleLevels() {
+        int[] preorder = {1, 2, 4, 5, 3, 6, 7};
+        int[] inorder = {4, 2, 5, 1, 6, 3, 7};
         TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected.val, result.val);
-        assertEquals(expected.left.val, result.left.val);
-        assertEquals(expected.left.left.val, result.left.left.val);
-        assertEquals(expected.left.left.left.val, result.left.left.left.val);
+        assertEquals(1, result.val);
+        assertEquals(2, result.left.val);
+        assertEquals(4, result.left.left.val);
+        assertEquals(5, result.left.right.val);
+        assertEquals(3, result.right.val);
+        assertEquals(6, result.right.left.val);
+        assertEquals(7, result.right.right.val);
     }
 
     @Test
-    void testBuildTreeWithRightChild() {
-        int[] preorder = {1, 2, 3, 4};
-        int[] inorder = {1, 2, 3, 4};
-        TreeNode expected = new TreeNode(1,
-                null,
-                new TreeNode(2,
-                        null,
-                        new TreeNode(3,
-                                null,
-                                new TreeNode(4))));
-        
+    void testBuildTree_leftHeavyTree() {
+        int[] preorder = {1, 2, 3, 4, 5};
+        int[] inorder = {5, 4, 3, 2, 1};
         TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected.val, result.val);
-        assertNull(result.left);
-        assertEquals(expected.right.val, result.right.val);
-        assertEquals(expected.right.right.val, result.right.right.val);
-        assertEquals(expected.right.right.right.val, result.right.right.right.val);
+        
+        assertEquals(1, result.val);
+        assertEquals(2, result.left.val);
+        assertEquals(3, result.left.left.val);
+        assertEquals(4, result.left.left.left.val);
+        assertEquals(5, result.left.left.left.left.val);
     }
 
     @Test
-    void testEmptyTree() {
-        int[] preorder = {};
-        int[] inorder = {};
-        
+    void testBuildTree_rightHeavyTree() {
+        int[] preorder = {1, 2, 3, 4, 5};
+        int[] inorder = {1, 2, 3, 4, 5};
         TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertNull(result);
+        
+        assertEquals(1, result.val);
+        assertEquals(2, result.right.val);
+        assertEquals(3, result.right.right.val);
+        assertEquals(4, result.right.right.right.val);
+        assertEquals(5, result.right.right.right.right.val);
+    }
+
+    @Test
+    void testBuildTree_sameValueNegativePosition() {
+        int[] preorder = {-1, -2, -3};
+        int[] inorder = {-3, -2, -1};
+        TreeNode result = binaryTree.buildTree(preorder, inorder);
+        
+        assertEquals(-1, result.val);
+        assertEquals(-2, result.left.val);
+        assertEquals(-3, result.left.left.val);
     }
 }

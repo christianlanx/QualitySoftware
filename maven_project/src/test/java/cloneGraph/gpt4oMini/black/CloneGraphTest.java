@@ -1,98 +1,67 @@
 package cloneGraph.gpt4oMini.black;
-import cloneGraph.*;
-import cloneGraph.CloneGraph.*;
 
-
+import cloneGraph.CloneGraph;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class CloneGraphTest {
 
-    // Helper method to create a graph from an adjacency list
-    private Node createGraph(int[][] adjList) {
-        Map<Integer, Node> nodeMap = new HashMap<>();
-        for (int i = 0; i < adjList.length; i++) {
-            nodeMap.put(i + 1, new Node(i + 1));
-        }
-        for (int i = 0; i < adjList.length; i++) {
-            Node node = nodeMap.get(i + 1);
-            for (int neighbor : adjList[i]) {
-                node.neighbors.add(nodeMap.get(neighbor));
-            }
-        }
-        return nodeMap.get(1); // Return the node with value 1
-    }
+    @Test
+    public void testCloneGraph_Example1() {
+        CloneGraph graph = new CloneGraph();
 
-    // Helper method to create an adjacency list from a graph
-    private List<List<Integer>> graphToAdjList(Node node) {
-        List<List<Integer>> adjList = new ArrayList<>();
-        Set<Node> visited = new HashSet<>();
-        dfs(node, visited, adjList);
-        return adjList;
-    }
+        // Create the original graph: [[2,4],[1,3],[2,4],[1,3]]
+        CloneGraph.Node node1 = new CloneGraph.Node(1);
+        CloneGraph.Node node2 = new CloneGraph.Node(2);
+        CloneGraph.Node node3 = new CloneGraph.Node(3);
+        CloneGraph.Node node4 = new CloneGraph.Node(4);
+        
+        node1.neighbors.add(node2);
+        node1.neighbors.add(node4);
+        node2.neighbors.add(node1);
+        node2.neighbors.add(node3);
+        node3.neighbors.add(node2);
+        node3.neighbors.add(node4);
+        node4.neighbors.add(node1);
+        node4.neighbors.add(node3);
 
-    private void dfs(Node node, Set<Node> visited, List<List<Integer>> adjList) {
-        if (node == null || visited.contains(node)) return;
-        visited.add(node);
-        while (adjList.size() < node.val) {
-            adjList.add(new ArrayList<>());
-        }
-        for (Node neighbor : node.neighbors) {
-            adjList.get(node.val - 1).add(neighbor.val);
-            dfs(neighbor, visited, adjList);
-        }
+        CloneGraph.Node clonedNode1 = graph.cloneGraph(node1);
+        
+        // Validate cloned graph structure
+        assertEquals(1, clonedNode1.val);
+        assertEquals(2, clonedNode1.neighbors.get(0).val);
+        assertEquals(4, clonedNode1.neighbors.get(1).val);
+        assertEquals(2, clonedNode1.neighbors.get(0).neighbors.get(1).val);
+        assertEquals(3, clonedNode1.neighbors.get(0).neighbors.get(0).val);
     }
 
     @Test
-    public void testCloneGraph_singleNode() {
-        int[][] adjList = {{}};
-        Node original = createGraph(adjList);
-        CloneGraph solution = new CloneGraph();
-        Node cloned = solution.cloneGraph(original);
+    public void testCloneGraph_Example2() {
+        CloneGraph graph = new CloneGraph();
+
+        // Create the original graph: [[]]
+        CloneGraph.Node node1 = new CloneGraph.Node(1);
         
-        List<List<Integer>> originalAdjList = graphToAdjList(original);
-        List<List<Integer>> clonedAdjList = graphToAdjList(cloned);
+        CloneGraph.Node clonedNode1 = graph.cloneGraph(node1);
         
-        assertEquals(originalAdjList, clonedAdjList);
+        // Validate cloned graph structure
+        assertEquals(1, clonedNode1.val);
+        assertEquals(0, clonedNode1.neighbors.size());
     }
 
     @Test
-    public void testCloneGraph_emptyGraph() {
-        int[][] adjList = {};
-        Node original = createGraph(adjList);
-        CloneGraph solution = new CloneGraph();
-        Node cloned = solution.cloneGraph(original);
+    public void testCloneGraph_Empty() {
+        CloneGraph graph = new CloneGraph();
         
-        assertNull(cloned); // Expecting cloned graph to be null for an empty input
+        // Test cloning an empty graph
+        CloneGraph.Node clonedNode = graph.cloneGraph(null);
+        
+        // Validate that the result is null
+        assertNull(clonedNode);
     }
-
-    @Test
-    public void testCloneGraph_fullGraph() {
-        int[][] adjList = {{2, 4}, {1, 3}, {2, 4}, {1, 3}};
-        Node original = createGraph(adjList);
-        CloneGraph solution = new CloneGraph();
-        Node cloned = solution.cloneGraph(original);
-        
-        List<List<Integer>> originalAdjList = graphToAdjList(original);
-        List<List<Integer>> clonedAdjList = graphToAdjList(cloned);
-        
-        assertEquals(originalAdjList, clonedAdjList);
-    }
-
-    @Test
-    public void testCloneGraph_disconnectedGraph() {
-        // As per the problem's constraints, the graph is always connected. 
-        // This test serves only for completeness and won't be executed.
-        int[][] adjList = {{2}, {1, 3}, {2}, {4}, {3}};
-        Node original = createGraph(adjList);
-        CloneGraph solution = new CloneGraph();
-        Node cloned = solution.cloneGraph(original);
-        
-        List<List<Integer>> originalAdjList = graphToAdjList(original);
-        List<List<Integer>> clonedAdjList = graphToAdjList(cloned);
-        
-        assertNotEquals(originalAdjList, clonedAdjList); // This check is irrelevant here
-    }
-    
 }

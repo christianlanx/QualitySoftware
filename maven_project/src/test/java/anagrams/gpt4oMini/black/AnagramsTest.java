@@ -1,71 +1,82 @@
 package anagrams.gpt4oMini.black;
-import anagrams.*;
 
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class AnagramsTest {
-
+    
     private final Anagrams anagrams = new Anagrams();
 
     @Test
-    public void testGroupAnagramsWithMultipleGroups() {
-        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("bat"),
-                Arrays.asList("nat", "tan"),
-                Arrays.asList("ate", "eat", "tea")
-        );
+    public void testGroupAnagramsEmptyInput() {
+        String[] input = {};
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected.size(), result.size());
+        assertEquals(0, result.size());
     }
 
     @Test
-    public void testGroupAnagramsWithEmptyString() {
+    public void testGroupAnagramsSingleEmptyString() {
         String[] input = {""};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("")
-        );
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected, result);
-    }
-
-    @Test
-    public void testGroupAnagramsWithSingleCharacter() {
-        String[] input = {"a"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("a")
-        );
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected, result);
-    }
-
-    @Test
-    public void testGroupAnagramsWithNoAnagrams() {
-        String[] input = {"hello", "world", "java"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("hello"),
-                Arrays.asList("world"),
-                Arrays.asList("java")
-        );
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected.size(), result.size());
-    }
-
-    @Test
-    public void testGroupAnagramsWithAllAnagrams() {
-        String[] input = {"abc", "bca", "cab", "cba"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("abc", "bca", "cab", "cba")
-        );
         List<List<String>> result = anagrams.groupAnagrams(input);
         assertEquals(1, result.size());
-        assertEquals(expected.get(0).size(), result.get(0).size());
+        assertEquals(List.of(""), result.get(0));
     }
 
-    // Add more tests as necessary to cover edge cases
+    @Test
+    public void testGroupAnagramsSingleCharacter() {
+        String[] input = {"a"};
+        List<List<String>> result = anagrams.groupAnagrams(input);
+        assertEquals(1, result.size());
+        assertEquals(List.of("a"), result.get(0));
+    }
+
+    @Test
+    public void testGroupAnagramsMultipleAnagrams() {
+        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> result = anagrams.groupAnagrams(input);
+
+        assertEquals(3, result.size());
+        
+        // Check if "eat", "tea", and "ate" are together
+        assertTrue(result.stream().anyMatch(group -> group.contains("eat") && group.contains("tea") && group.contains("ate")));
+        
+        // Check if "nat" and "tan" are together
+        assertTrue(result.stream().anyMatch(group -> group.contains("nat") && group.contains("tan")));
+        
+        // Check if "bat" is alone
+        assertTrue(result.stream().anyMatch(group -> group.contains("bat") && group.size() == 1));
+    }
+
+    @Test
+    public void testGroupAnagramsSameCharactersDifferentOrder() {
+        String[] input = {"abc", "bca", "cab", "cba", "bac"};
+        List<List<String>> result = anagrams.groupAnagrams(input);
+
+        assertEquals(1, result.size());
+        assertTrue(result.get(0).containsAll(List.of("abc", "bca", "cab", "cba", "bac")));
+    }
+
+    @Test
+    public void testGroupAnagramsNoAnagrams() {
+        String[] input = {"abcd", "efgh", "ijkl"};
+        List<List<String>> result = anagrams.groupAnagrams(input);
+
+        assertEquals(3, result.size());
+        assertTrue(result.stream().anyMatch(group -> group.contains("abcd") && group.size() == 1));
+        assertTrue(result.stream().anyMatch(group -> group.contains("efgh") && group.size() == 1));
+        assertTrue(result.stream().anyMatch(group -> group.contains("ijkl") && group.size() == 1));
+    }
+    
+    @Test
+    public void testGroupAnagramsLargeInput() {
+        String[] input = new String[10000];
+        for (int i = 0; i < 10000; i++) {
+            input[i] = i % 2 == 0 ? "abc" : "cba"; // 5000 anagrams and 5000 non-anagrams
+        }
+        List<List<String>> result = anagrams.groupAnagrams(input);
+        
+        assertEquals(2, result.size());
+        assertEquals(5000, result.get(0).size()); // Check the count of anagrams
+    }
 }
