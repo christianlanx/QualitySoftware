@@ -3,6 +3,7 @@ import os
 import re
 import logging
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from project import all_llms, all_prompts, all_packages
 from claude import submit_prompt_anthropic
@@ -21,7 +22,6 @@ logging.basicConfig(
 )
 
 
-    
 def generate_prompt_text(prompt: str, package: str, llm: str) -> str:
     # get the base of the prompt text
     prompt_text_base_path = os.path.join("prompts", f"{prompt}.txt")
@@ -29,9 +29,9 @@ def generate_prompt_text(prompt: str, package: str, llm: str) -> str:
         prompt_text = file.read()
     # add an instruction to include the package statement
     package_instruction = f"Include the following package statement: 'package {package}.{llm}.{prompt};'\n"
-    prompt_text +=package_instruction;
-    # add the package specific details per prompt type
-    if (prompt == "black"):
+    prompt_text += package_instruction
+
+    if prompt == "black":
         prompt_text += "\nProblem Description:\n"
         description_path = os.path.join("prompts", package, "description.txt")
         with open(description_path, 'r') as file:
@@ -40,7 +40,7 @@ def generate_prompt_text(prompt: str, package: str, llm: str) -> str:
         signature_path = os.path.join("prompts", package, "signature.txt")
         with open(signature_path, 'r') as file:
             prompt_text += file.read()
-    elif (prompt == "grey"):
+    elif prompt == "grey":
         prompt_text += "\nProblem Description:\n"
         description_path = os.path.join("prompts", package, "description.txt")
         with open(description_path, 'r') as file:
@@ -48,18 +48,18 @@ def generate_prompt_text(prompt: str, package: str, llm: str) -> str:
         prompt_text += "\nSolution Implementation\n"
         solution_path = os.path.join("maven_project", "src", "main", "java", package)
         files = os.listdir(solution_path)
-        if (len(files) != 1):
+        if len(files) != 1:
             print(f"Error: expected only one file at path {solution_path}. Found {files}")
             sys.exit(1)
         solution_path = os.path.join(solution_path, files[0])
         with open(solution_path, 'r') as file:
             prompt_text += file.read()
-    elif (prompt == "white"):
+    elif prompt == "white":
         prompt_text += "\nImplementation: \n"
         # retrieve the class implementation
         solution_path = os.path.join("maven_project", "src", "main", "java", package)
         files = os.listdir(solution_path)
-        if (len(files) != 1):
+        if len(files) != 1:
             print(f"Error: expected only one file at path {solution_path}. Found {files}")
             sys.exit(1)
         solution_path = os.path.join(solution_path, files[0])
@@ -105,11 +105,8 @@ def generate_test_class(prompt: str, prompt_text: str, llm: str) -> str:
 
     print(response_text)
 
-    # Parse the Java code from the response
     start_index = response_text.find("package")
     if start_index == -1:
-        # start_index = response_text.find("import")
-        # if start_index == -1:
         logging.error("Failed to parse Java code: Start marker not found.")
         return None
     end_index = response_text.rfind("}")
@@ -118,10 +115,38 @@ def generate_test_class(prompt: str, prompt_text: str, llm: str) -> str:
         return None
 
     generated_test_class = response_text[start_index:end_index + 1]
-
-    # Add package and imports
-    # generated_test_class = f"package {package}.{llm}.{prompt};\n\n{generated_test_class}"
     return generated_test_class
+
+def process_task(package: str, llm: str, prompt: str, args) -> None:
+    logging.info(f"Generating for package={package}, LLM={llm}, prompt={prompt}")
+    prompt_text = generate_prompt_text(prompt, package, llm)
+    if not prompt_text:
+        return
+
+    testclass_path = os.path.join(TEST_CLASS_BASE_PATH, package, llm, prompt)
+    os.makedirs(testclass_path, exist_ok=True)
+
+    files = os.listdir(testclass_path)
+    if files and not args.overwrite:
+        logging.info(f"Skipping: Test class already exists in {testclass_path}")
+        return
+
+    generated_test_class = generate_test_class(prompt, prompt_text, llm)
+    if not generated_test_class:
+        return
+
+    if args.print:
+        print(generated_test_class)
+    else:
+        match = re.search(r'\bclass (\w+)', generated_test_class)
+        if not match:
+            logging.error("Class name not found in the generated code.")
+            return
+        class_name = match.group(1)
+        output_filename = os.path.join(testclass_path, f"{class_name}.java")
+        with open(output_filename, 'w') as file:
+            file.write(generated_test_class)
+        logging.info(f"Test class written to {output_filename}")
 
 if __name__ == "__main__":
     logging.basicConfig(
@@ -137,42 +162,21 @@ if __name__ == "__main__":
     parser.add_argument("--make_dir", action="store_true", help="Create missing directories.")
     parser.add_argument("--overwrite", action="store_true", help="Overwrite existing test classes.")
     parser.add_argument("--print", action="store_true", help="Print the generated code instead of saving it.")
+    parser.add_argument("--max_workers", type=int, default=4, help="Number of parallel workers.")
     args = parser.parse_args()
 
     packages = [args.package] if args.package else all_packages
     prompts = [args.prompt] if args.prompt else all_prompts
     llms = [args.llm] if args.llm else all_llms
 
-    for package in packages:
-        for llm in llms:
-            for prompt in prompts:
-                logging.info(f"Generating for package={package}, LLM={llm}, prompt={prompt}")
-                prompt_text = generate_prompt_text(prompt, package, llm)
-                if not prompt_text:
-                    continue
+    tasks = [(package, llm, prompt) for package in packages for llm in llms for prompt in prompts]
 
-                testclass_path = os.path.join(TEST_CLASS_BASE_PATH, package, llm, prompt)
-                os.makedirs(testclass_path, exist_ok=True)
-
-                files = os.listdir(testclass_path)
-                if files and not args.overwrite:
-                    logging.info(f"Skipping: Test class already exists in {testclass_path}")
-                    continue
-
-                generated_test_class = generate_test_class(prompt, prompt_text, llm)
-                if not generated_test_class:
-                    continue
-
-                if args.print:
-                    print(generated_test_class)
-                else:
-                    match = re.search(r'\bclass (\w+)', generated_test_class)
-                    if not match:
-                        logging.error("Class name not found in the generated code.")
-                        continue
-
-                    class_name = match.group(1)
-                    output_filename = os.path.join(testclass_path, f"{class_name}.java")
-                    with open(output_filename, 'w') as file:
-                        file.write(generated_test_class)
-                    logging.info(f"Test class written to {output_filename}")
+    # Use ThreadPoolExecutor or ProcessPoolExecutor for parallelization
+    # ThreadPoolExecutor is often simpler if your tasks are I/O bound (network requests).
+    with ThreadPoolExecutor(max_workers=args.max_workers) as executor:
+        futures = [executor.submit(process_task, package, llm, prompt, args) for package, llm, prompt in tasks]
+        for future in as_completed(futures):
+            # If any task raises an exception, log it
+            exc = future.exception()
+            if exc:
+                logging.error(f"Task failed with exception: {exc}")
