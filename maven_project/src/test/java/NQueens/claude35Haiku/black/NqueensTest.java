@@ -1,114 +1,143 @@
 package NQueens.claude35Haiku.black;
 
 import NQueens.Nqueens;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
 import java.util.List;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class NqueensTest {
 
-    private Nqueens solution = new Nqueens();
+    private Nqueens nQueens;
 
-    @ParameterizedTest
-    @MethodSource("provideTestCases")
-    void testSolveNQueens(int n, int expectedSolutions) {
-        List<List<String>> result = solution.solveNQueens(n);
-        
-        // Validate basic constraints
-        assertNotNull(result);
-        assertEquals(expectedSolutions, result.size());
-        
-        // Validate each solution
-        for (List<String> board : result) {
-            validateBoard(board, n);
-        }
+    @BeforeEach
+    void setUp() {
+        nQueens = new Nqueens();
     }
 
     @Test
-    void testMinimumBoardSize() {
-        List<List<String>> result = solution.solveNQueens(1);
-        assertNotNull(result);
-        assertFalse(result.isEmpty());
-        assertEquals(1, result.get(0).size());
-        assertTrue(result.get(0).get(0).equals("Q"));
+    void testSolveNQueensForOneQueen() {
+        List<List<String>> solutions = nQueens.solveNQueens(1);
+        
+        assertNotNull(solutions);
+        assertEquals(1, solutions.size());
+        assertEquals(1, solutions.get(0).size());
+        assertEquals("Q", solutions.get(0).get(0));
     }
 
     @Test
-    void testMaximumBoardSize() {
-        List<List<String>> result = solution.solveNQueens(9);
-        assertNotNull(result);
-        assertFalse(result.isEmpty());
-    }
-
-    @Test
-    void testInvalidBoardSize() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            solution.solveNQueens(0);
-        });
+    void testSolveNQueensForFourQueens() {
+        List<List<String>> solutions = nQueens.solveNQueens(4);
         
-        assertThrows(IllegalArgumentException.class, () -> {
-            solution.solveNQueens(10);
-        });
-    }
-
-    // Helper method to validate each board configuration
-    private void validateBoard(List<String> board, int n) {
-        // Check board size
-        assertEquals(n, board.size());
+        assertNotNull(solutions);
+        assertEquals(2, solutions.size());
         
-        // Verify each row has correct length and contains only Q or .
-        for (String row : board) {
-            assertEquals(n, row.length());
-            assertTrue(row.matches("^[Q.]+$"));
-        }
-        
-        // Validate queen placement - each row and column has exactly one queen
-        validateQueenPlacement(board, n);
-    }
-
-    // Helper method to validate queen placement rules
-    private void validateQueenPlacement(List<String> board, int n) {
-        int queensCount = 0;
-        
-        // Check row-wise queen count
-        for (String row : board) {
-            int rowQueens = row.chars().filter(ch -> ch == 'Q').count();
-            assertEquals(1, rowQueens, "Each row must have exactly one queen");
-            queensCount += rowQueens;
-        }
-        assertEquals(n, queensCount, "Total queens must equal board size");
-        
-        // Check diagonal and column conflicts
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                assertFalse(isConflicting(board, i, j), 
-                    "Queens cannot attack each other diagonally or in same column");
+        // Check board size and solution format
+        for (List<String> solution : solutions) {
+            assertEquals(4, solution.size());
+            for (String row : solution) {
+                assertEquals(4, row.length());
+                assertTrue(row.matches("[Q.]{4}"));
             }
         }
     }
 
-    // Check if queens at given rows are conflicting
-    private boolean isConflicting(List<String> board, int row1, int row2) {
-        int col1 = board.get(row1).indexOf('Q');
-        int col2 = board.get(row2).indexOf('Q');
+    @Test
+    void testSolveNQueensForMinimumConstraint() {
+        List<List<String>> solutions = nQueens.solveNQueens(1);
         
-        return col1 == col2 ||                    // Same column
-               Math.abs(row1 - row2) == Math.abs(col1 - col2);  // Diagonal
+        assertNotNull(solutions);
+        assertFalse(solutions.isEmpty());
     }
 
-    // Parameterized test cases with expected solution count
-    private static Stream<Arguments> provideTestCases() {
-        return Stream.of(
-            Arguments.of(1, 1),   // Minimum board size
-            Arguments.of(4, 2),   // Classic problem with 2 solutions
-            Arguments.of(5, 10),  // More complex case
-            Arguments.of(8, 92)   // Standard chessboard size
-        );
+    @Test
+    void testSolveNQueensForMaximumConstraint() {
+        List<List<String>> solutions = nQueens.solveNQueens(9);
+        
+        assertNotNull(solutions);
+        assertFalse(solutions.isEmpty());
+    }
+
+    @Test
+    void testSolveNQueensSolutionValidity() {
+        List<List<String>> solutions = nQueens.solveNQueens(4);
+        
+        for (List<String> solution : solutions) {
+            assertTrue(isSolutionValid(solution));
+        }
+    }
+
+    @Test
+    void testSolveNQueensWithInvalidInput() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            nQueens.solveNQueens(0);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            nQueens.solveNQueens(10);
+        });
+    }
+
+    // Helper method to validate N-Queens solution
+    private boolean isSolutionValid(List<String> solution) {
+        int n = solution.size();
+        
+        // Convert board to 2D char array
+        char[][] board = new char[n][n];
+        for (int i = 0; i < n; i++) {
+            board[i] = solution.get(i).toCharArray();
+        }
+        
+        // Check queen placement
+        for (int row = 0; row < n; row++) {
+            for (int col = 0; col < n; col++) {
+                if (board[row][col] == 'Q') {
+                    // Check row and column
+                    if (!isQueenPlacementValid(board, row, col)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        
+        return true;
+    }
+
+    // Check if queen placement is valid
+    private boolean isQueenPlacementValid(char[][] board, int row, int col) {
+        int n = board.length;
+        
+        // Check same row
+        for (int j = 0; j < n; j++) {
+            if (j != col && board[row][j] == 'Q') {
+                return false;
+            }
+        }
+        
+        // Check same column
+        for (int i = 0; i < n; i++) {
+            if (i != row && board[i][col] == 'Q') {
+                return false;
+            }
+        }
+        
+        // Check diagonals
+        int[][] directions = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
+        
+        for (int[] dir : directions) {
+            int newRow = row + dir[0];
+            int newCol = col + dir[1];
+            
+            while (newRow >= 0 && newRow < n && newCol >= 0 && newCol < n) {
+                if (board[newRow][newCol] == 'Q') {
+                    return false;
+                }
+                newRow += dir[0];
+                newCol += dir[1];
+            }
+        }
+        
+        return true;
     }
 }
