@@ -1,70 +1,70 @@
 package binaryTree.ai21Jamba15Large.white;
-import binaryTree.*;
-import binaryTree.BinaryTree.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 
-class BinaryTreeTest {
+import binaryTree.BinaryTree;
+import binaryTree.BinaryTree.TreeNode;
+
+public class BinaryTreeTest {
+
+    private BinaryTree binaryTree;
+    private int[] preorder;
+    private int[] inorder;
+
+    @BeforeEach
+    void setUp() {
+        binaryTree = new BinaryTree();
+        preorder = new int[]{1, 2, 4, 5, 3, 6};
+        inorder = new int[]{4, 2, 5, 1, 3, 6};
+    }
 
     @Test
     void testBuildTree() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {3, 9, 20, 15, 7};
-        int[] inorder = {9, 3, 15, 20, 7};
-        TreeNode expected = new TreeNode(3,
-                new TreeNode(9),
-                new TreeNode(20,
-                        new TreeNode(15),
-                        new TreeNode(7)));
-        TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected.val, result.val);
-        assertEquals(expected.left.val, result.left.val);
-        assertEquals(expected.right.val, result.right.val);
-        assertEquals(expected.right.left.val, result.right.left.val);
-        assertEquals(expected.right.right.val, result.right.right.val);
+        TreeNode root = binaryTree.buildTree(preorder, inorder);
+        assertNotNull(root);
+        assertEquals(1, root.val);
+        assertEquals(2, root.left.val);
+        assertEquals(4, root.left.left.val);
+        assertEquals(5, root.left.right.val);
+        assertEquals(3, root.right.val);
+        assertEquals(6, root.right.right.val);
     }
 
     @Test
     void testBuildTreeWithEmptyArrays() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {};
-        int[] inorder = {};
-        TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertNull(result);
+        preorder = new int[]{};
+        inorder = new int[]{};
+        TreeNode root = binaryTree.buildTree(preorder, inorder);
+        assertNull(root);
     }
 
     @Test
     void testBuildTreeWithSingleElement() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {1};
-        int[] inorder = {1};
-        TreeNode expected = new TreeNode(1);
-        TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected.val, result.val);
+        preorder = new int[]{1};
+        inorder = new int[]{1};
+        TreeNode root = binaryTree.buildTree(preorder, inorder);
+        assertNotNull(root);
+        assertEquals(1, root.val);
+        assertNull(root.left);
+        assertNull(root.right);
     }
 
     @Test
-    void testBuildTreeWithInvalidInput() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {1, 2};
-        int[] inorder = {1};
-        TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertNull(result);
+    void testBuildTreeWithInvalidInorder() {
+        inorder = new int[]{1, 2};
+        TreeNode root = binaryTree.buildTree(preorder, inorder);
+        assertNull(root);
     }
 
     @Test
-    void testBuildTreeWithDifferentInput() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {1, 2, 3};
-        int[] inorder = {2, 1, 3};
-        TreeNode expected = new TreeNode(1,
-                new TreeNode(2),
-                new TreeNode(3));
-        TreeNode result = binaryTree.buildTree(preorder, inorder);
-        assertEquals(expected.val, result.val);
-        assertEquals(expected.left.val, result.left.val);
-        assertEquals(expected.right.val, result.right.val);
+    void testBuildTreeWithInvalidPreorder() {
+        preorder = new int[]{1, 2, 3, 4};
+        TreeNode root = binaryTree.buildTree(preorder, inorder);
+        assertNull(root);
     }
 }

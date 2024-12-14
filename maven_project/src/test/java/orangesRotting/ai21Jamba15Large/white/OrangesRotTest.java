@@ -1,5 +1,4 @@
 package orangesRotting.ai21Jamba15Large.white;
-import orangesRotting.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,30 +7,45 @@ import java.util.Queue;
 
 import org.junit.jupiter.api.Test;
 
+import orangesRotting.OrangesRot;
+
 public class OrangesRotTest {
 
-    private OrangesRot orangesRot = new OrangesRot();
+    @Test
+    void testOrangesRotting() {
+        OrangesRot orangesRot = new OrangesRot();
+        int[][] grid = {
+            {2, 1, 1},
+            {1, 1, 0},
+            {0, 1, 1}
+        };
+        int expected = 4;
+        assertEquals(expected, orangesRot.orangesRotting(grid));
+    }
 
     @Test
-    void testOrangesRottingWithEmptyGrid() {
+    void testOrangesRottingEmptyGrid() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {};
         int expected = 0;
         assertEquals(expected, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    void testOrangesRottingWithNoOranges() {
+    void testOrangesRottingNoFreshOranges() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {0, 0, 0},
-            {0, 0, 0},
-            {0, 0, 0}
+            {2, 2, 2},
+            {2, 2, 2},
+            {2, 2, 2}
         };
         int expected = 0;
         assertEquals(expected, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    void testOrangesRottingWithAllFreshOranges() {
+    void testOrangesRottingNoRottenOranges() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
             {1, 1, 1},
             {1, 1, 1},
@@ -42,59 +56,38 @@ public class OrangesRotTest {
     }
 
     @Test
-    void testOrangesRottingWithAllRottenOranges() {
-        int[][] grid = {
-            {2, 2, 2},
-            {2, 2, 2},
-            {2, 2, 2}
-        };
-        int expected = 0;
-        assertEquals(expected, orangesRot.orangesRotting(grid));
-    }
-
-    @Test
-    void testOrangesRottingWithMixedOranges() {
+    void testOrangesRottingSingleRottenOrange() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
             {2, 1, 1},
-            {2, 1, 1},
-            {2, 1, 1}
+            {1, 1, 1},
+            {1, 1, 1}
         };
         int expected = 2;
         assertEquals(expected, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    void testOrangesRottingWithOneFreshOrange() {
+    void testOrangesRottingAllOrangesRottenInOneMinute() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {2, 2, 1},
-            {2, 2, 2},
-            {2, 2, 2}
+            {2, 1, 1},
+            {1, 2, 1},
+            {1, 1, 2}
         };
         int expected = 1;
         assertEquals(expected, orangesRot.orangesRotting(grid));
     }
 
     @Test
-    void testOrangesRottingWithUnreachableFreshOrange() {
+    void testOrangesRottingAllOrangesRottenInTwoMinutes() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {2, 1, 2},
-            {2, 2, 2},
-            {2, 2, 2}
+            {2, 1, 1},
+            {1, 1, 1},
+            {1, 1, 1}
         };
-        int expected = -1;
-        assertEquals(expected, orangesRot.orangesRotting(grid));
-    }
-
-    @Test
-    void testOrangesRottingWithComplexGrid() {
-        int[][] grid = {
-            {2, 1, 0, 2, 1},
-            {1, 0, 1, 2, 1},
-            {0, 2, 0, 1, 2},
-            {2, 1, 2, 2, 1},
-            {1, 2, 1, 1, 2}
-        };
-        int expected = 3;
+        int expected = 2;
         assertEquals(expected, orangesRot.orangesRotting(grid));
     }
 }

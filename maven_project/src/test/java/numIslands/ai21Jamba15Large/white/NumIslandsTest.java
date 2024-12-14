@@ -1,67 +1,69 @@
 package numIslands.ai21Jamba15Large.white;
-import numIslands.*;
 
+import numIslands.NumIslands;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 
-class NumIslandsTest {
+public class NumIslandsTest {
+
     @Test
     void testNumIslandsEmptyGrid() {
-        char[][] grid = {};
         NumIslands numIslands = new NumIslands();
-        int result = numIslands.numIslands(grid);
-        assertEquals(0, result);
+        char[][] grid = new char[][]{};
+        int expected = 0;
+        int actual = numIslands.numIslands(grid);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void testNumIslandsSingleIsland() {
-        char[][] grid = {
-            {'1', '0', '0', '0', '0'},
-            {'0', '1', '0', '0', '0'},
-            {'0', '0', '1', '0', '0'},
-            {'0', '0', '0', '1', '0'},
-            {'0', '0', '0', '0', '1'}
-        };
         NumIslands numIslands = new NumIslands();
-        int result = numIslands.numIslands(grid);
-        assertEquals(1, result);
+        char[][] grid = new char[][]{
+            {'1'}
+        };
+        int expected = 1;
+        int actual = numIslands.numIslands(grid);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void testNumIslandsMultipleIslands() {
-        char[][] grid = {
+        NumIslands numIslands = new NumIslands();
+        char[][] grid = new char[][]{
+            {'1', '0', '1'},
+            {'0', '1', '0'},
+            {'1', '0', '1'}
+        };
+        int expected = 5;
+        int actual = numIslands.numIslands(grid);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testNumIslandsNoIslands() {
+        NumIslands numIslands = new NumIslands();
+        char[][] grid = new char[][]{
+            {'0', '0', '0'},
+            {'0', '0', '0'},
+            {'0', '0', '0'}
+        };
+        int expected = 0;
+        int actual = numIslands.numIslands(grid);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void testNumIslandsLargeGrid() {
+        NumIslands numIslands = new NumIslands();
+        char[][] grid = new char[][]{
             {'1', '1', '0', '0', '0'},
             {'1', '1', '0', '0', '0'},
             {'0', '0', '1', '0', '0'},
             {'0', '0', '0', '1', '1'},
             {'0', '0', '0', '1', '1'}
         };
-        NumIslands numIslands = new NumIslands();
-        int result = numIslands.numIslands(grid);
-        assertEquals(3, result);
-    }
-
-    @Test
-    void testNumIslandsNoIslands() {
-        char[][] grid = {
-            {'0', '0', '0'},
-            {'0', '0', '0'},
-            {'0', '0', '0'}
-        };
-        NumIslands numIslands = new NumIslands();
-        int result = numIslands.numIslands(grid);
-        assertEquals(0, result);
-    }
-
-    @Test
-    void testNumIslandsAllOnes() {
-        char[][] grid = {
-            {'1', '1', '1'},
-            {'1', '1', '1'},
-            {'1', '1', '1'}
-        };
-        NumIslands numIslands = new NumIslands();
-        int result = numIslands.numIslands(grid);
-        assertEquals(1, result);
+        int expected = 3;
+        int actual = numIslands.numIslands(grid);
+        Assertions.assertEquals(expected, actual);
     }
 }

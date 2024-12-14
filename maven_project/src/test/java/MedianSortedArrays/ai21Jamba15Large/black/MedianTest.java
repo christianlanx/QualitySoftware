@@ -1,90 +1,69 @@
 package MedianSortedArrays.ai21Jamba15Large.black;
-import MedianSortedArrays.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import MedianSortedArrays.Median;
+
+import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-class MedianTest {
+public class MedianTest {
 
     private Median medianFinder = new Median();
 
     @Test
-    void testMedianOfTwoSortedArrays_Example1() {
+    void testWithEmptyArrays() {
+        int[] nums1 = {};
+        int[] nums2 = {};
+        double expectedMedian = 0.0;
+        assertEquals(expectedMedian, medianFinder.findMedianSortedArrays(nums1, nums2));
+    }
+
+    @Test
+    void testWithSingleElementArrays() {
+        int[] nums1 = {1};
+        int[] nums2 = {2};
+        double expectedMedian = 1.5;
+        assertEquals(expectedMedian, medianFinder.findMedianSortedArrays(nums1, nums2));
+    }
+
+    @Test
+    void testWithExample1() {
         int[] nums1 = {1, 3};
         int[] nums2 = {2};
-        double expected = 2.00000;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
+        double expectedMedian = 2.0;
+        assertEquals(expectedMedian, medianFinder.findMedianSortedArrays(nums1, nums2));
     }
 
     @Test
-    void testMedianOfTwoSortedArrays_Example2() {
+    void testWithExample2() {
         int[] nums1 = {1, 2};
         int[] nums2 = {3, 4};
-        double expected = 2.50000;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
+        double expectedMedian = 2.5;
+        assertEquals(expectedMedian, medianFinder.findMedianSortedArrays(nums1, nums2));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        "1, 3, 2",
+        "1, 2, 3, 4, 2.5",
+        "0, 0, 0, 0, 0.0",
+        "1, 2, 3, 4, 5, 3.0",
+        "1, 3, 2, 4, 2.5",
+        "2, 3, 1, 4, 2.5"
+    })
+    void testWithVariousInputs(int[] nums1, int[] nums2, double expectedMedian) {
+        assertEquals(expectedMedian, medianFinder.findMedianSortedArrays(nums1, nums2));
     }
 
     @Test
-    void testMedianOfTwoSortedArrays_EqualLength() {
-        int[] nums1 = {1, 2, 3};
-        int[] nums2 = {4, 5, 6};
-        double expected = 3.5;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
-    }
-
-    @Test
-    void testMedianOfTwoSortedArrays_FirstArrayLonger() {
-        int[] nums1 = {1, 2, 3, 4, 5};
-        int[] nums2 = {6, 7};
-        double expected = 4.0;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
-    }
-
-    @Test
-    void testMedianOfTwoSortedArrays_SecondArrayLonger() {
-        int[] nums1 = {1, 2};
-        int[] nums2 = {3, 4, 5, 6, 7};
-        double expected = 4.0;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
-    }
-
-    @Test
-    void testMedianOfTwoSortedArrays_EmptyFirstArray() {
-        int[] nums1 = {};
-        int[] nums2 = {1, 2, 3, 4, 5};
-        double expected = 3.0;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
-    }
-
-    @Test
-    void testMedianOfTwoSortedArrays_EmptySecondArray() {
-        int[] nums1 = {1, 2, 3, 4, 5};
-        int[] nums2 = {};
-        double expected = 3.0;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
-    }
-
-    @Test
-    void testMedianOfTwoSortedArrays_BothArraysEmpty() {
-        int[] nums1 = {};
-        int[] nums2 = {};
-        double expected = 0.0;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
-    }
-
-    @Test
-    void testMedianOfTwoSortedArrays_LargeInput() {
-        int[] nums1 = {1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
-        int[] nums2 = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
-        double expected = 11.0;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
-    }
-
-    @Test
-    void testMedianOfTwoSortedArrays_SingleElementArrays() {
-        int[] nums1 = {5};
-        int[] nums2 = {10};
-        double expected = 7.5;
-        Assertions.assertEquals(expected, medianFinder.findMedianSortedArrays(nums1, nums2));
+    void testWithLargeInput() {
+        int[] nums1 = {1, 3, 5, 7, 9};
+        int[] nums2 = {2, 4, 6, 8, 10};
+        double expectedMedian = 5.5;
+        assertEquals(expectedMedian, medianFinder.findMedianSortedArrays(nums1, nums2));
     }
 }

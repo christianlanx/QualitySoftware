@@ -1,70 +1,100 @@
 package binaryTree.ai21Jamba15Large.black;
-import binaryTree.*;
-import binaryTree.BinaryTree.*;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 
-public class BinaryTreeTest {
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
+import binaryTree.BinaryTree;
+import binaryTree.BinaryTree.TreeNode;
+
+public class BinaryTreeTest {
+    
     @Test
     void testBuildTreeExample1() {
-        BinaryTree binaryTree = new BinaryTree();
+        // given
         int[] preorder = {3, 9, 20, 15, 7};
         int[] inorder = {9, 3, 15, 20, 7};
-        TreeNode expected = new TreeNode(3, 
-                                         new TreeNode(9), 
-                                         new TreeNode(20, 
-                                                      new TreeNode(15), 
-                                                      new TreeNode(7)));
-        Assertions.assertEquals(expected, binaryTree.buildTree(preorder, inorder));
+        
+        // when
+        TreeNode root = BinaryTree.buildTree(preorder, inorder);
+        
+        // then
+        assertEquals(3, root.val);
+        assertEquals(9, root.left.val);
+        assertEquals(20, root.right.val);
+        assertEquals(15, root.right.left.val);
+        assertEquals(7, root.right.right.val);
     }
-
+    
     @Test
     void testBuildTreeExample2() {
-        BinaryTree binaryTree = new BinaryTree();
+        // given
         int[] preorder = {-1};
         int[] inorder = {-1};
-        TreeNode expected = new TreeNode(-1);
-        Assertions.assertEquals(expected, binaryTree.buildTree(preorder, inorder));
+        
+        // when
+        TreeNode root = BinaryTree.buildTree(preorder, inorder);
+        
+        // then
+        assertEquals(-1, root.val);
+        assertNull(root.left);
+        assertNull(root.right);
     }
-
-    @Test
-    void testBuildTreeNullInput() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = null;
-        int[] inorder = null;
-        Assertions.assertThrows(NullPointerException.class, () -> binaryTree.buildTree(preorder, inorder));
+    
+    @ParameterizedTest
+    @MethodSource("testCases")
+    void testBuildTree(int[] preorder, int[] inorder, TreeNode expectedTree) {
+        // given
+        
+        // when
+        TreeNode actualTree = BinaryTree.buildTree(preorder, inorder);
+        
+        // then
+        assertEquals(expectedTree, actualTree);
     }
-
-    @Test
-    void testBuildTreeEmptyInput() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {};
-        int[] inorder = {};
-        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> binaryTree.buildTree(preorder, inorder));
+    
+    private static Stream<Arguments> testCases() {
+        return Stream.of(
+            Arguments.of(
+                new int[] {3, 9, 20, 15, 7},
+                new int[] {9, 3, 15, 20, 7},
+                createTree(3, 9, 20, null, null, 15, 7)
+            ),
+            Arguments.of(
+                new int[] {-1},
+                new int[] {-1},
+                createTree(-1)
+            )
+        );
     }
-
-    @Test
-    void testBuildTreeDifferentLengthInput() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {1, 2, 3};
-        int[] inorder = {1, 2};
-        Assertions.assertThrows(IllegalArgumentException.class, () -> binaryTree.buildTree(preorder, inorder));
-    }
-
-    @Test
-    void testBuildTreeLargeInput() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = new int[3000];
-        int[] inorder = new int[3000];
-        for (int i = 0; i < 3000; i++) {
-            preorder[i] = inorder[i] = i - 1500;
+    
+    private static TreeNode createTree(Integer... values) {
+        if (values == null || values.length == 0) {
+            return null;
         }
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
-        Assertions.assertNotNull(root);
-        // Further checks can be added to verify the tree structure
+        TreeNode root = new TreeNode(values[0]);
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(root);
+        int i = 1;
+        while (!queue.isEmpty() && i < values.length) {
+            TreeNode node = queue.remove();
+            if (values[i] != null) {
+                node.left = new TreeNode(values[i]);
+                queue.add(node.left);
+            }
+            i++;
+            if (i < values.length && values[i] != null) {
+                node.right = new TreeNode(values[i]);
+                queue.add(node.right);
+            }
+            i++;
+        }
+        return root;
     }
 }

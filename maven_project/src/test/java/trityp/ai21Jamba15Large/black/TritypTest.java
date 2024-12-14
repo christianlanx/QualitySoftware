@@ -1,57 +1,62 @@
 package trityp.ai21Jamba15Large.black;
-import trityp.*;
 
+import trityp.Trityp;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TritypTest {
-    
-    // Test for an equilateral triangle
-    @Test
-    void testEquilateralTriangle() {
-        int result = Trityp.Triang(3, 3, 3);
-        assertEquals(3, result);
-    }
 
-    // Test for an isosceles triangle
-    @Test
-    void testIsoscelesTriangle() {
-        int result = Trityp.Triang(4, 4, 5);
-        assertEquals(2, result);
-    }
-
-    // Test for a scalene triangle
     @Test
     void testScaleneTriangle() {
-        int result = Trityp.Triang(3, 4, 5);
-        assertEquals(1, result);
+        int side1 = 3;
+        int side2 = 4;
+        int side3 = 5;
+        int expected = 1; // Scalene
+        assertEquals(expected, Trityp.Triang(side1, side2, side3));
     }
 
-    // Test for an invalid triangle
+    @Test
+    void testIsoscelesTriangle() {
+        int side1 = 4;
+        int side2 = 4;
+        int side3 = 5;
+        int expected = 2; // Isosceles
+        assertEquals(expected, Trityp.Triang(side1, side2, side3));
+    }
+
+    @Test
+    void testEquilateralTriangle() {
+        int side1 = 5;
+        int side2 = 5;
+        int side3 = 5;
+        int expected = 3; // Equilateral
+        assertEquals(expected, Trityp.Triang(side1, side2, side3));
+    }
+
     @Test
     void testInvalidTriangle() {
-        int result = Trityp.Triang(1, 2, 3);
-        assertEquals(0, result);
+        int side1 = 1;
+        int side2 = 2;
+        int side3 = 3;
+        int expected = 4; // Invalid Triangle
+        assertEquals(expected, Trityp.Triang(side1, side2, side3));
     }
 
-    // Test for another invalid triangle
     @Test
-    void testInvalidTriangle2() {
-        int result = Trityp.Triang(2, 2, 5);
-        assertEquals(0, result);
+    void testNonPositiveSide() {
+        int side1 = 1;
+        int side2 = 0;
+        int side3 = 3;
+        int expected = 4; // Invalid Triangle
+        assertEquals(expected, Trityp.Triang(side1, side2, side3));
     }
 
-    // Test for a triangle with zero length
     @Test
-    void testZeroLengthSide() {
-        int result = Trityp.Triang(0, 1, 1);
-        assertEquals(0, result);
-    }
-
-    // Test for a triangle with negative length
-    @Test
-    void testNegativeLengthSide() {
-        int result = Trityp.Triang(-1, 1, 1);
-        assertEquals(0, result);
+    void testNegativeSide() {
+        int side1 = 1;
+        int side2 = -2;
+        int side3 = 3;
+        int expected = 4; // Invalid Triangle
+        assertEquals(expected, Trityp.Triang(side1, side2, side3));
     }
 }

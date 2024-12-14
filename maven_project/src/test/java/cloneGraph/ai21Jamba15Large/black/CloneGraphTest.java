@@ -1,118 +1,80 @@
 package cloneGraph.ai21Jamba15Large.black;
-import cloneGraph.*;
-import cloneGraph.CloneGraph.*;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Test;
+
+import cloneGraph.Node;
+
 public class CloneGraphTest {
-    
-    public Node createGraph(List<List<Integer>> adjList) {
-        List<Node> nodes = new ArrayList<>();
-        
-        for (int i = 0; i < adjList.size(); i++) {
-            Node node = new Node(i + 1);
-            nodes.add(node);
-        }
-        
-        for (int i = 0; i < adjList.size(); i++) {
-            List<Integer> neighbors = adjList.get(i);
-            for (int neighbor : neighbors) {
-                nodes.get(i).neighbors.add(nodes.get(neighbor - 1));
-            }
-        }
-        
-        return nodes.get(0);
-    }
-    
-    public void assertGraphsEqual(Node expected, Node actual) {
-        List<Node> expectedNodes = new ArrayList<>();
-        List<Node> actualNodes = new ArrayList<>();
-        
-        dfs(expected, expectedNodes);
-        dfs(actual, actualNodes);
-        
-        Assertions.assertEquals(expectedNodes.size(), actualNodes.size());
-        
-        for (int i = 0; i < expectedNodes.size(); i++) {
-            Node expectedNode = expectedNodes.get(i);
-            Node actualNode = actualNodes.get(i);
-            Assertions.assertEquals(expectedNode.val, actualNode.val);
-            Assertions.assertEquals(expectedNode.neighbors.size(), actualNode.neighbors.size());
-            
-            for (int j = 0; j < expectedNode.neighbors.size(); j++) {
-                Assertions.assertEquals(expectedNode.neighbors.get(j).val, actualNode.neighbors.get(j).val);
-            }
-        }
-    }
-    
-    private void dfs(Node node, List<Node> visited) {
-        if (visited.contains(node)) {
-            return;
-        }
-        visited.add(node);
-        for (Node neighbor : node.neighbors) {
-            dfs(neighbor, visited);
-        }
-    }
-    
+
     @Test
-    void testCloneGraphExample1() {
-        List<List<Integer>> adjList = List.of(
-            List.of(2, 4),
-            List.of(1, 3),
-            List.of(2, 4),
-            List.of(1, 3)
-        );
-        
-        Node original = createGraph(adjList);
-        Node cloned = new CloneGraph().cloneGraph(original);
-        
-        assertGraphsEqual(original, cloned);
+    void testCloneGraphWithFourNodes() {
+        // Create the input graph
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        node1.neighbors.addAll(List.of(node2, node4));
+        node2.neighbors.addAll(List.of(node1, node3));
+        node3.neighbors.addAll(List.of(node2, node4));
+        node4.neighbors.addAll(List.of(node1, node3));
+
+        // Perform the clone operation
+        Node clonedNode = new CloneGraph().cloneGraph(node1);
+
+        // Verify the cloned graph
+        assertNotNull(clonedNode);
+        assertEquals(1, clonedNode.val);
+        assertEquals(2, clonedNode.neighbors.size());
+        assertEquals(2, clonedNode.neighbors.get(0).val);
+        assertEquals(4, clonedNode.neighbors.get(1).val);
+
+        Node clonedNode2 = clonedNode.neighbors.get(0);
+        assertEquals(2, clonedNode2.val);
+        assertEquals(2, clonedNode2.neighbors.size());
+        assertEquals(1, clonedNode2.neighbors.get(0).val);
+        assertEquals(3, clonedNode2.neighbors.get(1).val);
+
+        Node clonedNode3 = clonedNode.neighbors.get(1);
+        assertEquals(4, clonedNode3.val);
+        assertEquals(2, clonedNode3.neighbors.size());
+        assertEquals(1, clonedNode3.neighbors.get(0).val);
+        assertEquals(3, clonedNode3.neighbors.get(1).val);
+
+        Node clonedNode4 = clonedNode2.neighbors.get(1);
+        assertEquals(3, clonedNode4.val);
+        assertEquals(2, clonedNode4.neighbors.size());
+        assertEquals(2, clonedNode4.neighbors.get(0).val);
+        assertEquals(4, clonedNode4.neighbors.get(1).val);
     }
-    
+
     @Test
-    void testCloneGraphExample2() {
-        List<List<Integer>> adjList = List.of(
-            List.of()
-        );
-        
-        Node original = createGraph(adjList);
-        Node cloned = new CloneGraph().cloneGraph(original);
-        
-        assertGraphsEqual(original, cloned);
+    void testCloneGraphWithSingleNode() {
+        // Create the input graph
+        Node node1 = new Node(1);
+
+        // Perform the clone operation
+        Node clonedNode = new CloneGraph().cloneGraph(node1);
+
+        // Verify the cloned graph
+        assertNotNull(clonedNode);
+        assertEquals(1, clonedNode.val);
+        assertEquals(0, clonedNode.neighbors.size());
     }
-    
+
     @Test
-    void testCloneGraphExample3() {
-        List<List<Integer>> adjList = List.of();
-        
-        Node original = createGraph(adjList);
-        Node cloned = new CloneGraph().cloneGraph(original);
-        
-        assertGraphsEqual(original, cloned);
-    }
-    
-    @Test
-    void testCloneGraphComplexGraph() {
-        List<List<Integer>> adjList = List.of(
-            List.of(2, 3, 4),
-            List.of(1, 5),
-            List.of(1, 6),
-            List.of(1, 7),
-            List.of(1),
-            List.of(2, 8),
-            List.of(3, 9),
-            List.of(4),
-            List.of(5),
-            List.of(6)
-        );
-        
-        Node original = createGraph(adjList);
-        Node cloned = new CloneGraph().cloneGraph(original);
-        
-        assertGraphsEqual(original, cloned);
+    void testCloneGraphWithEmptyGraph() {
+        // Perform the clone operation on an empty graph
+        Node clonedNode = new CloneGraph().cloneGraph(null);
+
+        // Verify the cloned graph
+        assertNotNull(clonedNode);
+        assertEquals(0, clonedNode.val);
+        assertEquals(0, clonedNode.neighbors.size());
     }
 }
