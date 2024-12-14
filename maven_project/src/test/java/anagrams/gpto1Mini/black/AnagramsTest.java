@@ -1,152 +1,128 @@
 package anagrams.gpto1Mini.black;
-import anagrams.*;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Assertions;
+import anagrams.Anagrams;
 import java.util.*;
 
 public class AnagramsTest {
 
-    private void assertAnagramGroups(List<List<String>> expected, List<List<String>> actual) {
-        // Normalize the groups by sorting each inner list and then sorting the outer list
-        List<List<String>> normalizedExpected = normalizeGroups(expected);
-        List<List<String>> normalizedActual = normalizeGroups(actual);
-        assertEquals(normalizedExpected, normalizedActual, "The anagram groups do not match the expected output.");
-    }
-
-    private List<List<String>> normalizeGroups(List<List<String>> groups) {
-        List<List<String>> normalized = new ArrayList<>();
-        for (List<String> group : groups) {
-            List<String> sortedGroup = new ArrayList<>(group);
-            Collections.sort(sortedGroup);
-            normalized.add(sortedGroup);
-        }
-        normalized.sort((a, b) -> {
-            if (a.size() != b.size()) {
-                return Integer.compare(a.size(), b.size());
-            }
-            for (int i = 0; i < a.size(); i++) {
-                int cmp = a.get(i).compareTo(b.get(i));
-                if (cmp != 0) return cmp;
-            }
-            return 0;
-        });
-        return normalized;
-    }
-
     @Test
+    @DisplayName("Test Example 1: Multiple Anagram Groups")
     public void testExample1() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"eat","tea","tan","ate","nat","bat"};
+        Anagrams solution = new Anagrams();
+        String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
         List<List<String>> expected = Arrays.asList(
-                Arrays.asList("bat"),
-                Arrays.asList("nat","tan"),
-                Arrays.asList("ate","eat","tea")
+            Arrays.asList("bat"),
+            Arrays.asList("nat", "tan"),
+            Arrays.asList("ate", "eat", "tea")
         );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
+        List<List<String>> actual = solution.groupAnagrams(input);
+        Assertions.assertTrue(areAnagramGroupsEqual(expected, actual), "The anagram groups do not match the expected output.");
     }
 
     @Test
+    @DisplayName("Test Example 2: Single Empty String")
     public void testExample2() {
-        Anagrams anagrams = new Anagrams();
+        Anagrams solution = new Anagrams();
         String[] input = {""};
         List<List<String>> expected = Arrays.asList(
-                Arrays.asList("")
+            Arrays.asList("")
         );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
+        List<List<String>> actual = solution.groupAnagrams(input);
+        Assertions.assertTrue(areAnagramGroupsEqual(expected, actual), "The anagram groups do not match the expected output for single empty string.");
     }
 
     @Test
+    @DisplayName("Test Example 3: Single Character String")
     public void testExample3() {
-        Anagrams anagrams = new Anagrams();
+        Anagrams solution = new Anagrams();
         String[] input = {"a"};
         List<List<String>> expected = Arrays.asList(
-                Arrays.asList("a")
+            Arrays.asList("a")
         );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
+        List<List<String>> actual = solution.groupAnagrams(input);
+        Assertions.assertTrue(areAnagramGroupsEqual(expected, actual), "The anagram groups do not match the expected output for single character string.");
     }
 
     @Test
-    public void testAllAnagrams() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"abc", "bca", "cab", "cba", "bac", "acb"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("abc", "bca", "cab", "cba", "bac", "acb")
-        );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
-    }
-
-    @Test
+    @DisplayName("Test with No Anagrams")
     public void testNoAnagrams() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"one", "two", "three", "four"};
+        Anagrams solution = new Anagrams();
+        String[] input = {"abc", "def", "ghi"};
         List<List<String>> expected = Arrays.asList(
-                Arrays.asList("one"),
-                Arrays.asList("two"),
-                Arrays.asList("three"),
-                Arrays.asList("four")
+            Arrays.asList("abc"),
+            Arrays.asList("def"),
+            Arrays.asList("ghi")
         );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
+        List<List<String>> actual = solution.groupAnagrams(input);
+        Assertions.assertTrue(areAnagramGroupsEqual(expected, actual), "The anagram groups should contain only individual strings.");
     }
 
     @Test
-    public void testMixedAnagrams() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"listen", "silent", "enlist", "google", "gooegl", "abc", "cab"};
+    @DisplayName("Test with All Strings Being Anagrams")
+    public void testAllAnagrams() {
+        Anagrams solution = new Anagrams();
+        String[] input = {"listen", "silent", "enlist", "inlets"};
         List<List<String>> expected = Arrays.asList(
-                Arrays.asList("listen", "silent", "enlist"),
-                Arrays.asList("google", "gooegl"),
-                Arrays.asList("abc", "cab")
+            Arrays.asList("listen", "silent", "enlist", "inlets")
         );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
+        List<List<String>> actual = solution.groupAnagrams(input);
+        Assertions.assertTrue(areAnagramGroupsEqual(expected, actual), "All strings should be grouped into a single anagram group.");
     }
 
     @Test
-    public void testEmptyInput() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {};
-        List<List<String>> expected = new ArrayList<>();
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
-    }
-
-    @Test
-    public void testSingleCharacterStrings() {
-        Anagrams anagrams = new Anagrams();
-        String[] input = {"a", "b", "a", "c", "b"};
+    @DisplayName("Test with Mixed Case and Empty Strings")
+    public void testMixedCaseAndEmptyStrings() {
+        Anagrams solution = new Anagrams();
+        String[] input = {"", "a", "A"};
         List<List<String>> expected = Arrays.asList(
-                Arrays.asList("a", "a"),
-                Arrays.asList("b", "b"),
-                Arrays.asList("c")
+            Arrays.asList(""),
+            Arrays.asList("a"),
+            Arrays.asList("A")
         );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertAnagramGroups(expected, actual);
+        List<List<String>> actual = solution.groupAnagrams(input);
+        Assertions.assertTrue(areAnagramGroupsEqual(expected, actual), "The anagram groups should correctly handle empty strings and case sensitivity.");
     }
 
-    @Test
-    public void testLargeInput() {
-        Anagrams anagrams = new Anagrams();
-        int size = 10000;
-        String[] input = new String[size];
-        List<String> anagramGroup = Arrays.asList("test");
-        for(int i = 0; i < size; i++) {
-            input[i] = "test";
+    /**
+     * Helper method to determine if two lists of anagram groups are equal regardless of order.
+     *
+     * @param expected The expected list of anagram groups.
+     * @param actual The actual list of anagram groups returned by the method.
+     * @return true if both lists contain the same groups of anagrams, false otherwise.
+     */
+    private boolean areAnagramGroupsEqual(List<List<String>> expected, List<List<String>> actual) {
+        if (expected.size() != actual.size()) {
+            return false;
         }
-        List<List<String>> expected = Arrays.asList(
-                Collections.nCopies(size, "test")
-        );
-        List<List<String>> actual = anagrams.groupAnagrams(input);
-        assertEquals(1, actual.size());
-        assertEquals(size, actual.get(0).size());
-        for(String s : actual.get(0)) {
-            assertEquals("test", s);
+
+        // Create copies to avoid modifying the original lists
+        List<Set<String>> expectedGroups = new ArrayList<>();
+        for (List<String> group : expected) {
+            expectedGroups.add(new HashSet<>(group));
         }
+
+        List<Set<String>> actualGroups = new ArrayList<>();
+        for (List<String> group : actual) {
+            actualGroups.add(new HashSet<>(group));
+        }
+
+        // Check that each expected group is present in the actual groups
+        for (Set<String> expectedGroup : expectedGroups) {
+            boolean found = false;
+            for (Set<String> actualGroup : actualGroups) {
+                if (actualGroup.equals(expectedGroup)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

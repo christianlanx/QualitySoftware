@@ -1,12 +1,10 @@
 package numIslands.gpto1Mini.black;
-import numIslands.*;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+import numIslands.NumIslands;
 
 public class NumIslandsTest {
-
-    private final NumIslands solution = new NumIslands();
 
     @Test
     void testExample1() {
@@ -16,7 +14,9 @@ public class NumIslandsTest {
             {'1','1','0','0','0'},
             {'0','0','0','0','0'}
         };
-        assertEquals(1, solution.numIslands(grid));
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(1, result, "Example 1 should return 1 island.");
     }
 
     @Test
@@ -27,19 +27,9 @@ public class NumIslandsTest {
             {'0','0','1','0','0'},
             {'0','0','0','1','1'}
         };
-        assertEquals(3, solution.numIslands(grid));
-    }
-
-    @Test
-    void testSingleCellLand() {
-        char[][] grid = { {'1'} };
-        assertEquals(1, solution.numIslands(grid));
-    }
-
-    @Test
-    void testSingleCellWater() {
-        char[][] grid = { {'0'} };
-        assertEquals(0, solution.numIslands(grid));
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(3, result, "Example 2 should return 3 islands.");
     }
 
     @Test
@@ -49,7 +39,9 @@ public class NumIslandsTest {
             {'0','0','0'},
             {'0','0','0'}
         };
-        assertEquals(0, solution.numIslands(grid));
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(0, result, "All water grid should return 0 islands.");
     }
 
     @Test
@@ -59,38 +51,62 @@ public class NumIslandsTest {
             {'1','1','1'},
             {'1','1','1'}
         };
-        assertEquals(1, solution.numIslands(grid));
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(1, result, "All land grid should return 1 island.");
     }
 
     @Test
-    void testMultipleIslands() {
+    void testSingleCellLand() {
+        char[][] grid = {
+            {'1'}
+        };
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(1, result, "Single land cell should return 1 island.");
+    }
+
+    @Test
+    void testSingleCellWater() {
+        char[][] grid = {
+            {'0'}
+        };
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(0, result, "Single water cell should return 0 islands.");
+    }
+
+    @Test
+    void testDisconnectedIslands() {
         char[][] grid = {
             {'1','0','1','0','1'},
             {'0','1','0','1','0'},
             {'1','0','1','0','1'},
             {'0','1','0','1','0'}
         };
-        assertEquals(9, solution.numIslands(grid));
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(8, result, "Disconnected islands should return the correct count.");
     }
 
     @Test
-    void testLShapeIslands() {
-        char[][] grid = {
-            {'1','1','0','0'},
-            {'1','0','0','1'},
-            {'0','0','1','1'},
-            {'0','1','1','0'}
-        };
-        assertEquals(4, solution.numIslands(grid));
+    void testEmptyGrid() {
+        char[][] grid = {};
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(0, result, "Empty grid should return 0 islands.");
     }
 
     @Test
-    void testDisconnectedSingleCells() {
-        char[][] grid = {
-            {'1','0','1'},
-            {'0','0','0'},
-            {'1','0','1'}
-        };
-        assertEquals(4, solution.numIslands(grid));
+    void testLargeGrid() {
+        char[][] grid = new char[300][300];
+        for(int i = 0; i < 300; i++) {
+            for(int j = 0; j < 300; j++) {
+                grid[i][j] = '1';
+            }
+        }
+        NumIslands solution = new NumIslands();
+        int result = solution.numIslands(grid);
+        assertEquals(1, result, "Large all land grid should return 1 island.");
     }
 }

@@ -1,116 +1,121 @@
 package orangesRotting.gpto1Mini.black;
-import orangesRotting.*;
 
+import orangesRotting.OrangesRot;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OrangesRotTest {
+class OrangesRotTest {
 
     @Test
     void testExample1() {
-        OrangesRot or = new OrangesRot();
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {2, 1, 1},
-            {1, 1, 0},
-            {0, 1, 1}
+            {2,1,1},
+            {1,1,0},
+            {0,1,1}
         };
-        assertEquals(4, or.orangesRotting(grid), "Example 1 should return 4");
+        int expected = 4;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "Example 1 Failed");
     }
 
     @Test
     void testExample2() {
-        OrangesRot or = new OrangesRot();
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {2, 1, 1},
-            {0, 1, 1},
-            {1, 0, 1}
+            {2,1,1},
+            {0,1,1},
+            {1,0,1}
         };
-        assertEquals(-1, or.orangesRotting(grid), "Example 2 should return -1");
+        int expected = -1;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "Example 2 Failed");
     }
 
     @Test
     void testExample3() {
-        OrangesRot or = new OrangesRot();
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {0, 2}
+            {0,2}
         };
-        assertEquals(0, or.orangesRotting(grid), "Example 3 should return 0");
-    }
-
-    @Test
-    void testAllEmpty() {
-        OrangesRot or = new OrangesRot();
-        int[][] grid = {
-            {0, 0},
-            {0, 0}
-        };
-        assertEquals(0, or.orangesRotting(grid), "All cells empty should return 0");
-    }
-
-    @Test
-    void testAllFresh() {
-        OrangesRot or = new OrangesRot();
-        int[][] grid = {
-            {1, 1},
-            {1, 1}
-        };
-        assertEquals(-1, or.orangesRotting(grid), "All cells fresh should return -1");
+        int expected = 0;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "Example 3 Failed");
     }
 
     @Test
     void testAllRotten() {
-        OrangesRot or = new OrangesRot();
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {2, 2},
-            {2, 2}
+            {2,2,2},
+            {2,2,2},
+            {2,2,2}
         };
-        assertEquals(0, or.orangesRotting(grid), "All cells rotten should return 0");
+        int expected = 0;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "All Rotten Failed");
     }
 
     @Test
-    void testSingleFresh() {
-        OrangesRot or = new OrangesRot();
+    void testAllEmpty() {
+        OrangesRot orangesRot = new OrangesRot();
+        int[][] grid = {
+            {0,0,0},
+            {0,0,0},
+            {0,0,0}
+        };
+        int expected = 0;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "All Empty Failed");
+    }
+
+    @Test
+    void testSingleCellFresh() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
             {1}
         };
-        assertEquals(-1, or.orangesRotting(grid), "Single fresh cell should return -1");
+        int expected = -1;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "Single Fresh Cell Failed");
     }
 
     @Test
-    void testSingleRotten() {
-        OrangesRot or = new OrangesRot();
+    void testSingleCellRotten() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
             {2}
         };
-        assertEquals(0, or.orangesRotting(grid), "Single rotten cell should return 0");
+        int expected = 0;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "Single Rotten Cell Failed");
     }
 
     @Test
-    void testTwoByTwoWithOneRotten() {
-        OrangesRot or = new OrangesRot();
+    void testMixedGridPossible() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {2, 1},
-            {1, 1}
+            {2,1,0,2,1},
+            {1,0,1,2,1},
+            {1,0,0,2,1}
         };
-        assertEquals(2, or.orangesRotting(grid), "2x2 grid with one rotten should return 2");
+        int expected = 2;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "Mixed Grid Possible Failed");
     }
 
     @Test
-    void testLargerGrid() {
-        OrangesRot or = new OrangesRot();
+    void testMixedGridImpossible() {
+        OrangesRot orangesRot = new OrangesRot();
         int[][] grid = {
-            {2,1,1,0,1,1,2,1,0,1},
-            {1,0,1,1,1,0,1,1,1,1},
-            {1,1,0,1,1,1,0,1,1,1},
-            {0,1,1,1,0,1,1,1,0,1},
-            {1,1,1,0,1,1,1,0,1,1},
-            {1,0,1,1,1,1,0,1,1,0},
-            {2,1,1,1,1,0,1,1,1,1},
-            {1,1,0,1,0,1,1,0,1,1},
-            {0,1,1,1,1,1,1,1,1,0},
-            {1,0,1,1,0,1,1,1,0,1}
+            {2,1,0,2,1},
+            {0,0,1,2,1},
+            {1,0,0,2,1}
         };
-        int result = or.orangesRotting(grid);
-        assertTrue(result >= 0, "Larger grid should return a non-negative number of minutes");
+        int expected = -1;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "Mixed Grid Impossible Failed");
+    }
+
+    @Test
+    void testNoFreshNoRotten() {
+        OrangesRot orangesRot = new OrangesRot();
+        int[][] grid = {
+            {0,0},
+            {0,0}
+        };
+        int expected = 0;
+        assertEquals(expected, orangesRot.orangesRotting(grid), "No Fresh No Rotten Failed");
     }
 }

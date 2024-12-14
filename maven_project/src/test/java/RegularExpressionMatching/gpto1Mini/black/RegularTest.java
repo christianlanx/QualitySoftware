@@ -1,132 +1,107 @@
 package RegularExpressionMatching.gpto1Mini.black;
-import RegularExpressionMatching.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import RegularExpressionMatching.Regular;
 
 public class RegularTest {
 
-    private Regular regular;
-
-    @BeforeEach
-    public void setUp() {
-        regular = new Regular();
-    }
-
     @Test
-    public void testExample1() {
+    void testExample1() {
+        Regular regular = new Regular();
         String s = "aa";
         String p = "a";
-        assertFalse(regular.isMatch(s, p), "Expected false for s=\"aa\", p=\"a\"");
+        boolean expected = false;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'a' should not match string 'aa'");
     }
 
     @Test
-    public void testExample2() {
+    void testExample2() {
+        Regular regular = new Regular();
         String s = "aa";
         String p = "a*";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"aa\", p=\"a*\"");
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'a*' should match string 'aa'");
     }
 
     @Test
-    public void testExample3() {
+    void testExample3() {
+        Regular regular = new Regular();
         String s = "ab";
         String p = ".*";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"ab\", p=\".*\"");
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern '.*' should match string 'ab'");
     }
-    
+
     @Test
-    public void testEmptyStringWithPattern() {
+    void testEmptyStringAndPattern() {
+        Regular regular = new Regular();
+        String s = "";
+        String p = "";
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Empty pattern should match empty string");
+    }
+
+    @Test
+    void testEmptyStringWithPattern() {
+        Regular regular = new Regular();
         String s = "";
         String p = "a*";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"\", p=\"a*\"");
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'a*' should match empty string");
     }
-    
+
     @Test
-    public void testSingleCharacterDot() {
-        String s = "a";
-        String p = ".";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"a\", p=\".\"");
-    }
-    
-    @Test
-    public void testMultipleStars() {
-        String s = "aaabbb";
-        String p = "a*b*";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"aaabbb\", p=\"a*b*\"");
-    }
-    
-    @Test
-    public void testStarWithDot() {
-        String s = "abbbb";
-        String p = "ab*";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"abbbb\", p=\"ab*\"");
-    }
-    
-    @Test
-    public void testNoMatchDueToExtraCharacters() {
-        String s = "aab";
-        String p = "c*a*b";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"aab\", p=\"c*a*b\"");
-        
-        String s2 = "mississippi";
-        String p2 = "mis*is*p*.";
-        assertFalse(regular.isMatch(s2, p2), "Expected false for s=\"mississippi\", p=\"mis*is*p*.\"");
-    }
-    
-    @Test
-    public void testFullMatchWithComplexPattern() {
-        String s = "abcd";
-        String p = ".*d";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"abcd\", p=\".*d\"");
-    }
-    
-    @Test
-    public void testPatternWithMultipleWildcards() {
-        String s = "aab";
-        String p = "c*a*b";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"aab\", p=\"c*a*b\"");
-    }
-    
-    @Test
-    public void testPatternEndingWithStar() {
-        String s = "aaa";
-        String p = "a*a";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"aaa\", p=\"a*a\"");
-    }
-    
-    @Test
-    public void testPatternMismatch() {
+    void testNonMatchingPattern() {
+        Regular regular = new Regular();
         String s = "abc";
         String p = "abd";
-        assertFalse(regular.isMatch(s, p), "Expected false for s=\"abc\", p=\"abd\"");
+        boolean expected = false;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'abd' should not match string 'abc'");
     }
-    
+
     @Test
-    public void testOnlyWildcards() {
-        String s = "abcdef";
-        String p = ".*";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"abcdef\", p=\".*\"");
+    void testComplexPattern1() {
+        Regular regular = new Regular();
+        String s = "aab";
+        String p = "c*a*b";
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'c*a*b' should match string 'aab'");
     }
-    
+
     @Test
-    public void testSingleCharacterMismatch() {
+    void testComplexPattern2() {
+        Regular regular = new Regular();
+        String s = "mississippi";
+        String p = "mis*is*p*.";
+        boolean expected = false;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'mis*is*p*.' should not match string 'mississippi'");
+    }
+
+    @Test
+    void testSingleCharacterWithDot() {
+        Regular regular = new Regular();
         String s = "a";
-        String p = "b";
-        assertFalse(regular.isMatch(s, p), "Expected false for s=\"a\", p=\"b\"");
+        String p = ".";
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern '.' should match any single character");
     }
-    
+
     @Test
-    public void testEmptyPattern() {
-        String s = "a";
-        String p = "";
-        assertFalse(regular.isMatch(s, p), "Expected false for s=\"a\", p=\"\"");
+    void testMultipleCharactersWithDot() {
+        Regular regular = new Regular();
+        String s = "abc";
+        String p = "a.c";
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'a.c' should match string 'abc'");
     }
-    
+
     @Test
-    public void testBothEmpty() {
-        String s = "";
-        String p = "";
-        assertTrue(regular.isMatch(s, p), "Expected true for s=\"\", p=\"\"");
+    void testStarWithDot() {
+        Regular regular = new Regular();
+        String s = "abbbb";
+        String p = "ab*";
+        boolean expected = true;
+        assertEquals(expected, regular.isMatch(s, p), "Pattern 'ab*' should match string 'abbbb'");
     }
 }

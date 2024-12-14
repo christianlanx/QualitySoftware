@@ -1,19 +1,18 @@
 package anagrams.gpto1Mini.white;
-import anagrams.*;
-
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import anagrams.Anagrams;
-
-import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 public class AnagramsTest {
 
     private final Anagrams anagrams = new Anagrams();
 
     @Test
-    void testEmptyArray() {
+    public void testGroupAnagrams_withEmptyArray() {
         String[] input = {};
         List<List<String>> expected = new ArrayList<>();
         List<List<String>> result = anagrams.groupAnagrams(input);
@@ -21,104 +20,75 @@ public class AnagramsTest {
     }
 
     @Test
-    void testSingleElement() {
-        String[] input = {"test"};
-        List<List<String>> expected = Arrays.asList(Arrays.asList("test"));
+    public void testGroupAnagrams_withSingleString() {
+        String[] input = {"word"};
+        List<List<String>> expected = Arrays.asList(Arrays.asList("word"));
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected, result, "Expected single group with the single element");
+        assertEquals(expected, result, "Expected single group with the single word");
     }
 
     @Test
-    void testMultipleAnagrams() {
+    public void testGroupAnagrams_withMultipleAnagrams() {
         String[] input = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("eat", "tea", "ate"),
-                Arrays.asList("tan", "nat"),
-                Arrays.asList("bat")
-        );
-
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected.size(), result.size(), "Number of groups mismatch");
 
-        for (List<String> group : expected) {
-            assertTrue(containsGroup(result, group), "Expected group not found: " + group);
-        }
+        assertEquals(3, result.size(), "Expected three groups of anagrams");
+
+        assertTrue(containsGroup(result, Arrays.asList("eat", "tea", "ate")),
+                   "Expected group [eat, tea, ate]");
+        assertTrue(containsGroup(result, Arrays.asList("tan", "nat")),
+                   "Expected group [tan, nat]");
+        assertTrue(containsGroup(result, Arrays.asList("bat")),
+                   "Expected group [bat]");
     }
 
     @Test
-    void testNoAnagrams() {
+    public void testGroupAnagrams_withNoAnagrams() {
         String[] input = {"abc", "def", "ghi"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("abc"),
-                Arrays.asList("def"),
-                Arrays.asList("ghi")
-        );
-
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected.size(), result.size(), "Number of groups mismatch");
 
-        for (List<String> group : expected) {
-            assertTrue(containsGroup(result, group), "Expected group not found: " + group);
-        }
+        assertEquals(3, result.size(), "Expected three groups with no anagrams");
+
+        assertTrue(containsGroup(result, Arrays.asList("abc")),
+                   "Expected group [abc]");
+        assertTrue(containsGroup(result, Arrays.asList("def")),
+                   "Expected group [def]");
+        assertTrue(containsGroup(result, Arrays.asList("ghi")),
+                   "Expected group [ghi]");
     }
 
     @Test
-    void testAllAnagrams() {
-        String[] input = {"listen", "silent", "enlist", "inlets"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("listen", "silent", "enlist", "inlets")
-        );
-
+    public void testGroupAnagrams_withMixedCase() {
+        String[] input = {"Listen", "Silent", "enlist", "inlets"};
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected.size(), result.size(), "Number of groups mismatch");
-        assertTrue(containsGroup(result, expected.get(0)), "All anagrams should be in one group");
+
+        assertEquals(2, result.size(), "Expected two groups of anagrams with mixed case");
+
+        assertTrue(containsGroup(result, Arrays.asList("Listen")),
+                   "Expected group [Listen]");
+        assertTrue(containsGroup(result, Arrays.asList("Silent", "enlist", "inlets")),
+                   "Expected group [Silent, enlist, inlets]");
     }
 
     @Test
-    void testWithEmptyStrings() {
-        String[] input = {"", "", "a"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("", ""),
-                Arrays.asList("a")
-        );
-
+    public void testGroupAnagrams_withSpecialCharacters() {
+        String[] input = {"a!b", "b!a", "ab!", "!ba"};
         List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected.size(), result.size(), "Number of groups mismatch");
 
-        for (List<String> group : expected) {
-            assertTrue(containsGroup(result, group), "Expected group not found: " + group);
-        }
+        assertEquals(2, result.size(), "Expected two groups of anagrams with special characters");
+
+        assertTrue(containsGroup(result, Arrays.asList("a!b", "b!a")),
+                   "Expected group [a!b, b!a]");
+        assertTrue(containsGroup(result, Arrays.asList("ab!", "!ba")),
+                   "Expected group [ab!, !ba]");
     }
 
-    @Test
-    void testWithUpperCase() {
-        String[] input = {"bAt", "tab", "Bat"};
-        // Assuming case-sensitive grouping
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("bAt"),
-                Arrays.asList("tab"),
-                Arrays.asList("Bat")
-        );
-
-        List<List<String>> result = anagrams.groupAnagrams(input);
-        assertEquals(expected.size(), result.size(), "Number of groups mismatch");
-
-        for (List<String> group : expected) {
-            assertTrue(containsGroup(result, group), "Expected group not found: " + group);
-        }
-    }
-
-    @Test
-    void testNullInput() {
-        String[] input = null;
-        assertThrows(NullPointerException.class, () -> {
-            anagrams.groupAnagrams(input);
-        }, "Expected NullPointerException for null input");
-    }
-
-    private boolean containsGroup(List<List<String>> actual, List<String> expectedGroup) {
-        for (List<String> group : actual) {
-            if (group.size() == expectedGroup.size() && group.containsAll(expectedGroup)) {
+    /**
+     * Helper method to check if a list of lists contains a specific group, regardless of order.
+     */
+    private boolean containsGroup(List<List<String>> groups, List<String> targetGroup) {
+        for (List<String> group : groups) {
+            if (group.size() == targetGroup.size() && group.containsAll(targetGroup)) {
                 return true;
             }
         }

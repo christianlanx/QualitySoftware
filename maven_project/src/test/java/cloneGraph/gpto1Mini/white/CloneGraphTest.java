@@ -1,184 +1,142 @@
 package cloneGraph.gpto1Mini.white;
-import cloneGraph.*;
 
+import cloneGraph.CloneGraph;
+import cloneGraph.CloneGraph.Node;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.*;
 
-import org.junit.jupiter.api.Test;
+public class CloneGraphTest {
 
-class CloneGraphTest {
+    private final CloneGraph cloneGraph = new CloneGraph();
 
-    /**
-     * Helper method to compare two graphs for equality.
-     * It checks if both graphs have the same structure and node values,
-     * and ensures that the cloned nodes are different instances.
-     */
-    private boolean areGraphsEqual(CloneGraph.Node node1, CloneGraph.Node node2) {
-        if (node1 == null && node2 == null) return true;
-        if ((node1 == null) != (node2 == null)) return false;
-
-        Map<CloneGraph.Node, CloneGraph.Node> visited = new HashMap<>();
-        Queue<CloneGraph.Node> queue1 = new LinkedList<>();
-        Queue<CloneGraph.Node> queue2 = new LinkedList<>();
-
-        queue1.add(node1);
-        queue2.add(node2);
-        visited.put(node1, node2);
-
-        while (!queue1.isEmpty()) {
-            CloneGraph.Node current1 = queue1.poll();
-            CloneGraph.Node current2 = queue2.poll();
-
-            if (current1.val != current2.val) return false;
-            if (current1 == current2) return false; // Should be different instances
-            if (current1.neighbors.size() != current2.neighbors.size()) return false;
-
-            for (int i = 0; i < current1.neighbors.size(); i++) {
-                CloneGraph.Node neighbor1 = current1.neighbors.get(i);
-                CloneGraph.Node neighbor2 = current2.neighbors.get(i);
-
-                if (visited.containsKey(neighbor1)) {
-                    if (visited.get(neighbor1) != neighbor2) return false;
-                } else {
-                    visited.put(neighbor1, neighbor2);
-                    queue1.add(neighbor1);
-                    queue2.add(neighbor2);
-                }
-            }
-        }
-
-        return true;
+    @Test
+    void cloneGraph_nullInput() {
+        assertNull(cloneGraph.cloneGraph(null), "Cloning a null graph should return null.");
     }
 
     @Test
-    void testCloneGraph_NullInput() {
-        CloneGraph cloneGraph = new CloneGraph();
-        CloneGraph.Node cloned = cloneGraph.cloneGraph(null);
-        assertNull(cloned, "Cloning a null graph should return null.");
-    }
-
-    @Test
-    void testCloneGraph_SingleNode_NoNeighbors() {
-        CloneGraph cloneGraph = new CloneGraph();
-        CloneGraph.Node node = new CloneGraph.Node(1);
-        CloneGraph.Node cloned = cloneGraph.cloneGraph(node);
+    void cloneGraph_singleNode() {
+        Node node = new Node(1);
+        Node cloned = cloneGraph.cloneGraph(node);
 
         assertNotNull(cloned, "Cloned node should not be null.");
-        assertEquals(node.val, cloned.val, "Node values should be equal.");
+        assertEquals(node.val, cloned.val, "Cloned node value should match the original.");
         assertNotSame(node, cloned, "Cloned node should be a different instance.");
         assertTrue(cloned.neighbors.isEmpty(), "Cloned node should have no neighbors.");
     }
 
     @Test
-    void testCloneGraph_SingleNode_WithSelfNeighbor() {
-        CloneGraph cloneGraph = new CloneGraph();
-        CloneGraph.Node node = new CloneGraph.Node(1);
-        node.neighbors.add(node); // Self-loop
-
-        CloneGraph.Node cloned = cloneGraph.cloneGraph(node);
-
-        assertNotNull(cloned, "Cloned node should not be null.");
-        assertEquals(node.val, cloned.val, "Node values should be equal.");
-        assertNotSame(node, cloned, "Cloned node should be a different instance.");
-        assertEquals(1, cloned.neighbors.size(), "Cloned node should have one neighbor.");
-        assertSame(cloned, cloned.neighbors.get(0), "Neighbor should point to the cloned node itself.");
-    }
-
-    @Test
-    void testCloneGraph_TwoNodes_Bidirectional() {
-        CloneGraph cloneGraph = new CloneGraph();
-        CloneGraph.Node node1 = new CloneGraph.Node(1);
-        CloneGraph.Node node2 = new CloneGraph.Node(2);
+    void cloneGraph_twoNodes() {
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
         node1.neighbors.add(node2);
         node2.neighbors.add(node1);
 
-        CloneGraph.Node cloned = cloneGraph.cloneGraph(node1);
+        Node cloned = cloneGraph.cloneGraph(node1);
 
-        assertNotNull(cloned, "Cloned node should not be null.");
-        assertEquals(node1.val, cloned.val, "Node values should be equal.");
-        assertNotSame(node1, cloned, "Cloned node should be a different instance.");
-        assertEquals(1, cloned.neighbors.size(), "Cloned node should have one neighbor.");
+        assertNotNull(cloned, "Cloned graph should not be null.");
+        assertEquals(node1.val, cloned.val, "Cloned node1 value should match the original.");
+        assertNotSame(node1, cloned, "Cloned node1 should be a different instance.");
+        assertEquals(1, cloned.neighbors.size(), "Cloned node1 should have one neighbor.");
 
-        CloneGraph.Node clonedNeighbor = cloned.neighbors.get(0);
-        assertEquals(node2.val, clonedNeighbor.val, "Neighbor node values should be equal.");
-        assertNotSame(node2, clonedNeighbor, "Cloned neighbor should be a different instance.");
-        assertEquals(1, clonedNeighbor.neighbors.size(), "Cloned neighbor should have one neighbor.");
-        assertSame(cloned, clonedNeighbor.neighbors.get(0), "Neighbor's neighbor should point back to cloned node.");
+        Node clonedNeighbor = cloned.neighbors.get(0);
+        assertEquals(node2.val, clonedNeighbor.val, "Cloned node2 value should match the original.");
+        assertNotSame(node2, clonedNeighbor, "Cloned node2 should be a different instance.");
+        assertEquals(1, clonedNeighbor.neighbors.size(), "Cloned node2 should have one neighbor.");
+        assertSame(cloned, clonedNeighbor.neighbors.get(0), "Cloned node2 should reference cloned node1.");
     }
 
     @Test
-    void testCloneGraph_CyclicGraph() {
-        CloneGraph cloneGraph = new CloneGraph();
-        // Creating a cycle: 1 - 2 - 3 - 1
-        CloneGraph.Node node1 = new CloneGraph.Node(1);
-        CloneGraph.Node node2 = new CloneGraph.Node(2);
-        CloneGraph.Node node3 = new CloneGraph.Node(3);
-
+    void cloneGraph_cycle() {
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
         node1.neighbors.add(node2);
-        node2.neighbors.add(node3);
-        node3.neighbors.add(node1);
+        node2.neighbors.add(node1);
 
-        CloneGraph.Node cloned = cloneGraph.cloneGraph(node1);
+        Node cloned = cloneGraph.cloneGraph(node1);
 
-        CloneGraph.Node original = node1;
-        CloneGraph.Node originalCloned = cloned;
+        assertNotNull(cloned, "Cloned graph should not be null.");
+        assertEquals(1, cloned.val, "Cloned node1 value should match the original.");
 
-        assertTrue(areGraphsEqual(original, originalCloned), "Cloned graph should be structurally identical to the original.");
+        assertEquals(1, cloned.neighbors.size(), "Cloned node1 should have one neighbor.");
+        Node clonedNode2 = cloned.neighbors.get(0);
+        assertEquals(2, clonedNode2.val, "Cloned node2 value should match the original.");
+        assertEquals(1, clonedNode2.neighbors.size(), "Cloned node2 should have one neighbor.");
+        assertSame(cloned, clonedNode2.neighbors.get(0), "Cloned node2 should reference cloned node1.");
     }
 
     @Test
-    void testCloneGraph_ComplexGraph() {
-        CloneGraph cloneGraph = new CloneGraph();
-        // Creating the following graph:
-        // 1 - 2
-        // |   |
-        // 4 - 3
-        CloneGraph.Node node1 = new CloneGraph.Node(1);
-        CloneGraph.Node node2 = new CloneGraph.Node(2);
-        CloneGraph.Node node3 = new CloneGraph.Node(3);
-        CloneGraph.Node node4 = new CloneGraph.Node(4);
+    void cloneGraph_complexGraph() {
+        /*
+            Create a graph:
+                1 -- 2
+                |    |
+                4 -- 3
+        */
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
 
         node1.neighbors.add(node2);
         node1.neighbors.add(node4);
+
         node2.neighbors.add(node1);
         node2.neighbors.add(node3);
+
         node3.neighbors.add(node2);
         node3.neighbors.add(node4);
+
         node4.neighbors.add(node1);
         node4.neighbors.add(node3);
 
-        CloneGraph.Node cloned = cloneGraph.cloneGraph(node1);
+        Node cloned = cloneGraph.cloneGraph(node1);
+        assertNotNull(cloned, "Cloned graph should not be null.");
+        assertEquals(1, cloned.val, "Cloned node1 value should match the original.");
 
-        CloneGraph.Node original = node1;
-        CloneGraph.Node originalCloned = cloned;
+        // Use a map to store cloned nodes by their value
+        Map<Integer, Node> clonedNodes = new HashMap<>();
+        Queue<Node> queue = new LinkedList<>();
+        Set<Node> visited = new HashSet<>();
 
-        assertTrue(areGraphsEqual(original, originalCloned), "Cloned graph should be structurally identical to the original.");
-    }
+        queue.add(cloned);
+        visited.add(cloned);
 
-    @Test
-    void testCloneGraph_LargerGraph() {
-        CloneGraph cloneGraph = new CloneGraph();
-        // Creating a graph:
-        // 1 connected to 2, 4
-        // 2 connected to 1, 3
-        // 3 connected to 2, 4
-        // 4 connected to 1, 3
-        CloneGraph.Node node1 = new CloneGraph.Node(1);
-        CloneGraph.Node node2 = new CloneGraph.Node(2);
-        CloneGraph.Node node3 = new CloneGraph.Node(3);
-        CloneGraph.Node node4 = new CloneGraph.Node(4);
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            clonedNodes.put(current.val, current);
+            for (Node neighbor : current.neighbors) {
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.add(neighbor);
+                }
+            }
+        }
 
-        node1.neighbors.addAll(Arrays.asList(node2, node4));
-        node2.neighbors.addAll(Arrays.asList(node1, node3));
-        node3.neighbors.addAll(Arrays.asList(node2, node4));
-        node4.neighbors.addAll(Arrays.asList(node1, node3));
+        // Verify all nodes are cloned
+        assertEquals(4, clonedNodes.size(), "All four nodes should be cloned.");
 
-        CloneGraph.Node cloned = cloneGraph.cloneGraph(node1);
+        for (int i = 1; i <= 4; i++) {
+            assertTrue(clonedNodes.containsKey(i), "Cloned graph should contain node " + i);
+        }
 
-        CloneGraph.Node original = node1;
-        CloneGraph.Node originalCloned = cloned;
+        // Verify connections
+        assertEquals(2, clonedNodes.get(1).neighbors.size(), "Node 1 should have two neighbors.");
+        assertTrue(clonedNodes.get(1).neighbors.contains(clonedNodes.get(2)), "Node 1 should be connected to Node 2.");
+        assertTrue(clonedNodes.get(1).neighbors.contains(clonedNodes.get(4)), "Node 1 should be connected to Node 4.");
 
-        assertTrue(areGraphsEqual(original, originalCloned), "Cloned graph should be structurally identical to the original.");
+        assertEquals(2, clonedNodes.get(2).neighbors.size(), "Node 2 should have two neighbors.");
+        assertTrue(clonedNodes.get(2).neighbors.contains(clonedNodes.get(1)), "Node 2 should be connected to Node 1.");
+        assertTrue(clonedNodes.get(2).neighbors.contains(clonedNodes.get(3)), "Node 2 should be connected to Node 3.");
+
+        assertEquals(2, clonedNodes.get(3).neighbors.size(), "Node 3 should have two neighbors.");
+        assertTrue(clonedNodes.get(3).neighbors.contains(clonedNodes.get(2)), "Node 3 should be connected to Node 2.");
+        assertTrue(clonedNodes.get(3).neighbors.contains(clonedNodes.get(4)), "Node 3 should be connected to Node 4.");
+
+        assertEquals(2, clonedNodes.get(4).neighbors.size(), "Node 4 should have two neighbors.");
+        assertTrue(clonedNodes.get(4).neighbors.contains(clonedNodes.get(1)), "Node 4 should be connected to Node 1.");
+        assertTrue(clonedNodes.get(4).neighbors.contains(clonedNodes.get(3)), "Node 4 should be connected to Node 3.");
     }
 }

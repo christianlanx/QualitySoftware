@@ -1,150 +1,117 @@
 package binaryTree.gpto1Mini.black;
-import binaryTree.*;
-import binaryTree.BinaryTree.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import binaryTree.BinaryTree;
+import binaryTree.BinaryTree.TreeNode;
 import org.junit.jupiter.api.Test;
-import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class BinaryTreeTest {
+class BinaryTreeTest {
 
-    // Helper method to convert TreeNode to list in level-order including nulls
-    private List<Integer> serialize(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        if (root == null) return result;
+    @Test
+    void testBuildTreeExample1() {
+        int[] preorder = {3, 9, 20, 15, 7};
+        int[] inorder = {9, 3, 15, 20, 7};
         
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        BinaryTree.TreeNode expected = new TreeNode(3,
+                new TreeNode(9),
+                new TreeNode(20,
+                        new TreeNode(15),
+                        new TreeNode(7)));
         
-        while (!queue.isEmpty()) {
-            TreeNode current = queue.poll();
-            if (current != null) {
-                result.add(current.val);
-                queue.offer(current.left);
-                queue.offer(current.right);
-            } else {
-                result.add(null);
-            }
-        }
-        
-        // Remove trailing nulls
-        int i = result.size() - 1;
-        while (i >= 0 && result.get(i) == null) {
-            result.remove(i);
-            i--;
-        }
-        
-        return result;
+        BinaryTree.TreeNode actual = new BinaryTree().buildTree(preorder, inorder);
+        assertTrue(areTreesEqual(expected, actual), "The constructed tree does not match the expected tree for Example 1.");
     }
 
     @Test
-    public void testExample1() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {3,9,20,15,7};
-        int[] inorder = {9,3,15,20,7};
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
-        
-        List<Integer> expected = Arrays.asList(3,9,20,null,null,15,7);
-        List<Integer> actual = serialize(root);
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testExample2() {
-        BinaryTree binaryTree = new BinaryTree();
+    void testBuildTreeExample2() {
         int[] preorder = {-1};
         int[] inorder = {-1};
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
         
-        List<Integer> expected = Arrays.asList(-1);
-        List<Integer> actual = serialize(root);
-        assertEquals(expected, actual);
+        BinaryTree.TreeNode expected = new TreeNode(-1);
+        
+        BinaryTree.TreeNode actual = new BinaryTree().buildTree(preorder, inorder);
+        assertTrue(areTreesEqual(expected, actual), "The constructed tree does not match the expected tree for Example 2.");
     }
 
     @Test
-    public void testLeftHeavyTree() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {5,4,3,2,1};
-        int[] inorder = {1,2,3,4,5};
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
+    void testBuildTreeSingleNode() {
+        int[] preorder = {1};
+        int[] inorder = {1};
         
-        List<Integer> expected = Arrays.asList(5,4,null,3,null,2,null,1);
-        List<Integer> actual = serialize(root);
-        assertEquals(expected, actual);
+        BinaryTree.TreeNode expected = new TreeNode(1);
+        
+        BinaryTree.TreeNode actual = new BinaryTree().buildTree(preorder, inorder);
+        assertTrue(areTreesEqual(expected, actual), "The constructed tree does not match the expected tree for a single node.");
     }
 
     @Test
-    public void testRightHeavyTree() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {1,2,3,4,5};
-        int[] inorder = {1,2,3,4,5};
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
+    void testBuildTreeLeftSkewed() {
+        int[] preorder = {4, 3, 2, 1};
+        int[] inorder = {1, 2, 3, 4};
         
-        List<Integer> expected = Arrays.asList(1,null,2,null,3,null,4,null,5);
-        List<Integer> actual = serialize(root);
-        assertEquals(expected, actual);
+        BinaryTree.TreeNode expected = new TreeNode(4,
+                new TreeNode(3,
+                        new TreeNode(2,
+                                new TreeNode(1),
+                                null),
+                        null),
+                null);
+        
+        BinaryTree.TreeNode actual = new BinaryTree().buildTree(preorder, inorder);
+        assertTrue(areTreesEqual(expected, actual), "The constructed tree does not match the expected left-skewed tree.");
     }
 
     @Test
-    public void testBalancedTree() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {4,2,1,3,6,5,7};
-        int[] inorder = {1,2,3,4,5,6,7};
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
+    void testBuildTreeRightSkewed() {
+        int[] preorder = {1, 2, 3, 4};
+        int[] inorder = {1, 2, 3, 4};
         
-        List<Integer> expected = Arrays.asList(4,2,6,1,3,5,7);
-        List<Integer> actual = serialize(root);
-        assertEquals(expected, actual);
+        BinaryTree.TreeNode expected = new TreeNode(1,
+                null,
+                new TreeNode(2,
+                        null,
+                        new TreeNode(3,
+                                null,
+                                new TreeNode(4))));
+        
+        BinaryTree.TreeNode actual = new BinaryTree().buildTree(preorder, inorder);
+        assertTrue(areTreesEqual(expected, actual), "The constructed tree does not match the expected right-skewed tree.");
     }
 
     @Test
-    public void testSingleNode() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {42};
-        int[] inorder = {42};
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
+    void testBuildTreeComplex() {
+        int[] preorder = {5, 3, 2, 4, 8, 7, 9};
+        int[] inorder = {2, 3, 4, 5, 7, 8, 9};
         
-        List<Integer> expected = Arrays.asList(42);
-        List<Integer> actual = serialize(root);
-        assertEquals(expected, actual);
+        BinaryTree.TreeNode expected = new TreeNode(5,
+                new TreeNode(3,
+                        new TreeNode(2),
+                        new TreeNode(4)),
+                new TreeNode(8,
+                        new TreeNode(7),
+                        new TreeNode(9)));
+        
+        BinaryTree.TreeNode actual = new BinaryTree().buildTree(preorder, inorder);
+        assertTrue(areTreesEqual(expected, actual), "The constructed tree does not match the expected complex tree.");
     }
 
-    @Test
-    public void testLargeTree() {
-        BinaryTree binaryTree = new BinaryTree();
-        int n = 1000;
-        int[] preorder = new int[n];
-        int[] inorder = new int[n];
-        for(int i = 0; i < n; i++) {
-            preorder[i] = i;
-            inorder[i] = i;
+    /**
+     * Helper method to compare two binary trees for equality.
+     *
+     * @param expected The expected tree node.
+     * @param actual The actual tree node.
+     * @return true if both trees are identical in structure and node values, false otherwise.
+     */
+    private boolean areTreesEqual(TreeNode expected, TreeNode actual) {
+        if (expected == null && actual == null) {
+            return true;
         }
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
-        
-        List<Integer> expected = new ArrayList<>();
-        for(int i = 0; i < n; i++) {
-            expected.add(i);
-            expected.add(null);
-            expected.add(null);
+        if (expected == null || actual == null) {
+            return false;
         }
-        List<Integer> actual = serialize(root);
-        // Due to the nature of the tree, only the first few elements are meaningful
-        // To avoid excessive comparison, check the root and a few children
-        assertEquals(Integer.valueOf(0), actual.get(0));
-        assertEquals(Integer.valueOf(1), actual.get(2));
-        assertEquals(Integer.valueOf(2), actual.get(4));
-        // Further assertions can be added as needed
-    }
-    
-    @Test
-    public void testComplexTree() {
-        BinaryTree binaryTree = new BinaryTree();
-        int[] preorder = {10,5,3,7,15,12,18};
-        int[] inorder = {3,5,7,10,12,15,18};
-        TreeNode root = binaryTree.buildTree(preorder, inorder);
-        
-        List<Integer> expected = Arrays.asList(10,5,15,3,7,12,18);
-        List<Integer> actual = serialize(root);
-        assertEquals(expected, actual);
+        if (expected.val != actual.val) {
+            return false;
+        }
+        return areTreesEqual(expected.left, actual.left) && areTreesEqual(expected.right, actual.right);
     }
 }
