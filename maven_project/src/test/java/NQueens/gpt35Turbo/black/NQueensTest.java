@@ -1,43 +1,39 @@
 package NQueens.gpt35Turbo.black;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import NQueens.Nqueens;
+
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
+@DisplayName("NQueens Test")
 public class NQueensTest {
 
-    @Test
-    void testSolveNQueens_Example1() {
-        int n = 4;
-        NQueens nQueens = new NQueens();
-        List<List<String>> actualOutput = nQueens.solveNQueens(n);
-        List<List<String>> expectedOutput = Arrays.asList(Arrays.asList(".Q..","...Q","Q...","..Q."), Arrays.asList("..Q.","Q...","...Q",".Q.."));
-        assertEquals(expectedOutput, actualOutput);
+    private Nqueens nqueens;
+
+    @BeforeEach
+    public void setUp() {
+        nqueens = new Nqueens();
     }
 
     @Test
-    void testSolveNQueens_Example2() {
-        int n = 1;
-        NQueens nQueens = new NQueens();
-        List<List<String>> actualOutput = nQueens.solveNQueens(n);
-        List<List<String>> expectedOutput = Arrays.asList(Collections.singletonList("Q"));
-        assertEquals(expectedOutput, actualOutput);
+    @DisplayName("Test solveNQueens with n = 4")
+    public void testSolveNQueensN4() {
+        List<List<String>> expected = List.of(
+                List.of(".Q..", "...Q", "Q...", "..Q."),
+                List.of("..Q.", "Q...", "...Q", ".Q..")
+        );
+        assertEquals(expected, nqueens.solveNQueens(4));
     }
 
     @Test
-    void testSolveNQueens_ConstraintLowerBound() {
-        int n = 1;
-        NQueens nQueens = new NQueens();
-        List<List<String>> actualOutput = nQueens.solveNQueens(n);
-        List<List<String>> expectedOutput = Arrays.asList(Collections.singletonList("Q"));
-        assertEquals(expectedOutput, actualOutput);
-    }
-
-    @Test
-    void testSolveNQueens_ConstraintUpperBound() {
-        int n = 9;
-        NQueens nQueens = new NQueens();
-        List<List<String>> actualOutput = nQueens.solveNQueens(n);
-        // No expected output provided, just checking for any exceptions
-        assertNotNull(actualOutput);
+    @DisplayName("Test solveNQueens with n = 1")
+    public void testSolveNQueensN1() {
+        List<List<String>> expected = List.of(List.of("Q"));
+        assertEquals(expected, nqueens.solveNQueens(1));
     }
 }

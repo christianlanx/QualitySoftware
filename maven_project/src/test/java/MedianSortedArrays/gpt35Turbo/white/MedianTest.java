@@ -3,6 +3,8 @@ package MedianSortedArrays.gpt35Turbo.white;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import MedianSortedArrays.Median;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MedianTest {
