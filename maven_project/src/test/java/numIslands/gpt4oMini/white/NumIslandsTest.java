@@ -3,6 +3,8 @@ package numIslands.gpt4oMini.white;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
+import numIslands.NumIslands;
+
 public class NumIslandsTest {
 
     @Test

@@ -1,6 +1,9 @@
 package orangesRotting.gpt4oMini.white;
 
 import org.junit.jupiter.api.Test;
+
+import orangesRotting.OrangesRot;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrangesRotTest {

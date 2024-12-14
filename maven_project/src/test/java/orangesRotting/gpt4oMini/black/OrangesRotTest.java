@@ -2,6 +2,8 @@ package orangesRotting.gpt4oMini.black;
 
 import org.junit.jupiter.api.Test;
 
+import orangesRotting.OrangesRot;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrangesRotTest {

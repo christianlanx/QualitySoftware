@@ -1,6 +1,9 @@
 package NQueens.gpt4oMini.grey;
 
 import org.junit.jupiter.api.Test;
+
+import NQueens.Nqueens;
+
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 

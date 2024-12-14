@@ -3,6 +3,8 @@ package RegularExpressionMatching.gpt4oMini.white;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import RegularExpressionMatching.Regular;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RegularTest {

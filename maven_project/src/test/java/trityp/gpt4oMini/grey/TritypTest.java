@@ -1,6 +1,9 @@
 package trityp.gpt4oMini.grey;
 
 import org.junit.jupiter.api.Test;
+
+import trityp.Trityp;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TritypTest {

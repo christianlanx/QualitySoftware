@@ -1,6 +1,9 @@
 package RegularExpressionMatching.gpt4oMini.grey;
 
 import org.junit.jupiter.api.Test;
+
+import RegularExpressionMatching.Regular;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RegularTest {

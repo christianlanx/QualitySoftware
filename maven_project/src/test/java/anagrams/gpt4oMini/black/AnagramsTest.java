@@ -1,6 +1,9 @@
 package anagrams.gpt4oMini.black;
 
 import org.junit.jupiter.api.Test;
+
+import anagrams.Anagrams;
+
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 
